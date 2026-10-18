@@ -1,0 +1,266 @@
+{
+ "items": [
+  {
+   "title": "Brikkeaksjene falt åtte dager på rad, lengste fallrekke siden 2008",
+   "date": "2026-10-16",
+   "summary": "Philadelphia Semiconductor Index (SOX) falt 3,8 % fredag 16. oktober og stengte på 11 137. Det var åttende handelsdag på rad med fall, den lengste rekken siden oktober 2008. Indeksen falt over 11 % gjennom uken. Nasdaq 100 falt 2,5 % på fredagen. AMD falt 5,95 % den dagen og ligger rundt 18,6 % under nivået fra 6. oktober. Intel, Micron, Marvell og Broadcom falt 4,5–5,8 %. Bloomberg beregnet at indeksen tapte rundt 1 600 milliarder dollar i markedsverdi på seks dager fram til 14. oktober. Som årsaker nevnes en tiårsrente på 5,10 %, oljepris over 100 dollar, frykt for renteheving og tvil om AI-investeringene. BofA påpeker at anslagene for hyperscalernes capex er tredoblet fra 330 til 1 000 milliarder dollar.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "24/7 Wall St.",
+     "url": "https://247wallst.com/investing/2026/10/17/chip-stocks-just-fell-8-days-in-a-row-their-longest-losing-streak-since-2008/",
+     "published": "2026-10-17"
+    },
+    {
+     "name": "Bloomberg",
+     "url": "https://www.bloomberg.com/news/articles/2026-10-14/chip-stocks-set-to-erase-1-trillion-in-value-as-rout-deepens",
+     "published": "2026-10-14"
+    }
+   ],
+   "significance": 9,
+   "audience_relevance": 9,
+   "why_it_matters": "Den kraftigste nedturen for AI-maskinvare på mange år tyder på at markedet begynner å prise inn risiko for at AI-investeringssyklusen tar slutt, og at høyere renter rammer kapitalkrevende AI-infrastruktur."
+  },
+  {
+   "title": "Gjeldsfrykt rundt CoreWeave sprer seg til Oracle og neoclouds",
+   "date": "2026-10-15",
+   "summary": "CoreWeave har rundt 50 milliarder dollar i gjeld. Aksjen falt 15,5 % onsdag 14. oktober og nesten 25 % gjennom uken. Prisen på kredittforsikring (CDS) steg til rundt 1 000 basispunkter, noe som ifølge Reuters tilsvarer nesten 63 % implisitt sannsynlighet for mislighold innen fem år. Obligasjonene fra april ble handlet til rundt 79 cent per dollar. Aksjene i Oracle, Nebius, Applied Digital og IREN falt også. Nvidia eier rundt 10 % av CoreWeave og har forpliktet seg til å kjøpe ubrukt kapasitet fram til 2032. Jensen Huang sa at Nvidia ikke trenger å garantere for selskapet. Gartner anslår at om lag 80 % av neocloud-selskapene kan bli lagt ned innen 2030.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "Reuters via Investing.com",
+     "url": "https://www.investing.com/news/stock-market-news/coreweave-shares-bonds-slide-further-as-ai-debt-fears-mount-4951350",
+     "published": "2026-10-15"
+    },
+    {
+     "name": "US News/Reuters",
+     "url": "https://money.usnews.com/investing/news/articles/2026-10-16/coreweave-shares-bonds-headed-for-steep-weekly-losses-as-ai-borrowing-concerns-mount",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "SiliconANGLE",
+     "url": "https://siliconangle.com/2026/10/14/shares-of-oracle-neoclouds-drop-on-coreweave-debt-concerns/",
+     "published": "2026-10-14"
+    }
+   ],
+   "significance": 8,
+   "audience_relevance": 9,
+   "why_it_matters": "Kredittmarkedet setter nå tydelig pris på risikoen i den gjeldsfinansierte AI-utbyggingen. Det er et viktig signal for alle som vurderer AI-infrastruktur som investering eller utlånsobjekt."
+  },
+  {
+   "title": "Anthropic: 16,8 milliarder i kvartalsinntekt og justert overskudd, men investorer vil presse verdsettelsen mot 1 500 milliarder",
+   "date": "2026-10-14",
+   "summary": "På en investordag i San Francisco 14. oktober, før børsnoteringen, fortalte Anthropic at inntektene i tredje kvartal var rundt 16,8 milliarder dollar. Det er 45 % mer enn de 11,6 milliardene i andre kvartal. Selskapet sa også at det gikk med justert overskudd. Analytikere anslår at den årlige inntektstakten kan nå 110 milliarder dollar ved årsskiftet. Dagen etter, 15. oktober, meldte Reuters at noen investorer diskuterer en verdsettelse på rundt 1 500 milliarder dollar i stedet for omkring 2 000 milliarder, fordi veksten var lavere enn i andre kvartal, da inntektene mer enn doblet seg. Børsnoteringen er fortsatt ventet i november eller etter mellomvalget.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "Reuters via Investing.com",
+     "url": "https://www.investing.com/news/stock-market-news/anthropics-q3-revenue-surges-45-to-nearly-17-billion-4950208",
+     "published": "2026-10-14"
+    },
+    {
+     "name": "Investing.com (Reuters-rapport)",
+     "url": "https://www.investing.com/news/stock-market-news/some-investors-push-anthropic-to-cut-ipo-valuation-to-15-trillion--report-4952696",
+     "published": "2026-10-15"
+    },
+    {
+     "name": "RTÉ",
+     "url": "https://www.rte.ie/news/business/2026/1015/1595440-anthropic-pre-ipo-meeting-hears-of-surging-revenue/",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 9,
+   "audience_relevance": 9,
+   "why_it_matters": "Dette er en ny utvikling i det som kan bli tidenes største børsnotering. Lavere vekst og en mulig reduksjon på 500 milliarder dollar i verdsettelsen viser hvor følsomme AI-verdsettelser er for veksttakten."
+  },
+  {
+   "title": "TSMC med rekordoverskudd og sterk prognose, men aksjen falt på marginpress",
+   "date": "2026-10-15",
+   "summary": "TSMC fikk en omsetning på 1 494 milliarder NT$ (46,72 milliarder dollar) i tredje kvartal. Nettoresultatet ble 763 milliarder NT$, en økning på 68,7 % fra året før. Bruttomarginen var 66,4 %, ned 1,3 prosentpoeng fra forrige kvartal, fordi oppstarten av 2 nm-produksjonen drar marginen ned. Selskapet venter en omsetning på 52,3–54,3 milliarder dollar i fjerde kvartal. Ledelsen viste til agentisk AI og åpne modeller som drivere for etterspørselen. Aksjen falt likevel, fordi investorene la vekt på marginene.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "TSMC 6-K (SEC)",
+     "url": "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000726/a3q26e_withguidancexfinal.htm",
+     "published": "2026-10-15"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/10/15/tsmc-third-quarter-profit-global-ai-.html",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 8,
+   "audience_relevance": 8,
+   "why_it_matters": "TSMC er den beste enkeltindikatoren på reell AI-etterspørsel. Tallene viser at etterspørselen fortsatt er sterk, samtidig som aksjene faller."
+  },
+  {
+   "title": "ASML: rekordsalg, og kunder vil allerede bestille maskiner for 2029–2030",
+   "date": "2026-10-14",
+   "summary": "ASML fikk et nettosalg på 11,7 milliarder euro i tredje kvartal. Nettoresultatet ble 5,0 milliarder euro og bruttomarginen 57,5 %. Selskapet solgte 121 litografisystemer. ASML venter et salg på 14,2–15,2 milliarder euro i fjerde kvartal og 44–45 milliarder euro for hele 2026. Konsernsjef Christophe Fouquet sa at noen kunder ønsker å legge inn bestillinger for 2029 og 2030. ASML venter at den planlagte kapasiteten for 2027–2028 ikke vil dekke etterspørselen, og vurderer å bygge ut mer enn de 30 % som allerede er annonsert.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "The Globe and Mail (ASML-pressemelding)",
+     "url": "https://www.theglobeandmail.com/investing/markets/stocks/ASML/pressreleases/7817200/asml-posts-record-q3-2026-results-and-signals-capacity-strain-amid-surging-ai-demand/",
+     "published": "2026-10-14"
+    },
+    {
+     "name": "Quartz",
+     "url": "https://qz.com/asml-quarterly-earnings-profit-customers-orders-2030-101426",
+     "published": "2026-10-14"
+    }
+   ],
+   "significance": 7,
+   "audience_relevance": 8,
+   "why_it_matters": "Europas største teknologiselskap melder om kapasitetsmangel helt fram til 2028. Det viser at brikkeprodusentene planlegger for lang AI-vekst, selv om aksjemarkedet er nervøst."
+  },
+  {
+   "title": "Samsung og SK Hynix stupte etter kinesisk minnegjennombrudd, børsstopp i Seoul",
+   "date": "2026-10-13",
+   "summary": "Den kinesiske DRAM-produsenten CXMT la 10. oktober fram en 4F²-minnecelledesign og planlegger DDR5-servermoduler innen årsskiftet. 13. oktober («Black Tuesday») falt Samsung Electronics 7,39 % og SK Hynix 10,09 %, og KOSPI endte ned 5,46 %. 15. oktober kom et nytt fall på rundt 7,6 % i KOSPI etter høye amerikanske inflasjonstall, og det ble utløst handelsstopp. Samsung falt da rundt 9,5 % og SK Hynix rundt 11 %. CXMTs påstander er ikke uavhengig bekreftet.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "Korea JoongAng Daily",
+     "url": "https://www.koreajoongangdaily.com/business/samsung-sk-hynix-shares-plunge-on-black-tuesday-amid-concerns-over-chinese-chip/12918371",
+     "published": "2026-10-13"
+    },
+    {
+     "name": "The Korea Herald",
+     "url": "https://www.koreaherald.com/article/10903746",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 7,
+   "audience_relevance": 7,
+   "why_it_matters": "AI-minne har vært den sterkeste delen av brikkemarkedet. Kinesisk konkurranse truer nå marginene som nylig ga Samsung rekordresultat."
+  },
+  {
+   "title": "Nscales børsnotering til 35 milliarder dollar preges av forsinkelser i Norge",
+   "date": "2026-10-15",
+   "summary": "Ifølge Bloomberg ligger det britiske neocloud-selskapet Nscales flaggskipsenter i Glomfjord seks måneder bak skjema. Bare 6,4 av planlagte 30 MW er i drift, etter lekkasjer i kjølesystemet, en transformatorbrann og regulatoriske hindringer. På Korgen er det ikke ventet nettkapasitet til en stor utvidelse før 2037. Forsinkelsene har allerede ført til kontraktsbøter. Nscale vil hente opptil 3 milliarder dollar på NYSE (ticker NSCL) til en verdsettelse på opptil 35 milliarder dollar, mot 14,6 milliarder i mars-runden, som ble ledet av Aker. Selskapet har kontrakter for over 103 milliarder dollar, og Microsoft og Anthropic står for rundt 85 % av kontraktsverdien.",
+   "category": "norway",
+   "sources": [
+    {
+     "name": "TheEnergyMag",
+     "url": "https://www.theenergymag.com/news/market-news/nscale-data-center-delay-risk",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "Startup Fortune",
+     "url": "https://startupfortune.com/nscales-35-billion-ipo-is-wobbling-because-its-data-centers-arent-ready/",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 6,
+   "audience_relevance": 9,
+   "why_it_matters": "Saken handler direkte om norsk AI-infrastruktur og Aker. Den viser hvordan nettkapasitet og utbyggingsproblemer i Norge kan påvirke en av årets store AI-børsnoteringer."
+  },
+  {
+   "title": "Storbankene leverte sterke tall og ser store muligheter i finansiering av AI",
+   "date": "2026-10-13",
+   "summary": "Goldman Sachs fikk et resultat per aksje på 17,01 dollar, rundt 30 % over forventningene, og en nettoinntekt på 18,68 milliarder dollar, drevet av aksjehandel. JPMorgan bommet på inntektene med 50,17 milliarder dollar mot ventede 51,23 milliarder. Morgan Stanley slo forventningene med en omsetning på rundt 20 milliarder dollar. Goldman-sjefen sa at banken ser en enorm finansieringsmulighet i AI-utbyggingen, men er selektiv med risiko. På analytikersamtalene ble også risikoen ved «rogue agents» diskutert.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/10/13/bank-earnings-live-updates.html",
+     "published": "2026-10-13"
+    },
+    {
+     "name": "Goldman Sachs 8-K (SEC)",
+     "url": "https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm",
+     "published": "2026-10-13"
+    },
+    {
+     "name": "Bloomberg Opinion",
+     "url": "https://www.bloomberg.com/opinion/articles/2026-10-13/goldman-and-jpmorgan-earnings-bank-bosses-are-too-optimistic-about-the-ai-boom",
+     "published": "2026-10-13"
+    }
+   ],
+   "significance": 6,
+   "audience_relevance": 8,
+   "why_it_matters": "Bankene er blitt sentrale finansierere av AI-infrastruktur. Kommentarene deres viser hvor mye kapital som strømmer inn i AI, og hvor risikoen ligger."
+  },
+  {
+   "title": "Amazon i samtaler om å kjøpe Decart for rundt 7 milliarder dollar",
+   "date": "2026-10-12",
+   "summary": "Ifølge Wall Street Journal forhandler Amazon om å kjøpe den israelske AI-startupen Decart for rundt 7 milliarder dollar. Decart lager programvare som lar AI-modeller kjøre på ulike brikker, og utvikler verdensmodeller som Lucy og Oasis. Selskapet ble verdsatt til nær 4 milliarder dollar i mai, da Nvidia var med i en runde på 300 millioner dollar. Anthropic vurderte tidligere et kjøp til rundt 6 milliarder, men trakk seg etter due diligence. Ingen avtale er bekreftet.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "Ynetnews",
+     "url": "https://www.ynetnews.com/article/me39lpkc5",
+     "published": "2026-10-12"
+    },
+    {
+     "name": "American Bazaar",
+     "url": "https://americanbazaaronline.com/2026/10/12/amazon-in-talks-to-acquire-ai-startup-decart-in-7-billion-deal-489847/",
+     "published": "2026-10-12"
+    }
+   ],
+   "significance": 6,
+   "audience_relevance": 7,
+   "why_it_matters": "Oppkjøpet ville styrket Amazons egne Trainium-brikker opp mot Nvidia. Det viser også at storteknologiselskapene kjøper seg inn i AI-programvare som gjør dem mindre avhengige av én brikkeleverandør."
+  },
+  {
+   "title": "Microsoft lanserer Maia 300 og planlegger utrulling i flere gigawatt fra 2027",
+   "date": "2026-10-12",
+   "summary": "På OCP Global Summit lanserte Microsoft sin tredje generasjon AI-brikke, Maia 300, som er laget for inferens. Den bygges på TSMCs N2P-prosess og har 288 GB HBM4-minne. Ifølge Microsoft gir den 40 % flere tokens per megawatt enn ledende GPU-systemer. Selskapet planlegger utrulling i Azure i flere gigawatt fra 2027. Tallene er Microsofts egne og ikke uavhengig testet.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "Redmond Magazine",
+     "url": "https://redmondmag.com/articles/2026/10/12/microsoft-bets-on-its-own-chips-with-new-maia-300-for-ai.aspx",
+     "published": "2026-10-12"
+    }
+   ],
+   "significance": 5,
+   "audience_relevance": 6,
+   "why_it_matters": "Egne brikker hos hyperscalerne er en langsiktig trussel mot Nvidias marginer, og analytikere pekte på dette som en av faktorene bak ukens brikkefall."
+  },
+  {
+   "title": "Ramp verdsatt til 60 milliarder dollar i ny runde på 1,85 milliarder",
+   "date": "2026-10-15",
+   "summary": "Det amerikanske fintech-selskapet Ramp hentet 1,85 milliarder dollar til en verdsettelse på 60 milliarder dollar. Runden ble ledet av Dragoneer og Thrive Capital. I juni ble selskapet verdsatt til 44 milliarder. Ramp oppgir en årlig inntektstakt på over 2 milliarder dollar og 85 000 kunder, og satser tungt på AI-agenter innen økonomi og regnskap.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "TechCrunch",
+     "url": "https://techcrunch.com/2026/10/15/ramp-reaches-60b-valuation-as-it-pushes-deeper-into-ai",
+     "published": "2026-10-15"
+    },
+    {
+     "name": "FinTech Futures",
+     "url": "https://www.fintechfutures.com/venture-capital-funding/ramp-reportedly-hits-60bn-valuation-in-1.85bn-funding-round",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 5,
+   "audience_relevance": 7,
+   "why_it_matters": "Runden viser at investorene fortsatt betaler høye priser for AI-drevet bedriftsprogramvare innen finans, selv om maskinvareaksjene faller."
+  },
+  {
+   "title": "Taiwan planlegger industriparker i Texas til opptil 4 milliarder dollar for Nvidias leverandører",
+   "date": "2026-10-16",
+   "summary": "Taiwans økonomiminister Kung Ming-hsin sa til Bloomberg at Taiwan planlegger industriparker i USA for mindre leverandører til Nvidia, TSMC og Foxconn. Den første skal ligge i Texas, og hver park er beregnet til 2–4 milliarder dollar. Finansieringen skal i hovedsak være privat, med statlige lånegarantier. Planen er en del av handelsavtalen mellom USA og Taiwan, der Taiwan har lovet opptil 250 milliarder dollar i kredittgarantier til halvlederinvesteringer i USA.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "Focus Taiwan",
+     "url": "https://focustaiwan.tw/business/202610160010",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "24/7 Wall St.",
+     "url": "https://247wallst.com/investing/2026/10/16/taiwan-is-planning-4-billion-industrial-parks-in-texas-for-nvidias-suppliers/",
+     "published": "2026-10-16"
+    }
+   ],
+   "significance": 4,
+   "audience_relevance": 6,
+   "why_it_matters": "Planen viser at leverandørkjeden for AI-maskinvare flyttes til USA av geopolitiske grunner."
+  }
+ ]
+}

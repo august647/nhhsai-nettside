@@ -1,0 +1,80 @@
+{
+ "results": [
+  {
+   "id": "c010",
+   "verified": false,
+   "confidence": "high",
+   "event_date": "2026-09-02",
+   "corrected_title": "Altman says OpenAI will build humanoid robots, with a demo expected in 2027 (stale, from September 2026)",
+   "corrected_summary": "On the Sources podcast, Sam Altman said OpenAI will 'definitely' build humanoid robots as well as robots in other form factors. He told Fortune he expects 'a cool demo in 2027' but no robots walking the streets for a few more years. Both statements were made in September 2026. Engadget's 2026-10-17 article re-reports them and adds no new development.",
+   "key_facts": [
+    "Sources podcast appearance was around 2026-09-02 (36Kr, published 2026-09-04)",
+    "Fortune interview was 2026-09-15: 'I think we'll have a cool demo in 2027'",
+    "Altman's reason for the humanoid form: the world is designed for people",
+    "Engadget counted 27 robotics job openings on OpenAI's careers page",
+    "OpenAI has not said what the demo will show"
+   ],
+   "best_source": {
+    "name": "36Kr",
+    "url": "https://eu.36kr.com/en/p/3967488289183367"
+   },
+   "other_sources": [
+    {
+     "name": "Engadget",
+     "url": "https://www.engadget.com/2285040/openai-humanoid-robot-sam-altman-statement-real-challenge/"
+    },
+    {
+     "name": "Forbes Argentina",
+     "url": "https://www.forbesargentina.com/innovacion/sam-altman-adelanta-proximo-gran-proyecto-openai-robot-humanoide-n97289"
+    }
+   ],
+   "issues": "Stale. Both statements came before the window: the podcast around 2026-09-02/03 (reports differ on the exact day) and the Fortune interview on 2026-09-15. Engadget's 2026-10-17 date is when it re-reported them, not when they happened. Nothing new happened between 2026-10-09 and 2026-10-18."
+  },
+  {
+   "id": "c011",
+   "verified": true,
+   "confidence": "high",
+   "event_date": "2026-10-14",
+   "corrected_title": "xAI launches Grok Voice 3.0, which leads Artificial Analysis' Speech-to-Speech Index",
+   "corrected_summary": "xAI released Grok Voice 3.0 on 2026-10-14. Time to first audio is under one second, and the price stays at $0.08 per minute, the same as Grok Voice 2.0. According to xAI, it scores 86.9 on Artificial Analysis' Speech-to-Speech Index, ahead of GPT-Live-1 (83.2) and Gemini 3.8 Live (82.6). xAI says it handles about 20,000 Starlink customer calls per day, with roughly 70% resolved without a human.",
+   "key_facts": [
+    "Time to first audio under 1 second, about 40% lower than GPT-Live-1 per xAI",
+    "$0.08/min ($4.80/hour), same as Grok Voice 2.0",
+    "Speech-to-Speech Index: 86.9 vs. GPT-Live-1 83.2, Gemini 3.8 Live 82.6, Grok Voice 2.0 81.3 (Artificial Analysis data dated 2026-10-13)",
+    "Trails GPT-Live-1 on τ-Voice: 71.6% vs. 74.5%",
+    "About 20,000 Starlink calls per day, about 70% resolved without a human"
+   ],
+   "best_source": {
+    "name": "xAI",
+    "url": "https://x.ai/news/grok-voice-3"
+   },
+   "other_sources": [],
+   "issues": "Only the vendor's own page was checked. The benchmark figures are as xAI reports them and were not checked directly on the Artificial Analysis site. 'Sub-second' refers to time to first audio."
+  },
+  {
+   "id": "c012",
+   "verified": true,
+   "confidence": "high",
+   "event_date": "2026-10-15",
+   "corrected_title": "Nvidia releases open Nemotron 3.5 Super VL and Bolt models; Reflection AI releases open-weight Beam",
+   "corrected_summary": "On 2026-10-15 Nvidia released Nemotron 3.5 Super VL, an open model with 120B parameters trained on about 26T tokens, which it claims is 5x faster than the next-best open agentic model in its class. It also released Nemotron 3.5 Bolt 74B-A9B, which uses native 2-bit quantization to fit in 24GB, with a 4GB Bolt E4B version due on 2026-10-23. On 2026-10-16 Reflection AI released Beam, its first open-weight model: a 501B-parameter MoE with 23B active parameters, under the Apache 2.0 license.",
+   "key_facts": [
+    "Super VL: 120B parameters, about 26T training tokens, '5x faster than the next best' per Nvidia",
+    "Bolt 74B-A9B: native 2-bit quantization, fits in 24GB; Bolt E4B (4GB) due 2026-10-23",
+    "Reflection Beam: 501B total / 23B active (MoE), Apache 2.0, weights on Hugging Face",
+    "Beam comes in BF16, FP8 and NVFP4, plus a speculative decoding drafter model; API is free in public beta"
+   ],
+   "best_source": {
+    "name": "NVIDIA Blog",
+    "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/"
+   },
+   "other_sources": [
+    {
+     "name": "Reflection AI",
+     "url": "https://reflection.ai/blog/beam-is-available"
+    }
+   ],
+   "issues": "Beam was released on 2026-10-16, not 2026-10-15. The 5x figure is Nvidia's claim against the next-best model in its class, not a general 'up to 5x faster'. Both sources are the vendors' own pages."
+  }
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "results": [
+  {
+   "id": "c004",
+   "verified": true,
+   "confidence": "medium",
+   "event_date": "2026-10-15",
+   "corrected_title": "Microsoft AI unveils MAI-Base-2, a 2.8-trillion-parameter base model; Suleyman reportedly tells staff it beats the base model behind OpenAI's GPT-5.6 Sol",
+   "corrected_summary": "On 15 October 2026 Microsoft AI published technical details of MAI-Base-2. It is a mixture-of-experts base model with 2.8 trillion total parameters and about 80 billion active per token, trained for 38 days on 16,000 Nvidia GB200 GPUs in August and September 2026. Pre-training is finished and the model is now in post-training. No release date, pricing or API has been announced, and Microsoft plans to license the weights to trusted partners through Foundry. According to Business Insider's report of an internal town hall, Mustafa Suleyman said the model beats the base model behind GPT-5.6 Sol using about a quarter of OpenAI's training compute. Microsoft has not published that comparison and OpenAI did not respond.",
+   "key_facts": [
+    "2.8T total parameters, ~80B active (MoE); Suleyman's X post rounded this up to '3 trillion'",
+    "Trained for 38 days on 16,000 Nvidia GB200 GPUs (Aug-Sep 2026), on a 50T-token mix with a March 2026 knowledge cutoff",
+    "Microsoft's published comparison is against open models only: it claims its recipe is 4.2-12.3x more compute-efficient than DeepSeek-V4-Pro-Base, which is its own estimate",
+    "Still in post-training; no release date, API or pricing",
+    "Weights to be licensed to trusted partners via Foundry",
+    "The OpenAI comparison comes only from internal remarks reported by Business Insider; Microsoft declined to comment"
+   ],
+   "best_source": {
+    "name": "Yahoo Finance",
+    "url": "https://finance.yahoo.com/technology/ai/articles/microsoft-ai-chief-says-built-125729863.html"
+   },
+   "other_sources": [
+    {
+     "name": "Windows Mode",
+     "url": "https://www.windowsmode.com/microsofts-mai-base-2-is-here-suleyman-says-it-beats-openais-gpt-5-6-model-with-a-quarter-of-the-compute/"
+    },
+    {
+     "name": "Pasquale Pillitteri",
+     "url": "https://pasqualepillitteri.it/en/news/24354/microsoft-mai-base-2-trillion-parameters"
+    }
+   ],
+   "issues": "I could not find or open Microsoft AI's own technical post, so the specs come from secondary coverage that agrees with itself. The GPT-5.6 Sol claim is unverified: it is an internal remark reported by Business Insider, so the title should attribute it rather than state it as fact. 'A quarter of the compute' refers to training/pre-training compute."
+  },
+  {
+   "id": "c005",
+   "verified": true,
+   "confidence": "high",
+   "event_date": "2026-10-17",
+   "corrected_title": "DeepSeek releases V4.1-Flash-1017 with open weights, and DeepSeek's own figures show much lower cost per task; Search and Fetch APIs open to the public",
+   "corrected_summary": "On 17 October 2026 DeepSeek upgraded the model behind its deepseek-flash API endpoint to DeepSeek-V4.1-Flash-1017, with API prices unchanged, and published the weights on Hugging Face. By DeepSeek's own figures it scores 77.0% on DeepSWE at just under $0.20 per task, against 74.2% at about $0.50 for the earlier V4.1-Flash. DeepSeek also opened its Search and Fetch APIs to the public at $0.75 per 1,000 calls each, with free access until 31 October.",
+   "key_facts": [
+    "DeepSeek changelog entry dated 2026-10-17; the deepseek-flash endpoint now serves V4.1-Flash-1017 and pricing is unchanged",
+    "Weights repo deepseek-ai/DeepSeek-V4.1-Flash-1017 published on Hugging Face",
+    "DeepSWE: 77.0% at under $0.20/task (top setting) vs 74.2% at ~$0.50 for V4.1-Flash, per DeepSeek",
+    "Search and Fetch APIs: $0.75 per 1,000 calls each, free until 31 Oct 2026 in some harnesses",
+    "No independent benchmarks yet"
+   ],
+   "best_source": {
+    "name": "DeepSeek API Change Log",
+    "url": "https://api-docs.deepseek.com/updates/"
+   },
+   "other_sources": [
+    {
+     "name": "The Decoder",
+     "url": "https://the-decoder.com/deepseek-v4-1-flash-1017-beats-larger-rivals-in-agentic-tasks-while-once-again-massively-cutting-per-task-costs/"
+    },
+    {
+     "name": "Hugging Face deepseek-ai",
+     "url": "https://huggingface.co/deepseek-ai"
+    }
+   ],
+   "issues": "The cost and benchmark figures are DeepSeek's own and have not been checked independently. The changelog does not state the Search/Fetch prices; those come from The Decoder. ModelScope availability is reported by The Decoder only. The base V4.1-Flash launched on 10 September, so only the 1017 update is new this week."
+  },
+  {
+   "id": "c006",
+   "verified": true,
+   "confidence": "high",
+   "event_date": "2026-10-14",
+   "corrected_title": "OpenAI infrastructure chief Sachin Katti to leave; Uday Ruddarraju takes over compute and infrastructure",
+   "corrected_summary": "On 14 October 2026 Bloomberg first reported that Sachin Katti will step down as head of OpenAI's infrastructure unit to start a new venture. His last day is 15 November and he will stay on as an adviser. Uday Ruddarraju, a former xAI executive who joined OpenAI in 2025 and became CTO for compute in July, will now lead both the compute and infrastructure businesses.",
+   "key_facts": [
+    "Katti's last day is 15 November 2026; he remains an adviser",
+    "Katti says he is leaving to pursue a new venture, after about a year at OpenAI (joined late 2025)",
+    "Ruddarraju, ex-xAI, joined OpenAI in 2025 and became CTO for compute in July 2026",
+    "Ruddarraju now heads both compute and infrastructure",
+    "First reported by Bloomberg on 14 October 2026"
+   ],
+   "best_source": {
+    "name": "PYMNTS",
+    "url": "https://www.pymnts.com/news/artificial-intelligence/2026/openai-expands-uday-ruddarrajus-role-to-head-compute-and-infrastructure-units/"
+   },
+   "other_sources": [
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/10/14/openais-sachin-katti-to-leave-infrastructure-role-stay-on-as-advisor.html"
+    },
+    {
+     "name": "American Bazaar",
+     "url": "https://americanbazaaronline.com/2026/10/15/sachin-katti-leaving-openai-to-build-something-new-490059/"
+    }
+   ],
+   "issues": "The CNBC URL returned 403, so I could not read it; the facts are confirmed by PYMNTS and several other outlets. Some outlets misspell the surname (e.g. 'Rudarraju')."
+  }
+ ]
+}

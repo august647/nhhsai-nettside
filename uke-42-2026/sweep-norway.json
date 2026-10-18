@@ -1,0 +1,182 @@
+{
+ "items": [
+  {
+   "title": "Bloomberg: Nscale's flagship Norwegian data centre is six months behind schedule ahead of its USD 35 billion IPO",
+   "date": "2026-10-15",
+   "summary": "On 15 October Bloomberg reported that Nscale's flagship data centre in Glomfjord, Nordland, has only 6.4 of its planned 30 MW running and is about six months late. The reported causes are repeated cooling-system leaks (faulty pipe sealant and a filter problem), a fire in December that led the Directorate for Civil Protection (DSB) to find 10 safety violations, permitting disputes and construction setbacks. Workers are being housed on the floating hotel Kalmar to speed up the build. The site serves ByteDance. Nscale, where Aker is a large shareholder, filed on 18 September to list on the NYSE under the ticker NSCL and is seeking up to USD 3 billion at a valuation of about USD 35 billion. Some outlets wrongly name the site as Narvik (Stargate Norway).",
+   "category": "business",
+   "sources": [
+    {
+     "name": "Bloomberg",
+     "url": "https://www.bloomberg.com/news/features/2026-10-15/nscale-s-35-billion-ipo-plans-muddied-by-ai-data-center-delays",
+     "published": "2026-10-15"
+    },
+    {
+     "name": "The Energy Mag",
+     "url": "https://www.theenergymag.com/news/market-news/nscale-data-center-delay-risk",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "Startup Fortune",
+     "url": "https://startupfortune.com/nscales-35-billion-ipo-is-wobbling-because-its-data-centers-arent-ready/",
+     "published": "2026-10-16"
+    }
+   ],
+   "significance": 7,
+   "audience_relevance": 9,
+   "why_it_matters": "Nscale is one of Aker's largest holdings and the biggest Norwegian-linked AI infrastructure bet. The delays show the execution risk behind the data-centre boom just before a major IPO."
+  },
+  {
+   "title": "Sferical One goes live: Swedish industry giants share a sovereign AI supercomputer, opened together with Jensen Huang",
+   "date": "2026-10-15",
+   "summary": "Sferical AI, jointly owned by AstraZeneca, Ericsson, Saab, SEB and Wallenberg Investments, with SKF as a strategic partner, formally launched the supercomputer Sferical One in Stockholm on 15 October with Nvidia CEO Jensen Huang present. The system has 1,152 Nvidia Blackwell Ultra GPUs in 16 DGX GB300 NVL72 racks. Its purpose is to keep sensitive data and expertise in Sweden rather than with US cloud providers. Planned uses include drug development, network AI, defence and fraud and risk modelling. On the same visit Volvo Cars expanded its partnership with Nvidia, and Nvidia and the Norrsken Foundation announced an AI lab in Stockholm opening in 2027. Huang said Nvidia has invested USD 8 billion in Europe over the past year.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "TechXplore/AFP",
+     "url": "https://techxplore.com/news/2026-10-ai-company-nvidia-boss.html",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "Tech Times",
+     "url": "https://www.techtimes.com/articles/329133/20261016/sferical-one-goes-live-swedish-industry-coalition-shares-1152-blackwell-ultra-gpus.htm",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "The Next Web",
+     "url": "https://thenextweb.com/news/huang-coreweave-backstop-stockholm",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 7,
+   "audience_relevance": 8,
+   "why_it_matters": "A concrete Nordic model for sovereign AI: competing industrial companies sharing compute capacity. It is directly relevant to the Norwegian debate on foreign ownership of data centres."
+  },
+  {
+   "title": "Legora launches Intake and an integration ecosystem, and Hogan Lovells Cadwalader rolls it out globally",
+   "date": "2026-10-16",
+   "summary": "Swedish legal AI company Legora announced a string of news this week. On 13 October it launched Intake, an agentic 'front door' for in-house legal teams that starts in Slack, plus a partnership with Laurel. On 14 October it launched an integration ecosystem of more than 30 integrations and a partnership with the contract management firm Sirion. On 16 October the law firm Hogan Lovells Cadwalader announced a global rollout to more than 3,300 lawyers in over 36 offices, after a pilot with more than 1,300 lawyers in 18 practice groups, alongside a deeper iManage integration via MCP. In September Bloomberg reported that Legora was in talks to raise at least USD 300 million at about USD 8.5 billion.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "Legora Newsroom",
+     "url": "https://legora.com/newsroom/hogan-lovells-cadwalader-rolls-out-legora-globally",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "Legora Newsroom",
+     "url": "https://legora.com/newsroom/legora-launches-intake-an-agentic-front-door-for-in-house-legal-teams",
+     "published": "2026-10-13"
+    },
+    {
+     "name": "Artificial Lawyer",
+     "url": "https://www.artificiallawyer.com/2026/10/13/legora-increases-inhouse-focus-with-intake/",
+     "published": "2026-10-13"
+    }
+   ],
+   "significance": 6,
+   "audience_relevance": 8,
+   "why_it_matters": "The world's fifth-largest law firm by revenue choosing a Nordic AI tool shows how fast AI agents are entering professional services, a relevant signal for NHH students heading into law, consulting and finance."
+  },
+  {
+   "title": "Lovable launches enterprise package: EU inference and deployment in the customer's own AWS and Azure accounts",
+   "date": "2026-10-14",
+   "summary": "Swedish Lovable launched several enterprise features between 12 and 15 October. EU inference (12 October) routes AI requests to European endpoints. Deploy on AWS (14 October) and Deploy on Azure (15 October), both in private preview, let apps and data run in the customer's own cloud account; Deutsche Telekom went live on AWS in October. Growth tools to help users find customers (14 October) and the use of customers' own AI models in apps (15 October) were also launched. In September the company said it had passed USD 600 million in annualised revenue.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "Lovable blog",
+     "url": "https://lovable.dev/blog/eu-inference",
+     "published": "2026-10-12"
+    },
+    {
+     "name": "Lovable blog",
+     "url": "https://lovable.dev/blog/deploy-on-aws",
+     "published": "2026-10-14"
+    },
+    {
+     "name": "Lovable blog",
+     "url": "https://lovable.dev/blog",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 5,
+   "audience_relevance": 7,
+   "why_it_matters": "Europe's fastest-growing AI startup is targeting large companies with data sovereignty and control, which banks and regulated businesses in Norway demand."
+  },
+  {
+   "title": "Stordalen buys into two AI companies and promises 'hundreds of millions' for AI investments",
+   "date": "2026-10-17",
+   "summary": "Through the PR agency Storm, Petter Stordalen has bought 70 percent of the advertising film company Verk and 35 percent of the AI consultancy Spinner, which Prosper Group also co-owns. He tells E24 that the Strawberry group will spend 'hundreds of millions' on AI investments in the coming years. He says Ving, sold to Norwegian, will also invest in AI. Strawberry has tested AI in accounting and hotel cleaning. Stordalen does not expect AI to cut many jobs.",
+   "category": "norway",
+   "sources": [
+    {
+     "name": "E24",
+     "url": "https://e24.no/naeringsliv/i/w3bKzo/stordalen-tror-ai-vil-foere-til-investeringer-for-hundrevis-av-millioner",
+     "published": "2026-10-17"
+    }
+   ],
+   "significance": 4,
+   "audience_relevance": 7,
+   "why_it_matters": "One of Norway's best-known investors is putting money into AI services, showing that AI investment is spreading from tech into traditional sectors such as hotels and travel."
+  },
+  {
+   "title": "Solvera raises USD 6.3 million (pre-seed) to build an 'AI-native' engineering firm",
+   "date": "2026-10-15",
+   "summary": "Oslo-based Solvera, founded in 2026 by Arif Mirza, Pål Rasmussen and Thorvald Thorsnes, has raised USD 6.3 million (about EUR 5.6 million) in a pre-seed round led by Seedcamp. Other investors are Construct Venture, Inception Fund, Momentum, OBOS Ventures, PSV Tech, Sondo and The Nordic Web Ventures, and the angels include Spacemaker founders Anders Kvåle and Håvard Haukeland. The company sells complete engineering services for construction, starting with electrical and plumbing (MEP) design, where AI agents do a growing share of the work and engineers make the key decisions. It works with Betonmast and plans an office in London.",
+   "category": "norway",
+   "sources": [
+    {
+     "name": "Tech.eu",
+     "url": "https://tech.eu/2026/10/15/solvera-raises-63m-to-scale-the-ai-native-engineering-firm/",
+     "published": "2026-10-15"
+    },
+    {
+     "name": "BeBeez",
+     "url": "https://bebeez.eu/2026/10/16/norwegian-startup-raises-6-3-million-pre-seed-round-to-build-ai-native-engineering-firm/",
+     "published": "2026-10-16"
+    }
+   ],
+   "significance": 4,
+   "audience_relevance": 7,
+   "why_it_matters": "An unusually large pre-seed round for a Norwegian startup. The business model sells finished work rather than software licences, an approach that challenges traditional consulting and engineering firms."
+  },
+  {
+   "title": "Sanna raises NOK 30 million for AI-driven accounting",
+   "date": "2026-10-14",
+   "summary": "Norwegian accounting startup Sanna has raised NOK 30 million in a seed round led by Skyfall Ventures and Alliance VC, bringing total funding to NOK 44 million. AI does much of the bookkeeping at a fixed price, and authorised accountants check the work. The company says it has more than 2,000 customers in Norway and Sweden, mostly holding companies, and is now opening to operating companies. Visma-owned Mandora has launched a competing service, Taki.",
+   "category": "norway",
+   "sources": [
+    {
+     "name": "Shifter",
+     "url": "https://shifter.no/nyheter/sanna-henter-30-millioner-til-regnskapsjakten/478968",
+     "published": "2026-10-14"
+    },
+    {
+     "name": "KI-pulsen",
+     "url": "https://www.kipulsen.no/hendelse/sanna-henter-30-millioner-ki-regnskap",
+     "published": "2026-10-14"
+    }
+   ],
+   "significance": 4,
+   "audience_relevance": 8,
+   "why_it_matters": "Accounting is among the professions AI is changing fastest, which is directly relevant to NHH students in auditing and accounting."
+  },
+  {
+   "title": "NRK bans AI-generated songs in Melodi Grand Prix, while Sweden's SVT does not",
+   "date": "2026-10-13",
+   "summary": "NRK has banned purely AI-generated entries in Melodi Grand Prix. Of about 1,500 entries for next year's contest, NRK found 30–50 fully AI-generated songs. Project leader Mads Tørklep says AI can still be used in parts of the production. SVT in Sweden, which received a record 4,077 entries, has chosen not to introduce a ban. The European Broadcasting Union has not yet issued common Eurovision guidelines on AI.",
+   "category": "norway",
+   "sources": [
+    {
+     "name": "Gaffa",
+     "url": "https://gaffa.no/nyheter/2026/oktober/nrk-forbyr-ki-bidrag-i-melodi-grand-prix",
+     "published": "2026-10-13"
+    }
+   ],
+   "significance": 3,
+   "audience_relevance": 5,
+   "why_it_matters": "A concrete example of Norwegian institutions drawing their own lines for AI in creative work, and of Nordic neighbours choosing differently."
+  }
+ ]
+}

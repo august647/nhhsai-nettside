@@ -1,0 +1,178 @@
+{
+ "items": [
+  {
+   "title": "Google DeepMind finner ingen tegn på at AI-forskning akselererer av seg selv",
+   "date": "2026-10-13",
+   "summary": "I sikkerhetsrapporten for Gemini 4 Argon, publisert 13. oktober, konkluderer Google DeepMind med at det ikke har vært noen «significant end-to-end acceleration of AI R&D». Risikoen for AI-drevet AI-utvikling vurderes som «currently low». DeepMinds interne kapabilitetsindeks (GCI, 123 modeller og 92 benchmarks) steg 0,091 poeng per måned før 1. april 2026 og 0,118 etter. Ifølge rapporten er forskjellen ikke statistisk signifikant. Over 75 prosent av produksjonskoden i DeepMind skrives nå av AI. Andelen pull requests som er helt delegert til AI økte fra 7,5 prosent i april til 11,9 prosent i september, mens rundt 88 prosent fortsatt krever menneskelig styring. Argon løser omtrent halvparten av de interne forskningsoppgavene, godt under 90-prosentnivået DeepMind bruker som varselgrense. Rapporten bygger også på en undersøkelse blant 12 ledere og forskere. Samtidig sa Sergey Brin i en rundebordssamtale at Google er «starting to get onto that RSI treadmill».",
+   "category": "research",
+   "sources": [
+    {
+     "name": "The Next Web",
+     "url": "https://thenextweb.com/news/sergey-brin-gemini-recursive-self-improvement-safety-report",
+     "published": "2026-10-17"
+    },
+    {
+     "name": "DigitalToday",
+     "url": "https://www.digitaltoday.co.kr/en/view/115695/google-deepmind-says-no-evidence-ai-self-improvement-acceleration-gap-with-industry-warnings",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "Crypto Briefing",
+     "url": "https://cryptobriefing.com/google-deepmind-no-ai-research-acceleration/",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 8,
+   "audience_relevance": 8,
+   "why_it_matters": "Dette er de første interne måledataene fra et ledende AI-laboratorium på om AI fremskynder sin egen utvikling. Funnene går imot påstander fra Anthropic, OpenAI og Musk om at rekursiv selvforbedring allerede er i gang, og det har betydning for vurderinger av hvor fort AI-utviklingen går."
+  },
+  {
+   "title": "OpenAI og Anthropic finansierer Simons-program som skal hjelpe matematikere å kontrollere AI-resultater",
+   "date": "2026-10-15",
+   "summary": "OpenAI kunngjorde 15. oktober at selskapet gir 5 millioner dollar til et nytt initiativ i regi av Simons Foundation. Initiativet er på totalt 15 millioner dollar fra Simons Foundation, Anthropic og OpenAI. Pengene skal gå til workshops, konferanser og programmer der matematikere kontrollerer, forstår og bygger videre på AI-generert forskning. Forskerne får også tilgang til AI-verktøy og regnekraft fra begge selskapene. Bakgrunnen er at OpenAI har fått kritikk etter å ha publisert over 700 AI-skrevne manuskripter. Association for Human Mathematics har anklaget selskapet for plagiat. To matematikere, blant dem Levent Alpöge, som jobber i Anthropic, sier de var nær tilsvarende resultater selv. OpenAI avviser at de så arbeidet deres.",
+   "category": "research",
+   "sources": [
+    {
+     "name": "Euronews",
+     "url": "https://www.euronews.com/2026/10/16/openai-tries-to-solve-mathematician-backlash-problem-by-pledging-5-million-to-math-foundat",
+     "published": "2026-10-16"
+    }
+   ],
+   "significance": 7,
+   "audience_relevance": 6,
+   "why_it_matters": "Dette er en ny utvikling i saken om OpenAIs matematikkmanuskripter. Den viser at forskningsmiljøene nå må bruke ressurser på å etterprøve AI-genererte forskningsresultater, og at det oppstår konflikter om normer og hvem som skal ha æren."
+  },
+  {
+   "title": "Maskinlæring fra MIT og Microsoft dobler presisjonen i værvarsler to til seks uker fram (Nature)",
+   "date": "2026-10-14",
+   "summary": "Studien «Advancing Subseasonal Forecasting with Machine Learning» ble publisert i Nature og omtalt av MIT News 14. oktober. Den presenterer metoden Probabilistic Bias Correction, som lærer å rette opp systematiske feil i eksisterende værmodeller. Brukt på ECMWFs ledende modell doblet metoden presisjonen for varsler to til seks uker fram. Ifølge The Verge forbedret den ECMWFs fysikkbaserte modell for 98 prosent av nedbørsmålene og 92 prosent av temperaturmålene. Den vinnende varianten kom først i ECMWFs varslingskonkurranse og var den første modellen som slo klimatologiske gjennomsnitt i denne tidshorisonten. Forfatterne kommer fra MIT (Judah Cohen), Microsoft (Lester Mackey med flere), ECMWF og DTN.",
+   "category": "research",
+   "sources": [
+    {
+     "name": "MIT News",
+     "url": "https://news.mit.edu/2026/researchers-improve-weather-forecasts-looking-two-six-weeks-out-1014",
+     "published": "2026-10-14"
+    },
+    {
+     "name": "Nature",
+     "url": "https://www.nature.com/articles/s41586-026-11126-x",
+     "published": "2026-10-14"
+    }
+   ],
+   "significance": 7,
+   "audience_relevance": 6,
+   "why_it_matters": "Tidshorisonten to til seks uker er viktig for beredskap, energi, landbruk og råvarehandel. Bedre varsler her har direkte økonomisk verdi, også for energiprising i Norden."
+  },
+  {
+   "title": "Google-agenter designer molekyler i lukket sløyfe med laboratorieroboter",
+   "date": "2026-10-16",
+   "summary": "Google Research publiserte 16. oktober resultater fra AI-agenter som planlegger, kjører og evaluerer eksperimenter på fysiske laboratorieroboter. Arbeidet bruker den digitale tvillingen VERID og det åpne rammeverket PyLabRobot. I tre runder med aptamerdesign (7 til 10 dager per runde) mot α-trombin økte treffraten fra 0 til 26,0 og deretter 42,1 prosent, med 98,5 prosent spesifisitet. Mot myoglobin nådde treffraten 33,5 prosent i tredje runde. I proteindesign mot kreftmålet FAP ble strukturprediksjonen 8,6 ganger raskere. Et samarbeid mellom menneske og agent nesten doblet treffraten sammenlignet med en forsker alene, og de beste designene nådde bindingsstyrke i nanomolar-området med ett siffer.",
+   "category": "research",
+   "sources": [
+    {
+     "name": "Google Research Blog",
+     "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/",
+     "published": "2026-10-16"
+    }
+   ],
+   "significance": 6,
+   "audience_relevance": 5,
+   "why_it_matters": "AI-agenter flytter seg fra skjermen og inn i det fysiske laboratoriet. Det er et tidlig steg mot autonome laber som kan korte ned tiden det tar å finne nye legemidler."
+  },
+  {
+   "title": "Gemini 4 Argon lærte en humanoid robot å kaste fra én video",
+   "date": "2026-10-13",
+   "summary": "Ved den globale lanseringen av Gemini 4 Argon 13. oktober viste Google DeepMind at modellen lærte Apptroniks humanoide robot Apollo å spille cornhole ut fra én video av et menneske som kastet. Modellen bygget selv en simulering å trene i, overførte ferdigheten til den ekte roboten, og etter noen oppvarmingskast traff Apollo sju ganger på rad. Google sier at denne video-til-simulering-til-virkelighet-prosessen korter ned uker med manuelt simuleringsarbeid til noen timer. I en annen test laget Argon en digital tvilling fra ett bilde av et bord og kjørte over 4500 simulerte øvelsesrunder, noe som økte robotens suksessrate i virkeligheten fra 56 til 75 prosent. Tallene er Googles egne og ikke uavhengig verifisert.",
+   "category": "research",
+   "sources": [
+    {
+     "name": "Interesting Engineering",
+     "url": "https://interestingengineering.com/videos/googles-gemini-4-argon-taught-a-humanoid-robot-to-play-cornhole",
+     "published": "2026-10-13"
+    }
+   ],
+   "significance": 6,
+   "audience_relevance": 5,
+   "why_it_matters": "Store generelle modeller begynner å gjøre robottrening billigere og raskere. Mangel på treningsdata har lenge vært den største flaskehalsen for nyttige roboter."
+  },
+  {
+   "title": "Google DeepMind bygger egen lab for robotmaskinvare utenfor Boston",
+   "date": "2026-10-15",
+   "summary": "Ifølge The Boston Globe 15. oktober har Google leid 35 000 kvadratfot i bygget Arsenal on the Charles (200 Talcott Ave.) i Watertown, Massachusetts. Der skal Google DeepMind etablere en lab for robotmaskinvare. Det nye maskinvareteamet ledes av Aaron Saunders, tidligere teknologidirektør i Boston Dynamics, og skal ansette maskinister, ingeniører og forskere. Byggearbeidet skal være ferdig i 2027.",
+   "category": "research",
+   "sources": [
+    {
+     "name": "The Boston Globe",
+     "url": "https://www.bostonglobe.com/2026/10/15/business/google-deepmind-cambridge-robotics-lab/",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 5,
+   "audience_relevance": 5,
+   "why_it_matters": "DeepMind har så langt brukt roboter fra partnere, men bygger nå egen maskinvarekompetanse. Det tyder på at Google vil konkurrere direkte med Tesla, Figure og andre i markedet for fysisk AI."
+  },
+  {
+   "title": "Zealand Pharma inngår avtale verdt opptil 1,2 milliarder dollar om AI-designede fedmeproteiner",
+   "date": "2026-10-13",
+   "summary": "Danske Zealand Pharma og Generate Biomedicines kunngjorde 13. oktober et samarbeid om multispesifikke proteinlegemidler mot fedme og andre metabolske sykdommer. Proteinene designes med Generates generative AI-plattform. Generate får 30 millioner dollar i forskuddsbetaling og opptil 35 millioner i tidlige prekliniske milepæler, og samlede milepælsbetalinger kan bli nesten 1,2 milliarder dollar, i tillegg til royalties. Avtalen omfatter to programmer, med opsjon på et tredje. Generate leder forskningen fram til valg av kandidat, mens Zealand overtar klinisk utvikling og kommersialisering. Generate-aksjen steg rundt 5 prosent etter børsslutt.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "Fierce Biotech",
+     "url": "https://www.fiercebiotech.com/biotech/zealand-inks-12b-generate-pact-add-multispecific-proteins-obesity-pipeline",
+     "published": "2026-10-13"
+    },
+    {
+     "name": "KSL (Reuters)",
+     "url": "https://www.ksl.com/article/51635986/zealand-pharma-generate-strike-ai-obesity-drug-deal-worth-up-to-12-billion",
+     "published": "2026-10-13"
+    }
+   ],
+   "significance": 5,
+   "audience_relevance": 6,
+   "why_it_matters": "Avtalen viser at AI-basert proteindesign nå prises inn i store legemiddelavtaler i fedmemarkedet, et av farmasiens mest verdifulle segmenter, med en nordisk aktør."
+  },
+  {
+   "title": "Robotmodeller blir kommersielle: Physical Intelligence åpner API, Neura lanserer Neuron AI",
+   "date": "2026-10-13",
+   "summary": "Physical Intelligence (π) åpnet 13. oktober en betaversjon av Pi API. Gjennom den kan kunder laste opp data, finjustere selskapets nyeste robotmodeller og kjøre dem fra skyen på egne roboter. Foreløpig skjer tilgangen via venteliste. Dagen etter, 14. oktober, lanserte tyske Neura Robotics Neuron AI, en multimodal modell for fysisk AI som kombinerer 3D-syn, berøring, kraft, lyd, robotens tilstand, språk og hukommelse. Én og samme modell er trent på fem ulike Neura-roboter, med datapartnerskap med Schaeffler og Bosch.",
+   "category": "research",
+   "sources": [
+    {
+     "name": "Physical Intelligence",
+     "url": "https://www.pi.website/",
+     "published": "2026-10-13"
+    },
+    {
+     "name": "Robotics & Automation News",
+     "url": "https://roboticsandautomationnews.com/2026/10/14/neura-robotics-launches-multimodal-ai-model-that-gives-robots-perception-and-memory/105902/",
+     "published": "2026-10-14"
+    }
+   ],
+   "significance": 5,
+   "audience_relevance": 5,
+   "why_it_matters": "Grunnmodeller for roboter selges nå som skytjenester, slik språkmodellene ble. Det senker terskelen for industribedrifter som vil automatisere fysiske oppgaver."
+  },
+  {
+   "title": "Epoch AI: Åpne modeller ligger 6–7 måneder bak de lukkede på cyberferdigheter",
+   "date": "2026-10-16",
+   "summary": "Epoch AI publiserte 16. oktober en analyse som viser at den beste åpne modellen, Z.ai sin GLM-5.3, presterer på Epochs cyberindeks (Cyber ECI) på nivået lukkede toppmodeller nådde 6 til 7 måneder tidligere. 14. oktober publiserte Epoch også benchmarken SpireClimb. Der vinner ledende modeller nå over 90 prosent av spillene i Slay the Spire på letteste nivå og rundt 20 prosent på vanskeligste.",
+   "category": "research",
+   "sources": [
+    {
+     "name": "Epoch AI",
+     "url": "https://epoch.ai/data-insights/open-closed-cyber-eci-gap",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "Epoch AI",
+     "url": "https://epoch.ai/publications/ai-systems-are-improving-rapidly-at-slay-the-spire-and-its-sequel",
+     "published": "2026-10-14"
+    }
+   ],
+   "significance": 4,
+   "audience_relevance": 5,
+   "why_it_matters": "Avstanden mellom åpne og lukkede modeller avgjør hvor lenge cyberkapabiliteter kan holdes under kontroll før alle får tilgang til dem. Det er relevant for sikkerhetsarbeidet i finans og næringsliv."
+  }
+ ]
+}

@@ -1,0 +1,236 @@
+{
+ "items": [
+  {
+   "title": "ChatGPT's Chrome extension can now read open tabs and carry out tasks in the browser",
+   "date": "2026-10-15",
+   "summary": "OpenAI has updated the ChatGPT extension for Chrome. In Chat, ChatGPT can read and compare the user's open tabs, for example on price, delivery time and return policy. In Work, OpenAI's agent for multi-step tasks, ChatGPT can control tabs to send messages, fill in forms, download files, organise tabs and draft emails. The sidebar now has access to the full ChatGPT history. By default it asks permission before acting on each new website. The extension works on every ChatGPT plan, including Free, and in Chromium browsers such as Edge, Brave and Opera. OpenAI shut down its standalone Atlas browser on 9 August, and this update brings similar features into Chrome.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "Engadget",
+     "url": "https://www.engadget.com/2288580/open-ai-updates-chatgpt-extension-for-chrome/",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "Unite.AI",
+     "url": "https://www.unite.ai/openai-brings-computer-use-to-chrome-with-chatgpt-tab-controls/",
+     "published": "2026-10-16"
+    }
+   ],
+   "significance": 8,
+   "audience_relevance": 9,
+   "why_it_matters": "A browser agent from the market leader now comes free in the browser most people already use. It can also act on sites where the user is logged in, such as Gmail, LinkedIn and Salesforce, which raises clear security questions for businesses."
+  },
+  {
+   "title": "Gemini 4 Argon reaches AI Pro subscribers, and Gemini gets a tasks mode and 40+ connected apps",
+   "date": "2026-10-13",
+   "summary": "Google has rolled out Gemini 4 Argon in the Gemini app for Google AI Pro and AI Ultra subscribers. Until now it was limited to testers and the Ultra tier. Google says Argon gives more direct answers with less hedging and reports progress more often on long tasks. A new toggle switches from chat to tasks, so Gemini keeps working while the user is away. Gemini now connects to more than 40 apps, including Instacart, OpenTable, Adobe and Shopify. The agentic coding interface from Google Antigravity is now built into the Gemini app for macOS. API pricing is $2/$10 per million tokens until 30 November 2026, then $4/$20.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "Google Blog",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+     "published": "2026-10-13"
+    },
+    {
+     "name": "9to5Google",
+     "url": "https://9to5google.com/2026/10/13/gemini-app-4-argon/",
+     "published": "2026-10-13"
+    }
+   ],
+   "significance": 8,
+   "audience_relevance": 8,
+   "why_it_matters": "New since earlier coverage: Google's top model is now in the roughly $20 subscription. Gemini is also moving from chatbot to an agent that does work in the background, which puts it in direct competition with ChatGPT."
+  },
+  {
+   "title": "OpenAI launches ChatGPT Slides with real-time collaboration and PowerPoint export",
+   "date": "2026-10-16",
+   "summary": "OpenAI has started rolling out Slides in ChatGPT for eligible Pro, Business and Enterprise users with Space access, on the web and in the desktop app. A deck can be built from a conversation, from files, from an outline, or styled on an example deck. Colleagues can edit the same deck in real time and leave shared comments. On the web, decks export to PowerPoint, PDF or Google Slides. The desktop app opens them in PowerPoint or Keynote. Plus, Free and Go are not included. By comparison, Claude Slides is available on every Claude plan, including Free.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "OpenAI Help Center – ChatGPT release notes",
+     "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "WebProNews",
+     "url": "https://www.webpronews.com/openai-adds-native-slide-creation-and-collaboration-to-chatgpt",
+     "published": "2026-10-16"
+    }
+   ],
+   "significance": 7,
+   "audience_relevance": 9,
+   "why_it_matters": "Slide decks are core work for students and consultants. OpenAI, Anthropic, Microsoft and Google now all compete directly for office tasks that PowerPoint used to own."
+  },
+  {
+   "title": "Microsoft launches Copilot for Legal in Word and Cowork",
+   "date": "2026-10-15",
+   "summary": "Microsoft has launched Copilot for Legal, with more than 20 purpose-built legal skills. In Word, Copilot reviews agreements against playbooks, drafts from templates and applies edits as tracked changes. In Cowork, Microsoft's more agentic capability, it runs multi-step workflows such as extracting obligations and deadlines and building case chronologies. Partner plugins include Bloomberg Law, Harvey, Legora, Docusign, iManage, Relativity and Everlaw. Rollout began on 15 October for customers with Microsoft 365 Copilot commercial licences. The Word plugin replaces the earlier Legal Agent.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "Artificial Lawyer",
+     "url": "https://www.artificiallawyer.com/2026/10/15/microsoft-launches-copilot-for-legal-brace-for-impact/",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 7,
+   "audience_relevance": 7,
+   "why_it_matters": "Microsoft is moving into industry-specific AI and competing with legal-tech startups like Harvey and Legora, which it also partners with. The move matters for law firms and in-house teams, and for professional services more broadly."
+  },
+  {
+   "title": "GPT-6 Pro in ChatGPT gets parallel agents",
+   "date": "2026-10-16",
+   "summary": "OpenAI has upgraded GPT-6 Pro in ChatGPT with faster responses and better use of plugins and tools. One request can now be split across several agents running at the same time. Users follow each agent's progress in the conversation and can open finished parts to review the work. Rollout to eligible Pro users is gradual. In managed workspaces, access depends on rollout eligibility and workspace settings. On 17 October OpenAI also changed Codex and ChatGPT Work so subagents can reuse context, which raises effective usage.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "OpenAI on X",
+     "url": "https://x.com/OpenAI/status/2111185504746213705",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "TokenPost",
+     "url": "https://www.tokenpost.com/news/technology/33923",
+     "published": "2026-10-17"
+    }
+   ],
+   "significance": 6,
+   "audience_relevance": 6,
+   "why_it_matters": "Splitting tasks across parallel agents is a step from one assistant to a small team of agents, which matters for research and analysis work. For now it is limited to the most expensive plans."
+  },
+  {
+   "title": "Gmail gets AI Inbox and voice search with Gemini for paid Workspace users",
+   "date": "2026-10-15",
+   "summary": "Google is rolling out two Gemini features in Gmail to paid Workspace accounts. AI Inbox is a separate view with to-do suggestions and topic summaries; it began on 12 October for Rapid Release domains, with Scheduled Release domains from 26 October. Gmail Live lets users ask questions about their inbox by voice on Android and iOS, and answers come with a card linking to the source email; it began on 15 October and is on by default where Gemini in Workspace is enabled. Both are limited to US users with the language set to US English. Neither has reached the UK yet, and Starter and Education editions get them later.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "emailexpert",
+     "url": "https://emailexpert.com/gmail-ai-inbox-and-gmail-live-reach-paid-workspace-accounts-in-the-us/",
+     "published": "2026-10-16"
+    },
+    {
+     "name": "Google Workspace Updates",
+     "url": "https://workspaceupdates.googleblog.com/2026/10/gmail-live-is-rolling-out-to-paid-Workspace-users.html",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 5,
+   "audience_relevance": 6,
+   "why_it_matters": "The inbox is where knowledge workers spend much of their day. AI triage and voice search show the direction, but the US-only launch means Norwegian users will have to wait."
+  },
+  {
+   "title": "Notion 3.8: any MCP agent can work in Notion, skills sync to ChatGPT and Claude",
+   "date": "2026-10-13",
+   "summary": "Notion 3.8 lets any MCP-compatible agent read workspace context and update docs and task trackers. Admins can see and revoke each AI connection. A Skills API syncs skills written in Notion to ChatGPT, Claude and other agents, and to GitHub. ChatGPT Plus and Pro subscribers can use their own plan for AI usage in Notion with no markup; this is available on Business and Enterprise plans. Database owners can now set which columns each person or agent can view or edit. Seven new models were added, including GPT-6.1 Sol, GPT-6 Luna, Opus 5.5 and Sonnet 5.5.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "Notion Releases",
+     "url": "https://www.notion.com/releases/2026-10-13",
+     "published": "2026-10-13"
+    }
+   ],
+   "significance": 5,
+   "audience_relevance": 7,
+   "why_it_matters": "Notion is positioning itself as shared memory and context for every company's AI agents, not as yet another chatbot. Letting users pay for Notion AI with an existing ChatGPT plan is also an interesting pricing move."
+  },
+  {
+   "title": "Anthropic study: AI agents log six times the hours of the staff who supervise them",
+   "date": "2026-10-16",
+   "summary": "The Anthropic Institute published a study by economists Nathan Wilmers, Regina Catipon, Maxim Massenkoff and Peter McCrory. It finds that Claude agents logged about six times as many working hours as the employees steering them (6:1 as of August), counting only sessions employees start themselves. The study draws on internal hiring, calendar, Slack and agent data from early 2025 to summer 2026, plus 17 interviews. According to coverage, junior roles fell from 27% to 9% of Anthropic's technical hires.",
+   "category": "work",
+   "sources": [
+    {
+     "name": "MartinCid",
+     "url": "https://www.martincid.com/technology-sv/anthropic-junior-tech-hires-27-to-9-percent-claude-agents/",
+     "published": "2026-10-18"
+    },
+    {
+     "name": "AI Weekly",
+     "url": "https://aiweekly.co/ai-news-today/anthropic-news",
+     "published": "2026-10-16"
+    }
+   ],
+   "significance": 6,
+   "audience_relevance": 8,
+   "why_it_matters": "Rare data from inside an AI company on how agents change work and hiring. The sharp drop in junior hires is directly relevant to students heading into the job market. Note: the figures come from secondary coverage; the report itself was not opened."
+  },
+  {
+   "title": "Replit makes OpenAI the default model instead of Anthropic",
+   "date": "2026-10-16",
+   "summary": "At TechCrunch Disrupt, Replit CEO Amjad Masad said Replit is no longer working with Anthropic. He cited cost, partnership terms and performance, and said 'I think ChatGPT is better now'. He later clarified that customers can still choose Claude, but OpenAI is now the default for Replit Agent. An insider said the partnership was still in place. Masad said enterprise rose from about 2% of revenue last year to about 15% this year, with more than 50% of revenue from B2B.",
+   "category": "business",
+   "sources": [
+    {
+     "name": "TechCrunch",
+     "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
+     "published": "2026-10-17"
+    }
+   ],
+   "significance": 5,
+   "audience_relevance": 6,
+   "why_it_matters": "It shows how quickly the battle for developer tools shifts between model providers on price and performance, and it lands the same week as Anthropic's investor day ahead of its IPO."
+  },
+  {
+   "title": "Meta launches Muse Wonder with persistent memory for agents",
+   "date": "2026-10-12",
+   "summary": "Meta Superintelligence Labs launched Muse Wonder and Muse Wonder Full, which it calls its most capable models for personal and professional agentic work. Active Memory carries personal context across conversations, and Active Focus helps the model persist through difficult goals. Muse Wonder is available through the Meta Model API and Muse Code; Wonder Full is only for Muse Code subscribers. The consumer Muse app gets Wonder first for paying subscribers, with no date given. On the Artificial Analysis Intelligence Index v4.3, Wonder scored 52 and Wonder Full 56, against 48 for Muse Spark 1.3.",
+   "category": "models",
+   "sources": [
+    {
+     "name": "TestingCatalog",
+     "url": "https://www.testingcatalog.com/meta-launches-muse-wonder-and-wonder-full-for-ai-agents/",
+     "published": "2026-10-12"
+    },
+    {
+     "name": "CNBC",
+     "url": "https://www.cnbc.com/2026/10/12/meta-muse-wonder-ai-model-agent.html",
+     "published": "2026-10-12"
+    }
+   ],
+   "significance": 6,
+   "audience_relevance": 5,
+   "why_it_matters": "Meta is moving into paid AI agents in competition with OpenAI and Anthropic. Its focus on memory across conversations also raises privacy questions."
+  },
+  {
+   "title": "ChatGPT Voice gets GPT-Live-1.1 with new voices",
+   "date": "2026-10-15",
+   "summary": "OpenAI has started a gradual rollout of GPT-Live-1.1 in Voice for ChatGPT, Codex and dots. Coverage reports 13 new voices in French, German, Hindi, Japanese, Korean and Mexican Spanish, more natural accents, and less repeated 'checking...' during web searches. Plus gets the full model with a three-hour limit. Other tiers, including Free, get the smaller GPT-Live-1.1 Quip. The model is not in the API yet.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "Notebookcheck",
+     "url": "https://www.notebookcheck.net/ChatGPT-Voice-GPT-Live-1-1-brings-new-voices-for-six-languages.1425810.0.html",
+     "published": "2026-10-15"
+    },
+    {
+     "name": "DataNorth",
+     "url": "https://datanorth.ai/news/gpt-live-1-1-new-voices",
+     "published": "2026-10-15"
+    }
+   ],
+   "significance": 4,
+   "audience_relevance": 5,
+   "why_it_matters": "Voice is becoming a more common way to use AI assistants, and better multilingual support helps non-English users."
+  },
+  {
+   "title": "Cursor's cloud agents can build shareable interactive canvases",
+   "date": "2026-10-16",
+   "summary": "Cursor's 16 October changelog lets cloud agents build interactive canvases, such as dashboards or reports, while they work. A finished canvas can be shared with the team by link. A new Environments API (beta) lets developers create and manage agent environments programmatically. Environments now support up to 300 repositories, and large ones load about 5x faster.",
+   "category": "tools",
+   "sources": [
+    {
+     "name": "Cursor Changelog",
+     "url": "https://cursor.com/changelog/cloud-agent-canvases-and-environments",
+     "published": "2026-10-16"
+    }
+   ],
+   "significance": 4,
+   "audience_relevance": 4,
+   "why_it_matters": "Coding agents increasingly deliver finished, shareable artifacts rather than just code, which brings them closer to non-technical users and analysts."
+  }
+ ]
+}
