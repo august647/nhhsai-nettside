@@ -29,7 +29,7 @@ Er begge secrets satt, velges abonnement. Du kan tvinge ett av dem med knappen �
 ### Oppsett med abonnement (gjøres én gang)
 
 1. Installer Claude Code på PC-en din. I PowerShell: `irm https://claude.ai/install.ps1 | iex`. Åpne et nytt PowerShell-vindu og sjekk at `claude --version` virker.
-2. Kjør `claude setup-token`, logg inn i nettleseren med Claude-kontoen din og kopier tokenet som skrives ut. Tokenet gjelder i ett år og vises bare én gang.
+2. Kjør `claude setup-token`, logg inn i nettleseren med Claude-kontoen din og kopier tokenet som skrives ut. Tokenet gjelder i ett år. Claude Code lagrer det ikke noe sted, så kopier det med en gang.
 3. Legg tokenet inn i repoet som secret: Settings, Secrets and variables, Actions, New repository secret. Navn: `CLAUDE_CODE_OAUTH_TOKEN`.
 4. Kjør en tørrkjøring: Actions, Ukentlig nyhetsutgave, Run workflow, la «Tørrkjøring» stå på. Les `uke.json` og `rapport.md` under Artifacts. Ingenting publiseres.
 
