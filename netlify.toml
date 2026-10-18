@@ -1,3 +1,6 @@
-# Netlify: ren statisk nettside, ingen build. Bare mappa «public» publiseres.
+# Netlify: ren statisk nettside uten build. Bare mappa «public» publiseres.
 [build]
   publish = "public"
+  # Bygg bare på nytt når noe i «public» er endret. Endringer i README, verktøy
+  # og workflow gir da ingen ny deploy (sparer Netlify-kreditter).
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- public/"
