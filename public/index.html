@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>NHHS AI</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;family=Schibsted+Grotesk:wght@500..800&amp;family=Instrument+Sans:wdth,wght@75..100,500..700&amp;family=Hanken+Grotesk:wght@500..800&amp;family=Manrope:wght@500..800&amp;family=Geist:wght@500..800&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#C9B79F;color:#2B1A12;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#A8432B;text-decoration:none}
+a:hover{color:#7E2F1E}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<sc-if value="{{ bgSahara }}" hint-placeholder-val="{{ true }}"><div aria-hidden="true" style="position:fixed;inset:0;z-index:-1;background:#C9A383 url(assets/desert-sahara.jpg) center 40%/cover no-repeat"></div></sc-if>
+<sc-if value="{{ bgDunes }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position:fixed;inset:0;z-index:-1;background:#C9B79F url(assets/desert-dunes.jpg) center/cover no-repeat"></div></sc-if>
+<sc-if value="{{ bgTurpan }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position:fixed;inset:0;z-index:-1;background:#A88A70 url(assets/desert-turpan.jpg) center/cover no-repeat"></div></sc-if>
+<sc-if value="{{ bgAtacama }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position:fixed;inset:0;z-index:-1;background:#8A4A2A url(assets/desert-atacama.jpg) center/cover no-repeat"></div></sc-if>
+<sc-if value="{{ bgMerzouga }}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position:fixed;inset:0;z-index:-1;background:#B87A5A url(assets/desert-merzouga.jpg) center/cover no-repeat"></div></sc-if>
+
+<header data-screen-label="Hero" style="min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,rgba(27,16,11,.55) 0%,rgba(27,16,11,.45) 30%,rgba(27,16,11,.55) 60%,rgba(27,16,11,.8) 100%);color:#F3E8D6">
+  <nav style="max-width:1200px;width:100%;margin:0 auto;padding:28px clamp(20px,5vw,56px);display:flex;justify-content:space-between;align-items:center;gap:16px 32px;flex-wrap:wrap">
+    <a href="#" style="display:flex"><img src="assets/logo-sand.png" alt="NHHS AI" style="height:34px;width:auto;display:block"></a>
+    <div style="display:flex;gap:28px;flex-wrap:wrap;font-size:16px;font-weight:500">
+      <a href="#om" style="color:#F3E8D6" style-hover="color:#FFFFFF">Om oss</a>
+      <a href="#program" style="color:#F3E8D6" style-hover="color:#FFFFFF">Hva vi gjør</a>
+      <a href="#styret" style="color:#F3E8D6" style-hover="color:#FFFFFF">Styret</a>
+      <a href="nyheter.html" style="color:#F3E8D6" style-hover="color:#FFFFFF">Nyheter</a>
+      <a href="#medlem" style="color:#F3E8D6" style-hover="color:#FFFFFF">Opptak</a>
+    </div>
+  </nav>
+  <div style="max-width:1200px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,56px) clamp(48px,9vh,96px)">
+    <a href="nyheter.html" aria-label="{{ newsLabel }}" style="display:inline-flex;align-items:center;gap:12px;max-width:100%;margin:0 0 28px;padding:6px 18px 6px 6px;border-radius:999px;background:rgba(27,16,11,.55);border:1px solid rgba(243,232,214,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F3E8D6;font-size:15px;font-weight:500;line-height:1.2" style-hover="background:rgba(27,16,11,.75);border-color:rgba(243,232,214,.6);color:#FFFFFF">
+      <span style="flex:none;display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;background:#A8432B;color:#F3E8D6;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:#F3E8D6"></span>{{ newsBadge }}</span>
+      <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Sjekk ukens AI-nyheter</span>
+      <span aria-hidden="true" style="flex:none">→</span>
+    </a>
+    <h1 style="margin: 0; font-family: var(--nhhs-head, 'Helvetica Neue', Helvetica, Arial), sans-serif; font-weight: 700; font-stretch: 105%; font-size: clamp(44px,7vw,100px); line-height: 1; letter-spacing: -.025em; max-width: 16ch; text-wrap: balance; font-style: normal; text-decoration-line: none">NHHS Artificial Intelligence</h1>
+    <p style="margin: 24px 0 0; max-width: 36em; font-size: clamp(18px,1.5vw,21px); line-height: 1.5; text-wrap: pretty; font-style: italic">Vi lærer å bruke kunstig intelligens i praksis, gjennom workshops, prosjekter og møter med næringslivet. Alle er velkomne, uansett bakgrunn.</p>
+    <a href="#medlem" style="display: inline-block; margin-top: 36px; padding: 16px 28px; background: #F3E8D6; color: #2B1A12; border-radius: 4px; font-size: 16px; font-weight: 600; text-decoration-line: none; font-style: normal" style-hover="background:#FFFFFF;color:#2B1A12">Om opptaket</a>
+  </div>
+</header>
+
+<section id="om" data-screen-label="Om oss" style="background:#EDE0CA;padding:clamp(80px,11vw,140px) clamp(20px,5vw,56px)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px 64px">
+    <h2 style="font-family:var(--nhhs-head, 'Helvetica Neue', Helvetica, Arial),sans-serif;flex:1 1 240px;margin:0;font-weight:700;font-size:clamp(28px,2.8vw,38px);line-height:1.15;letter-spacing:-.01em">Om oss</h2>
+    <div style="flex:3 1 480px;max-width:720px">
+      <p style="margin:0;font-size:clamp(22px,2.2vw,28px);line-height:1.4;letter-spacing:-.005em;text-wrap:pretty">NHHS AI er en interessegruppe for NHH-studenter som vil forstå og bruke kunstig intelligens i arbeidet de skal gjøre etter studiene.</p>
+      <p style="margin:24px 0 0;font-size:18px;line-height:1.65;color:#5A3F30;text-wrap:pretty">Vi tester verktøy, deler det som fungerer og bygger løsninger sammen. Du trenger ingen erfaring med programmering, og alle studieretninger er velkomne. De som vil gå mer teknisk til verks, får rom til det.</p>
+    </div>
+  </div>
+</section>
+
+<section id="program" data-screen-label="Hva vi gjør" style="background:#EDE0CA;padding:0 clamp(20px,5vw,56px) clamp(80px,11vw,140px)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px 64px;border-top:1px solid #C9AE88;padding-top:clamp(56px,7vw,88px)">
+    <div style="flex:1 1 240px">
+      <h2 style="font-family:var(--nhhs-head, 'Helvetica Neue', Helvetica, Arial),sans-serif;margin:0;font-weight:700;font-size:clamp(28px,2.8vw,38px);line-height:1.15;letter-spacing:-.01em">Hva vi gjør</h2>
+      <p style="margin:16px 0 0;font-size:16px;line-height:1.55;color:#5A3F30;max-width:24ch">Minst ett åpent arrangement hver måned i semesteret.</p>
+    </div>
+    <div style="flex:3 1 480px;max-width:720px;display:flex;flex-direction:column">
+      <div style="display:flex;flex-wrap:wrap;gap:4px 32px;padding:22px 0;border-top:1px solid #2B1A12">
+        <div style="flex:0 0 200px;font-weight:600;font-size:19px">Workshops</div>
+        <div style="flex:1 1 280px;font-size:17px;line-height:1.55;color:#5A3F30">Prompting, automatisering og analyse med verktøyene som brukes i arbeidslivet i dag.</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px 32px;padding:22px 0;border-top:1px solid #2B1A12">
+        <div style="flex:0 0 200px;font-weight:600;font-size:19px">Case</div>
+        <div style="flex:1 1 280px;font-size:17px;line-height:1.55;color:#5A3F30">Reelle problemstillinger fra bedrifter, løst med AI i research og analyse.</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px 32px;padding:22px 0;border-top:1px solid #2B1A12">
+        <div style="flex:0 0 200px;font-weight:600;font-size:19px">Prosjekter</div>
+        <div style="flex:1 1 280px;font-size:17px;line-height:1.55;color:#5A3F30">Små team som bygger agenter, analyseverktøy og automatiserte arbeidsflyter.</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px 32px;padding:22px 0;border-top:1px solid #2B1A12">
+        <div style="flex:0 0 200px;font-weight:600;font-size:19px">Gjesteforelesninger</div>
+        <div style="flex:1 1 280px;font-size:17px;line-height:1.55;color:#5A3F30">Folk fra næringslivet forteller hvordan de bruker AI i jobben sin.</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px 32px;padding:22px 0;border-top:1px solid #2B1A12;border-bottom:1px solid #2B1A12">
+        <div style="flex:0 0 200px;font-weight:600;font-size:19px">Sosialt</div>
+        <div style="flex:1 1 280px;font-size:17px;line-height:1.55;color:#5A3F30">Kvelder sammen med medlemmene og andre grupper i NHHS.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-screen-label="Bilde" aria-hidden="true" style="height:70vh"></div>
+
+<section id="styret" data-screen-label="Styret" style="background:#EDE0CA;padding:clamp(80px,11vw,140px) clamp(20px,5vw,56px)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px 64px">
+    <h2 style="font-family:var(--nhhs-head, 'Helvetica Neue', Helvetica, Arial),sans-serif;flex:1 1 240px;margin:0;font-weight:700;font-size:clamp(28px,2.8vw,38px);line-height:1.15;letter-spacing:-.01em">Styret</h2>
+    <div style="flex:3 1 480px;max-width:720px">
+      <div style="aspect-ratio:3/2;width:100%;background:#E3CDAA;border-radius:4px;overflow:hidden"><image-slot id="styret-gruppe" shape="rect" placeholder="Gruppebilde av styret"></image-slot></div>
+      <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));column-gap:32px">
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #C9AE88;font-size:17px"><span style="font-weight:600">August Pater-Myhre</span><span style="color:#5A3F30">Leder</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #C9AE88;font-size:17px"><span style="font-weight:600">Markus Smistad Belstad</span><span style="color:#5A3F30">Nestleder</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #C9AE88;font-size:17px"><span style="font-weight:600">Trym Brunstad</span><span style="color:#5A3F30">Bedriftskontakt</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #C9AE88;font-size:17px"><span style="font-weight:600">Philip Ødegård</span><span style="color:#5A3F30">Fag</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #C9AE88;font-size:17px"><span style="font-weight:600">Christian Øien Damhaug</span><span style="color:#5A3F30">Marked</span></div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #C9AE88;font-size:17px"><span style="font-weight:600">Anders Reitan</span><span style="color:#5A3F30">Økonomi</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="medlem" data-screen-label="Opptak" style="background:#A8432B;color:#F3E8D6;padding:clamp(80px,11vw,140px) clamp(20px,5vw,56px)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px 64px">
+    <h2 style="font-family:var(--nhhs-head, 'Helvetica Neue', Helvetica, Arial),sans-serif;flex:1 1 240px;margin:0;font-weight:700;font-size:clamp(28px,2.8vw,38px);line-height:1.15;letter-spacing:-.01em">Opptak</h2>
+    <div style="flex:3 1 480px;max-width:720px">
+      <span style="display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;padding:6px 14px;border-radius:999px;border:1px solid rgba(243,232,214,.6);font-size:14px;font-weight:600"><span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:#F3E8D6"></span>Neste opptak: starten av vårsemesteret 2027</span>
+      <p style="margin:0;font-size:clamp(22px,2.2vw,28px);line-height:1.4;text-wrap:pretty">Vi tar opp nye medlemmer ved starten av hvert semester. Neste opptak er i starten av vårsemesteret, og mer informasjon kommer nærmere den tiden.</p>
+      <p style="margin:20px 0 0;font-size:18px;line-height:1.65;text-wrap:pretty">Lurer du på noe? Ta gjerne kontakt med August på <a href="mailto:august.pater-myhre@student.nhh.no" style="color:#F3E8D6;text-decoration:underline;text-underline-offset:3px" style-hover="color:#FFFFFF">august.pater-myhre@student.nhh.no</a>.</p>
+      <a href="mailto:august.pater-myhre@student.nhh.no?subject=Sp%C3%B8rsm%C3%A5l%20om%20NHHS%20AI" style="display:inline-block;margin-top:36px;padding:16px 28px;background:#F3E8D6;color:#7E2F1E;border-radius:4px;font-size:16px;font-weight:600" style-hover="background:#FFFFFF;color:#7E2F1E">Send et spørsmål</a>
+    </div>
+  </div>
+</section>
+
+<section id="bedrift" data-screen-label="For bedrifter" style="background:#EDE0CA;padding:clamp(80px,11vw,140px) clamp(20px,5vw,56px)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px 64px">
+    <h2 style="font-family:var(--nhhs-head, 'Helvetica Neue', Helvetica, Arial),sans-serif;flex:1 1 240px;margin:0;font-weight:700;font-size:clamp(28px,2.8vw,38px);line-height:1.15;letter-spacing:-.01em">For bedrifter</h2>
+    <div style="flex:3 1 480px;max-width:720px">
+      <p style="margin:0;font-size:clamp(22px,2.2vw,28px);line-height:1.4;text-wrap:pretty">Vi ønsker faglige samarbeid med bedrifter som bruker AI i praksis. Dere møter studenter som vil jobbe med teknologien, og vi lærer av folk som faktisk gjør det.</p>
+      <ul style="list-style:none;margin:32px 0 0;padding:0;font-size:18px;line-height:1.55;color:#2B1A12">
+        <li style="padding:14px 0;border-top:1px solid rgba(43,26,18,.15)"><strong style="font-weight:600">Tidlig kontakt med talenter.</strong> Bli kjent med NHH-studenter innen økonomi, analyse og teknologi før de søker jobb og internship.</li>
+        <li style="padding:14px 0;border-top:1px solid rgba(43,26,18,.15)"><strong style="font-weight:600">Synlighet på NHH.</strong> Vis hvordan dere jobber med AI, overfor studenter som er nysgjerrige på akkurat det.</li>
+        <li style="padding:14px 0;border-top:1px solid rgba(43,26,18,.15)"><strong style="font-weight:600">Nye perspektiver på egne problemstillinger.</strong> Gi oss et case, så får dere studentenes løsningsforslag tilbake.</li>
+        <li style="padding:14px 0;border-top:1px solid rgba(43,26,18,.15);border-bottom:1px solid rgba(43,26,18,.15)"><strong style="font-weight:600">Et opplegg som passer dere.</strong> Et faglig arrangement, et case eller et prosjekt, tilpasset det dere vil oppnå.</li>
+      </ul>
+      <p style="margin:24px 0 0;font-size:18px;line-height:1.65;color:#5A3F30">Ta kontakt på <a href="mailto:august.pater-myhre@student.nhh.no?subject=Samarbeid%20med%20NHHS%20AI" style="color:#A8432B;text-decoration:underline;text-underline-offset:3px" style-hover="color:#7E2F1E">august.pater-myhre@student.nhh.no</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="background:#2B1A12;color:#D9C7AC;padding:56px clamp(20px,5vw,56px) 40px">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <img src="assets/logo-sand.png" alt="NHHS AI" style="height:40px;width:auto;display:block;align-self:flex-start">
+      <div style="font-size:15px;line-height:1.55">Interessegruppe i Norges Handelshøyskoles Studentforening<br>Helleveien 30, 5045 Bergen</div>
+      <div style="display:flex;gap:20px;font-size:15px;font-weight:500">
+        <a href="https://www.linkedin.com/company/nhhs-ai/" target="_blank" rel="noopener" style="color:#D9C7AC;text-decoration:underline;text-underline-offset:3px" style-hover="color:#FFFFFF">LinkedIn</a>
+        <a href="https://www.instagram.com/nhhs_ai/" target="_blank" rel="noopener" style="color:#D9C7AC;text-decoration:underline;text-underline-offset:3px" style-hover="color:#FFFFFF">Instagram</a>
+      </div>
+    </div>
+    <div style="font-size:13px;color:#A88D76">Foto: <a href="{{ creditHref }}" style="color:#A88D76;text-decoration:underline;text-underline-offset:2px" style-hover="color:#DCC096">{{ creditName }}</a> på <a href="https://unsplash.com" style="color:#A88D76;text-decoration:underline;text-underline-offset:2px" style-hover="color:#DCC096">Unsplash</a></div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bakgrunn&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Sahara&quot;,&quot;Death Valley&quot;,&quot;Turpan&quot;,&quot;Atacama&quot;,&quot;Merzouga&quot;],&quot;default&quot;:&quot;Sahara&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;overskriftFont&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Archivo&quot;,&quot;Helvetica&quot;,&quot;Schibsted Grotesk&quot;,&quot;Instrument Sans&quot;,&quot;Hanken Grotesk&quot;,&quot;Manrope&quot;,&quot;Geist&quot;],&quot;default&quot;:&quot;Archivo&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { newsWeek: null };
+  applyFont() {
+    const f = this.props.overskriftFont ?? 'Helvetica';
+    const stack = f === 'Helvetica' ? "'Helvetica Neue', Helvetica, Arial" : "'" + f + "'";
+    document.documentElement.style.setProperty('--nhhs-head', stack);
+  }
+  // Snarveien til nyhetssiden viser ukenummeret til siste utgave, hentet fra nyheter-data.js.
+  readNews() {
+    const uker = (window.NHHS_NYHETER && window.NHHS_NYHETER.uker) || [];
+    const siste = uker.slice().sort((a, b) => (b.aar - a.aar) || (b.uke - a.uke))[0];
+    if (siste && siste.uke) this.setState({ newsWeek: siste.uke });
+  }
+  componentDidMount() {
+    this.applyFont();
+    if (window.NHHS_NYHETER) { this.readNews(); return; }
+    const s = document.createElement('script');
+    s.src = 'nyheter-data.js?t=' + Math.floor(Date.now() / 6e5);
+    s.onload = () => this.readNews();
+    document.head.appendChild(s);
+  }
+  componentDidUpdate() { this.applyFont(); }
+  renderVals() {
+    const uke = this.state && this.state.newsWeek;
+    const bg = this.props.bakgrunn ?? 'Sahara';
+    const credits = {
+      'Sahara': ['Paweł Wielądek', 'https://unsplash.com/@pawelwieladek'],
+      'Death Valley': ['Zetong Li', 'https://unsplash.com/@zetong'],
+      'Turpan': ['Texco Kwok', 'https://unsplash.com/@texco'],
+      'Atacama': ['Marek Piwnicki', 'https://unsplash.com/@marekpiwnicki'],
+      'Merzouga': ['Wietse Jongsma', 'https://unsplash.com/@wietsej'],
+    };
+    const c = credits[bg] || credits['Sahara'];
+    return {
+      bgSahara: bg === 'Sahara' || !credits[bg],
+      bgDunes: bg === 'Death Valley',
+      bgTurpan: bg === 'Turpan',
+      bgAtacama: bg === 'Atacama',
+      bgMerzouga: bg === 'Merzouga',
+      creditName: c[0], creditHref: c[1],
+      newsBadge: uke ? 'Uke ' + uke : 'Nytt',
+      newsLabel: uke ? 'Sjekk ukens AI-nyheter, uke ' + uke : 'Sjekk ukens AI-nyheter',
+    };
+  }
+}
+</script>
+</body>
+</html>

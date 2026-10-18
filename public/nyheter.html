@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nyheter — NHHS AI</title>
+<meta name="description" content="Ukens viktigste AI-nyheter for studenter, forskere og næringsliv – kuratert hver fredag av NHHS AI, interessegruppen for kunstig intelligens ved NHH.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NHHS AI">
+<meta property="og:title" content="Nyheter — NHHS AI">
+<meta property="og:description" content="Ukens viktigste AI-nyheter, kuratert hver fredag av NHHS AI ved NHH.">
+<meta property="og:image" content="assets/desert-sahara.jpg">
+<meta name="theme-color" content="#2B1A12">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sand:#EDE0CA; --sand-2:#E3CDAA; --paper:#F6EEE1; --cream:#F3E8D6;
+  --ink:#2B1A12; --ink-2:#5A3F30; --ink-3:#3E2A1F;
+  --line:#C9AE88; --line-2:#D6BE98;
+  --terra:#A8432B; --terra-dark:#7E2F1E; --gold:#DCC096; --night:#1B100B;
+  --on-dark:#F3E8D6; --on-dark-2:#D9C7AC; --on-dark-3:#A88D76;
+  --head:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --body:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1200px; --gutter:clamp(20px,5vw,56px);
+  --toolbar-h:60px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#C9B79F;color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--terra);text-decoration:none}
+a:hover{color:var(--terra-dark)}
+::selection{background:var(--terra);color:var(--cream)}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.on-dark :focus-visible,.hero :focus-visible,.lead :focus-visible,.cta :focus-visible,footer :focus-visible{outline-color:var(--gold)}
+[hidden]{display:none!important}
+.wrap{max-width:var(--wrap);margin:0 auto}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--cream);color:var(--ink);padding:10px 16px;border-radius:4px;font-weight:600}
+.skip:focus{top:12px}
+
+/* ---------- Bakgrunn + hero ---------- */
+.bg{position:fixed;inset:0;z-index:-1;background:#C9A383 url(assets/desert-sahara.jpg) center 40%/cover no-repeat}
+.hero{color:var(--on-dark);background:linear-gradient(180deg,rgba(27,16,11,.74) 0%,rgba(27,16,11,.66) 36%,rgba(27,16,11,.6) 66%,rgba(27,16,11,.88) 100%)}
+.nav{max-width:var(--wrap);margin:0 auto;padding:28px var(--gutter);display:flex;justify-content:space-between;align-items:center;gap:16px 32px;flex-wrap:wrap}
+.nav-logo{display:flex}
+.nav-logo img{height:34px;width:auto;display:block}
+.nav-links{display:flex;gap:6px 28px;flex-wrap:wrap;font-size:16px;font-weight:500}
+.nav-links a{color:var(--on-dark);padding:4px 0;border-bottom:2px solid transparent}
+.nav-links a:hover{color:#fff}
+.nav-links a[aria-current="page"]{color:#fff;border-bottom-color:var(--gold)}
+.hero-inner{max-width:var(--wrap);margin:0 auto;padding:clamp(20px,5vh,64px) var(--gutter) clamp(32px,5vh,56px)}
+.eyebrow-row{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark)}
+.hero h1{margin:16px 0 0;font-family:var(--head);font-weight:800;font-stretch:112%;font-size:clamp(64px,10.5vw,148px);line-height:.86;letter-spacing:-.04em}
+.hero-lead{margin:20px 0 0;max-width:34em;font-size:clamp(18px,1.5vw,21px);line-height:1.5;font-style:italic;text-wrap:pretty}
+.archive-note{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 16px;border-radius:999px;background:var(--cream);color:var(--terra-dark);font-size:14px;font-weight:600}
+.archive-note:hover{background:#fff;color:var(--terra-dark)}
+.hero-grid{margin-top:clamp(28px,4vh,44px);display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:16px}
+.panel{border-radius:6px;padding:clamp(22px,2.4vw,32px)}
+.summary{background:rgba(27,16,11,.58);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(243,232,214,.16)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.summary p{margin:14px 0 0;font-size:clamp(17px,1.35vw,20px);line-height:1.55;text-wrap:pretty}
+.more{margin-top:10px;padding:0;border:0;background:none;color:var(--gold);font:600 14px var(--body);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.more:hover{color:var(--cream)}
+.hero-meta{margin-top:22px;padding-top:16px;border-top:1px solid rgba(243,232,214,.2);display:flex;flex-wrap:wrap;gap:6px 22px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--on-dark-2)}
+.stat{display:flex;flex-direction:column;gap:10px;color:var(--cream);background:rgba(168,67,43,.94);transition:background .2s}
+.stat:hover{background:#A8432B;color:#fff}
+.stat .label{color:var(--cream);opacity:.9}
+.stat{min-width:0}
+.stat-num{font-family:var(--head);font-weight:800;font-stretch:115%;font-size:clamp(46px,5.4vw,78px);line-height:.95;letter-spacing:-.03em;white-space:nowrap;max-width:100%;overflow:hidden}
+.stat-text{font-size:16px;line-height:1.45;text-wrap:pretty}
+.stat-link{margin-top:auto;padding-top:8px;font-size:14px;font-weight:600}
+
+/* ---------- Verktøylinje ---------- */
+.toolbar{position:sticky;top:0;z-index:40;background:rgba(237,224,202,.92);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid rgba(43,26,18,.12)}
+.toolbar-inner{max-width:1440px;margin:0 auto;padding:10px clamp(16px,3vw,40px);display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.weeknav{order:1;display:flex;align-items:center;gap:6px;flex:none}
+.icon-btn{display:inline-grid;place-items:center;width:38px;height:38px;flex:none;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.icon-btn:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.icon-btn[aria-disabled="true"]{opacity:.32;pointer-events:none}
+.week-select{appearance:none;-webkit-appearance:none;height:38px;padding:0 34px 0 14px;border:1px solid var(--line);border-radius:999px;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%232B1A12' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 13px center;font:600 15px var(--body);color:var(--ink);cursor:pointer}
+.week-select:hover{border-color:var(--ink)}
+.chips{order:2;flex:1 1 120px;min-width:0;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:4px 3px;margin:-2px 0;overscroll-behavior-x:contain}
+.chip:focus-visible{outline-offset:1px}
+.chips::-webkit-scrollbar{display:none}
+.chips.fade-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent)}
+.chips.fade-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 56px);mask-image:linear-gradient(90deg,transparent,#000 56px)}
+.chips.fade-l.fade-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 56px,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(90deg,transparent,#000 56px,#000 calc(100% - 56px),transparent)}
+.chip{flex:none;display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 13px;border-radius:999px;border:1px solid var(--line);background:transparent;font:500 14px var(--body);color:var(--ink);white-space:nowrap;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.chip:hover{border-color:var(--ink)}
+.chip i{width:8px;height:8px;background:var(--c,var(--ink))}
+.chip .n{font-family:var(--mono);font-size:11px;opacity:.65}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.chip[aria-pressed="true"] i{outline:1px solid rgba(243,232,214,.5)}
+.search{order:3;position:relative;flex:0 0 132px;transition:flex-basis .2s ease}
+.search:focus-within,.search.has-q{flex-basis:300px}
+.search input{width:100%;height:38px;border-radius:999px;border:1px solid var(--line);background:rgba(246,238,225,.85);padding:0 34px 0 36px;font:15px var(--body);color:var(--ink);cursor:text}
+.search input::placeholder{color:#74604F}
+.search input:focus{outline:2px solid var(--terra);outline-offset:1px;background:var(--paper)}
+.search input::-webkit-search-cancel-button{display:none}
+.search .ico{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--ink-2);pointer-events:none}
+.search .clear{position:absolute;right:5px;top:50%;transform:translateY(-50%);width:28px;height:28px;border:0;border-radius:50%;background:transparent;color:var(--ink-2);cursor:pointer;font-size:18px;line-height:1}
+.search .clear:hover{background:var(--line-2);color:var(--ink)}
+@media (max-width:760px){
+  .search,.search:focus-within,.search.has-q{order:2;flex:1 1 80px;min-width:0}
+  .chips{order:3;flex-basis:100%;margin:0 calc(clamp(16px,3vw,40px) * -1);padding:2px clamp(16px,3vw,40px)}
+}
+
+/* ---------- Seksjoner ---------- */
+main{background:var(--sand);padding-bottom:clamp(64px,8vw,112px)}
+.section{padding:clamp(56px,7vw,96px) var(--gutter) 0}
+.section-first{padding-top:clamp(28px,4vw,48px)}
+.lead-eyebrow{margin-bottom:18px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 48px;flex-wrap:wrap;margin-bottom:clamp(26px,3.6vw,44px)}
+.eyebrow{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-dark)}
+.eyebrow .rule{flex:0 0 40px;height:1px;background:currentColor}
+.sec-title{margin:16px 0 0;font-family:var(--head);font-weight:800;font-stretch:112%;font-size:clamp(34px,4.4vw,60px);line-height:1;letter-spacing:-.025em}
+.sec-note{margin:0;max-width:40ch;font-size:16px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
+.anchor{scroll-margin-top:calc(var(--toolbar-h) + 20px)}
+main,#sec-results{scroll-margin-top:var(--toolbar-h)}
+/* Fokuserte kontroller skal aldri havne skjult under den faste verktøylinja (WCAG 2.4.11). */
+main :is(a[href],button,input,select),#arkiv a[href],.cta :is(a[href],button),footer a[href]{scroll-margin-top:calc(var(--toolbar-h) + 12px)}
+.lead h3,.card h3,.brief-title,.arch-title,.stat-text,.summary p{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
+
+/* Felles metadata */
+.cat{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.cat::before{content:"";width:8px;height:8px;background:var(--c,var(--ink-2));flex:none}
+.meta{display:flex;align-items:center;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink-2)}
+.heat{display:inline-flex;gap:3px;align-items:center;color:var(--ink-2)}
+.heat-lbl{margin-right:5px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+.heat i{width:8px;height:8px;border:1px solid currentColor}
+.heat i.on{background:var(--terra);border-color:var(--terra)}
+.lead .heat{color:var(--on-dark-2)}
+.lead .heat i.on{background:var(--gold);border-color:var(--gold)}
+.rank{font-family:var(--head);font-weight:800;font-stretch:115%;font-size:clamp(40px,4vw,56px);line-height:.82;letter-spacing:-.035em;color:var(--terra)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.tag{height:28px;padding:0 11px;border-radius:999px;border:1px solid var(--line);background:transparent;font:500 13px var(--body);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.tag:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.src{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--terra)}
+.src:hover{color:var(--terra-dark);text-decoration:underline;text-underline-offset:3px}
+.src .via{font-weight:400;color:var(--ink-2)}
+.share{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:transparent;font:500 13px var(--body);color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s,border-color .15s;flex:none}
+.share:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:4px}
+.why{margin:0;font-size:15.5px;line-height:1.55;color:var(--ink-2);text-wrap:pretty}
+.why strong{color:var(--terra-dark);font-weight:700}
+@keyframes flash{0%{box-shadow:0 0 0 0 rgba(168,67,43,.55)}100%{box-shadow:0 0 0 14px rgba(168,67,43,0)}}
+.flash{animation:flash 1.1s ease-out 2}
+
+/* Hovedsak */
+.lead{position:relative;isolation:isolate;overflow:hidden;border-radius:8px;color:var(--on-dark);background:var(--night)}
+.lead::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(27,16,11,.97) 0%,rgba(27,16,11,.92) 48%,rgba(27,16,11,.62) 100%),url(assets/desert-dunes.jpg) center/cover no-repeat}
+.lead-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(28px,4vw,64px);padding:clamp(26px,4.4vw,64px)}
+.lead-main{display:flex;flex-direction:column}
+.lead .meta{color:var(--on-dark-2)}
+.lead .cat{color:var(--on-dark)}
+.badge{display:inline-flex;align-items:center;gap:8px;height:28px;padding:0 12px;border-radius:999px;background:var(--terra);color:var(--cream);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cream);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+.lead h3{margin:22px 0 0;font-family:var(--head);font-weight:800;font-stretch:110%;font-size:clamp(32px,4.3vw,60px);line-height:1;letter-spacing:-.03em;text-wrap:balance}
+.lead .ingress{margin:24px 0 0;max-width:58ch;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:var(--on-dark-2);text-wrap:pretty}
+.lead .foot{margin-top:32px}
+.lead .src{color:var(--gold)}
+.lead .src:hover{color:var(--cream)}
+.lead .src .via{color:var(--on-dark-3)}
+.lead .share,.lead .tag{border-color:rgba(243,232,214,.3);color:var(--on-dark-2)}
+.lead .share:hover,.lead .tag:hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+.lead-side{display:flex;flex-direction:column;gap:22px;align-self:stretch}
+.lead-side .top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;color:var(--on-dark-3)}
+.lead .rank{color:var(--gold);font-size:clamp(56px,6vw,96px)}
+.lead .why-box{border-top:3px solid var(--terra);padding-top:20px}
+.lead .why-box .label{color:var(--gold)}
+.lead .why-box p{margin:12px 0 0;font-size:17px;line-height:1.55;color:var(--on-dark);text-wrap:pretty}
+
+/* Toppsaker */
+.top-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.8vw,22px)}
+.card{position:relative;display:flex;flex-direction:column;gap:16px;background:var(--paper);border:1px solid rgba(201,174,136,.7);border-radius:8px;padding:clamp(22px,2.6vw,34px);transition:transform .2s ease,box-shadow .2s ease,border-color .2s}
+.card:hover{transform:translateY(-2px);border-color:var(--line);box-shadow:0 18px 34px -22px rgba(43,26,18,.5)}
+.card::after{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:0 3px 3px 0;background:var(--c,var(--terra))}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;color:var(--ink-2)}
+.card h3{margin:0;font-family:var(--head);font-weight:700;font-stretch:106%;font-size:clamp(22px,2vw,28px);line-height:1.14;letter-spacing:-.012em;text-wrap:balance}
+.card .ingress{margin:0;font-size:16.5px;line-height:1.6;color:var(--ink-3);text-wrap:pretty}
+.card .why{padding-top:14px;border-top:1px solid var(--line-2)}
+
+/* Kort fortalt */
+.brief-list{border-bottom:1px solid var(--ink)}
+.brief{border-top:1px solid var(--ink)}
+.brief-h{margin:0;font:inherit}
+.brief-btn{display:grid;grid-template-columns:48px minmax(0,1fr) auto 34px;gap:6px 20px;align-items:center;width:100%;padding:20px 0;border:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.brief-btn:hover .brief-title{color:var(--terra)}
+.brief-rank{font-family:var(--mono);font-size:13px;color:var(--terra);align-self:start;padding-top:3px}
+.brief-main{display:flex;flex-direction:column;gap:7px;min-width:0}
+.brief-title{font-family:var(--head);font-weight:700;font-stretch:104%;font-size:clamp(18px,1.6vw,21px);line-height:1.25;letter-spacing:-.005em;transition:color .15s}
+.brief-teaser{font-size:15px;line-height:1.45;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.brief.open .brief-teaser{display:none}
+.brief-date{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+.plus{position:relative;width:34px;height:34px;border:1.5px solid currentColor;border-radius:50%}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.plus::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .2s}
+.brief.open .plus::after{transform:translate(-50%,-50%) rotate(0deg)}
+.brief-body{display:grid;grid-template-columns:48px minmax(0,1fr);gap:20px;padding:0 0 26px}
+.brief-body .inner{display:flex;flex-direction:column;gap:14px;max-width:760px}
+.brief-body .ingress{margin:0;font-size:16.5px;line-height:1.6;color:var(--ink-3);text-wrap:pretty}
+.brief-body .foot{justify-content:flex-start;gap:12px 20px}
+.brief-body .mdate{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+
+/* Søk */
+.results{display:flex;flex-direction:column;border-bottom:1px solid var(--ink)}
+.result{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:6px 20px;align-items:start;padding:20px 0;border-top:1px solid var(--ink);color:inherit}
+.result:hover{color:inherit}
+.result:hover .brief-title{color:var(--terra)}
+.result .wk{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--terra-dark);padding-top:4px}
+.result .go{font-size:14px;font-weight:600;color:var(--terra);white-space:nowrap;padding-top:2px}
+mark{background:rgba(220,192,150,.75);color:inherit;border-radius:2px;padding:0 1px}
+
+/* Tom tilstand */
+.empty{padding:clamp(40px,6vw,72px) 0;text-align:left}
+.empty p{margin:0 0 18px;font-size:20px;line-height:1.5;max-width:36ch}
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:4px;border:0;background:var(--ink);color:var(--cream);font:600 15px var(--body);cursor:pointer;transition:background .15s,color .15s}
+.btn:hover{background:var(--terra);color:var(--cream)}
+.btn-light{background:var(--cream);color:var(--terra-dark)}
+.btn-light:hover{background:#fff;color:var(--terra-dark)}
+.btn-ghost{background:transparent;color:var(--cream);border:1.5px solid rgba(243,232,214,.7)}
+.btn-ghost:hover{background:var(--cream);color:var(--terra-dark)}
+
+/* Arkiv */
+.archive{background:var(--sand-2);padding:clamp(56px,8vw,112px) var(--gutter)}
+.arch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,262px),1fr));gap:14px}
+.arch-card{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:8px;background:var(--sand);border:1px solid transparent;color:var(--ink);transition:border-color .15s,transform .2s}
+.arch-card:hover{color:var(--ink);border-color:var(--ink);transform:translateY(-2px)}
+.arch-card[aria-current="true"]{background:var(--ink);color:var(--cream)}
+.arch-card[aria-current="true"] .arch-range,.arch-card[aria-current="true"] .arch-count{color:var(--on-dark-2)}
+.arch-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.arch-week{font-family:var(--head);font-weight:800;font-stretch:112%;font-size:34px;line-height:1;letter-spacing:-.02em}
+.arch-range{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.arch-title{font-size:16px;font-weight:600;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.arch-count{margin-top:auto;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.arch-now{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-dark)}
+.arch-card[aria-current="true"] .arch-now{color:var(--gold)}
+
+/* Tips oss */
+.cta{background:var(--terra);color:var(--cream);padding:clamp(72px,10vw,128px) var(--gutter)}
+.cta-grid{max-width:var(--wrap);margin:0 auto;display:flex;flex-wrap:wrap;gap:24px 64px}
+.cta h2{flex:1 1 240px;margin:0;font-family:var(--head);font-weight:800;font-stretch:112%;font-size:clamp(34px,4.4vw,60px);line-height:1;letter-spacing:-.025em}
+.cta-body{flex:3 1 480px;max-width:720px}
+.cta-body p{margin:0;font-size:clamp(20px,2vw,26px);line-height:1.42;text-wrap:pretty}
+.cta-body p + p{margin-top:16px;font-size:17px;line-height:1.6}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+
+/* Footer */
+footer{background:var(--ink);color:var(--on-dark-2);padding:56px var(--gutter) 40px}
+.foot-grid{max-width:var(--wrap);margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:32px 48px}
+.foot-brand{display:flex;flex-direction:column;gap:16px;max-width:42ch}
+.foot-brand img{height:40px;width:auto;display:block;align-self:flex-start}
+.foot-brand div{font-size:15px;line-height:1.55}
+.foot-links{display:flex;flex-direction:column;gap:10px;font-size:15px}
+.foot-links .label{color:var(--on-dark-3);margin-bottom:4px}
+.foot-links a{color:var(--cream)}
+.foot-links a:hover{color:var(--gold)}
+.foot-bottom{max-width:var(--wrap);margin:40px auto 0;padding-top:20px;border-top:1px solid #4A3226;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:13px;line-height:1.5;color:var(--on-dark-3)}
+.foot-bottom a{color:var(--on-dark-3);text-decoration:underline;text-underline-offset:2px}
+.foot-bottom a:hover{color:var(--gold)}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:24px;z-index:90;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:var(--ink);color:var(--cream);padding:12px 20px;border-radius:999px;font-size:15px;font-weight:500;box-shadow:0 12px 30px -12px rgba(0,0,0,.5);transition:opacity .2s,transform .2s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Responsivt */
+@media (max-width:900px){
+  .lead-grid{grid-template-columns:minmax(0,1fr)}
+  .lead-side .top{display:none}
+}
+@media (max-width:820px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .top-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .nav{padding-top:20px;padding-bottom:12px}
+  .nav-links{gap:4px 20px;font-size:15px}
+  .hero-inner{padding-top:16px}
+  .hero h1{font-size:58px}
+  .hero-lead{font-size:16px;margin-top:14px}
+  .hero-grid{margin-top:24px;gap:12px}
+  .summary p{font-size:16px;line-height:1.5}
+  .summary p.clamp{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+  .panel{padding:20px}
+  .brief-btn{grid-template-columns:30px minmax(0,1fr) 30px;gap:6px 14px}
+  .brief-date{display:none}
+  .plus{width:30px;height:30px}
+  .brief-body{grid-template-columns:1fr;padding-left:44px}
+  .brief-body > span{display:none}
+  .result{grid-template-columns:minmax(0,1fr)}
+  .result .go{display:none}
+  .lead .rank{font-size:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media print{
+  .bg,.toolbar,.cta,.share,.archive,.nav-links,.nav-logo,.skip,.toast,.plus,.badge::before{display:none!important}
+  body,main,.hero,.lead,.lead::before,.panel,.card,footer{background:none!important;color:#000!important;box-shadow:none!important}
+  .lead::before{display:none}
+  .hero *,.lead *,.panel *,footer *{color:#000!important}
+  .lead,.card,.panel{border:1px solid #999}
+  .brief-body[hidden]{display:grid!important}
+  .card,.lead,.brief{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<a class="skip" href="#innhold">Hopp til nyhetene</a>
+
+<header class="hero">
+  <nav class="nav" aria-label="Hovedmeny">
+    <a class="nav-logo" href="index.html"><img src="assets/logo-sand.png" alt="NHHS AI – til forsiden"></a>
+    <div class="nav-links">
+      <a href="index.html#om">Om oss</a>
+      <a href="index.html#program">Hva vi gjør</a>
+      <a href="index.html#styret">Styret</a>
+      <a href="nyheter.html" aria-current="page">Nyheter</a>
+      <a href="index.html#medlem">Opptak</a>
+    </div>
+  </nav>
+  <div class="hero-inner">
+    <div class="eyebrow-row"><span id="hero-week">Ukens AI-nyheter</span><span>Ny utgave hver fredag</span></div>
+    <h1>Nyheter</h1>
+    <p class="hero-lead">De viktigste AI-nyhetene, kuratert for studenter, forskere og næringsliv. Hele uka på noen få minutter.</p>
+    <a class="archive-note" id="archive-note" href="#" hidden></a>
+    <div class="hero-grid" id="hero-grid" hidden>
+      <div class="panel summary">
+        <div class="label">Uka i korte trekk</div>
+        <p id="summary"></p>
+        <button class="more" id="summary-more" type="button" aria-controls="summary" aria-expanded="false" hidden>Les hele oppsummeringen</button>
+        <div class="hero-meta" id="hero-meta"></div>
+      </div>
+      <a class="panel stat" id="stat" href="#">
+        <div class="label">Ukens tall</div>
+        <div class="stat-num" id="stat-num"></div>
+        <div class="stat-text" id="stat-text"></div>
+        <div class="stat-link">Les saken <span aria-hidden="true">→</span></div>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar" id="toolbar">
+  <div class="toolbar-inner">
+    <div class="weeknav">
+      <a class="icon-btn" id="prev-week" href="#" aria-label="Forrige uke" title="Forrige uke"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
+      <label class="sr" for="week-select">Velg uke</label>
+      <select class="week-select" id="week-select"></select>
+      <a class="icon-btn" id="next-week" href="#" aria-label="Neste uke" title="Neste uke"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filtrer på kategori"></div>
+    <div class="search" role="search">
+      <svg class="ico" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+      <label class="sr" for="q">Søk i alle uker</label>
+      <input id="q" type="search" placeholder="Søk i alle uker" autocomplete="off" spellcheck="false">
+      <button class="clear" id="clear" type="button" aria-label="Tøm søket" hidden>×</button>
+    </div>
+  </div>
+</div>
+
+<p class="sr" id="status" role="status" aria-live="polite"></p>
+
+<main id="innhold">
+  <noscript><div class="section"><div class="wrap"><p style="font-size:20px">Nyhetssiden trenger JavaScript for å vise sakene. Slå på JavaScript i nettleseren og last siden på nytt.</p></div></div></noscript>
+
+  <section class="section" id="sec-results" aria-labelledby="results-title" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span>Søk</span><span class="rule"></span><span>Alle uker</span></div>
+          <h2 class="sec-title" id="results-title">Søkeresultater</h2>
+        </div>
+        <p class="sec-note" id="results-note"></p>
+      </div>
+      <div class="results" id="results"></div>
+    </div>
+  </section>
+
+  <section class="section section-first anchor" id="sec-lead" aria-labelledby="lead-title">
+    <div class="wrap">
+      <div class="eyebrow lead-eyebrow"><span>01</span><span class="rule"></span><span>Hetest akkurat nå</span></div>
+      <h2 class="sr" id="lead-title">Ukens viktigste sak</h2>
+      <div id="lead"></div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="sec-top" aria-labelledby="top-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span>02</span><span class="rule"></span><span>Toppsaker</span></div>
+          <h2 class="sec-title" id="top-title">Dette må du få med deg</h2>
+        </div>
+        <p class="sec-note">Rangert etter betydning og relevans for næringsliv, finans og studenter.</p>
+      </div>
+      <div class="top-grid" id="top"></div>
+    </div>
+  </section>
+
+  <section class="section anchor" id="sec-briefs" aria-labelledby="briefs-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span>03</span><span class="rule"></span><span>Kort fortalt</span></div>
+          <h2 class="sec-title" id="briefs-title">Også verdt å vite</h2>
+        </div>
+        <p class="sec-note">Mindre saker fra uka. Trykk på en sak for å lese mer.</p>
+      </div>
+      <div class="brief-list" id="briefs"></div>
+    </div>
+  </section>
+
+  <section class="section" id="sec-empty" hidden>
+    <div class="wrap empty">
+      <p id="empty-text"></p>
+      <button class="btn" type="button" id="reset-filters">Vis alle saker</button>
+    </div>
+  </section>
+</main>
+
+<section class="archive anchor" id="arkiv" aria-labelledby="archive-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow"><span>04</span><span class="rule"></span><span>Arkiv</span></div>
+        <h2 class="sec-title" id="archive-title">Alle uker</h2>
+      </div>
+      <p class="sec-note">Ny utgave hver fredag. Hver sak lenker til kilden, så du kan lese mer der.</p>
+    </div>
+    <div class="arch-grid" id="archive"></div>
+  </div>
+</section>
+
+<section class="cta" aria-labelledby="cta-title">
+  <div class="cta-grid">
+    <h2 id="cta-title">Tips oss</h2>
+    <div class="cta-body">
+      <p>Har du sett en AI-nyhet som burde vært med? Send den til oss, så vurderer vi den til neste fredag.</p>
+      <p>Vil du heller lære å bruke verktøyene du leser om her? NHHS AI tar opp nye medlemmer ved starten av hvert semester, og neste opptak er i starten av vårsemesteret.</p>
+      <div class="cta-actions">
+        <a class="btn btn-light" href="mailto:august.pater-myhre@student.nhh.no?subject=Nyhetstips%20til%20NHHS%20AI">Send et tips</a>
+        <button class="btn btn-ghost" type="button" id="share-week">Del ukens nyheter</button>
+        <a class="btn btn-ghost" href="index.html#medlem">Om opptaket</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo-sand.png" alt="NHHS AI">
+      <div>Interessegruppe i Norges Handelshøyskoles Studentforening<br>Helleveien 30, 5045 Bergen</div>
+    </div>
+    <div class="foot-links">
+      <div class="label">Side</div>
+      <a href="index.html">Forside</a>
+      <a href="nyheter.html">Nyheter</a>
+      <a href="#arkiv">Arkiv</a>
+      <a href="index.html#bedrift">For bedrifter</a>
+    </div>
+    <div class="foot-links">
+      <div class="label">Kontakt</div>
+      <a href="mailto:august.pater-myhre@student.nhh.no">august.pater-myhre@student.nhh.no</a>
+    </div>
+    <div class="foot-links">
+      <div class="label">Følg oss</div>
+      <a href="https://www.linkedin.com/company/nhhs-ai/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/nhhs_ai/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>Sakene er funnet og oppsummert med hjelp av AI-verktøy og faktasjekket mot kildene. Les alltid originalkilden.</span>
+    <span>© <span id="year">2026</span> NHHS AI · Foto: <a href="https://unsplash.com/@pawelwieladek">Paweł Wielądek</a> og <a href="https://unsplash.com/@zetong">Zetong Li</a> på <a href="https://unsplash.com">Unsplash</a></span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+window.startNyheter = () => {
+  'use strict';
+  if (window.__nyheterStartet) return;
+  window.__nyheterStartet = true;
+
+  // Kategorier og fargene deres. Nye kategorier i datafila får en nøytral farge automatisk.
+  const CATS = {
+    'Modeller':   '#A8432B',
+    'Næringsliv': '#B5832E',
+    'Regulering': '#7A4A5E',
+    'Norge':      '#3F5F8A',
+    'Forskning':  '#5F7148',
+    'Verktøy':    '#2F6F68',
+    'Arbeidsliv': '#8C5A3C',
+  };
+  const MONTHS = ['januar','februar','mars','april','mai','juni','juli','august','september','oktober','november','desember'];
+  const MONTHS_SHORT = ['jan.','feb.','mars','apr.','mai','juni','juli','aug.','sep.','okt.','nov.','des.'];
+  const DAYS = ['søndag','mandag','tirsdag','onsdag','torsdag','fredag','lørdag'];
+  const LEVELS = ['hovedsak','topp','kort'];
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const safeUrl = (u) => { try { const x = new URL(u); return x.protocol === 'https:' || x.protocol === 'http:' ? x.href : ''; } catch (e) { return ''; } };
+  const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
+  const pad = (n) => String(n).padStart(2, '0');
+  const parseISO = (s) => { const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(s || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; };
+  const fmtDay = (s) => { const d = parseISO(s); return d ? `${d.getDate()}. ${MONTHS[d.getMonth()]}` : ''; };
+  const fmtShort = (s) => { const d = parseISO(s); return d ? `${d.getDate()}. ${MONTHS_SHORT[d.getMonth()]}` : ''; };
+  const fmtWeekday = (s) => { const d = parseISO(s); return d ? `${DAYS[d.getDay()]} ${d.getDate()}. ${MONTHS[d.getMonth()]}` : ''; };
+  function fmtRange(a, b, short) {
+    const x = parseISO(a), y = parseISO(b);
+    if (!x || !y) return '';
+    const M = short ? MONTHS_SHORT : MONTHS;
+    const yr = short ? '' : ` ${y.getFullYear()}`;
+    if (x.getFullYear() !== y.getFullYear()) return `${x.getDate()}. ${M[x.getMonth()]}${short ? '' : ' ' + x.getFullYear()} – ${y.getDate()}. ${M[y.getMonth()]}${yr}`;
+    if (x.getMonth() !== y.getMonth()) return `${x.getDate()}. ${M[x.getMonth()]} – ${y.getDate()}. ${M[y.getMonth()]}${yr}`;
+    return `${x.getDate()}.–${y.getDate()}. ${M[y.getMonth()]}${yr}`;
+  }
+
+  // ---------- Data ----------
+  const raw = window.NHHS_NYHETER || {};
+  const weeks = (Array.isArray(raw.uker) ? raw.uker : [])
+    .filter((w) => w && Array.isArray(w.saker) && w.saker.length)
+    .map((w) => {
+      const start = parseISO(w.fra);
+      const aar = +w.aar || (start ? start.getFullYear() : 0);
+      const saker = w.saker.map((s, i) => Object.assign({}, s, {
+        id: String(s.id || `sak${i + 1}`),
+        kategori: s.kategori || 'Annet',
+        stikkord: Array.isArray(s.stikkord) ? s.stikkord : [],
+      }));
+      // Nivå: bruk det som står i datafila, ellers 1 hovedsak, 4 toppsaker og resten korte.
+      let lead = false;
+      saker.forEach((s, i) => {
+        if (!LEVELS.includes(s.nivaa)) s.nivaa = i === 0 ? 'hovedsak' : i <= 4 ? 'topp' : 'kort';
+        if (s.nivaa === 'hovedsak') { if (lead) s.nivaa = 'topp'; lead = true; }
+      });
+      if (!lead) saker[0].nivaa = 'hovedsak';
+      // Nummerer i den rekkefølgen sakene vises: hovedsak, toppsaker, korte (stabil sortering).
+      saker.sort((a, b) => LEVELS.indexOf(a.nivaa) - LEVELS.indexOf(b.nivaa));
+      saker.forEach((s, i) => { s.rank = i + 1; });
+      return Object.assign({}, w, { aar, saker, key: `uke-${w.uke}-${aar}` });
+    })
+    .sort((a, b) => (b.aar - a.aar) || (b.uke - a.uke));
+
+  const state = { wi: 0, cat: 'Alle', q: '', tag: false };
+  // Høyden til verktøylinja brukes som scroll-margin, så lenker til saker ikke havner under den.
+  const tb = $('toolbar');
+  const setTbH = () => document.documentElement.style.setProperty('--toolbar-h', `${tb.offsetHeight}px`);
+  const week = () => weeks[state.wi];
+  const catColor = (k) => CATS[k] || '#6E5A4C';
+  const matchesCat = (s) => state.cat === 'Alle' || s.kategori === state.cat;
+  const words = (t) => (String(t || '').trim().match(/\S+/g) || []).length;
+  const readMinutes = (w) => Math.max(1, Math.round(w.saker.reduce((n, s) => n + words(s.tittel) + words(s.ingress) + words(s.hvorfor), 0) / 200));
+
+  // ---------- Byggeklosser ----------
+  // Hardt mellomrom som tusenskille («2 000»), så tall ikke deles over to linjer. Kun visning; dataene og søket bruker vanlig mellomrom.
+  const nb = (h) => String(h).replace(/(\d) (?=\d{3}(?!\d))/g, '$1 ');
+  const txt = (s) => nb(esc(s));
+  const ICON_LINK = '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 9.5l3-3M7 4.5l1.2-1.2a2.8 2.8 0 014 4L11 8.5M9 11.5l-1.2 1.2a2.8 2.8 0 01-4-4L5 7.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+  const catTag = (k) => `<span class="cat" style="--c:${catColor(k)}">${esc(k)}</span>`;
+  const heat = (n) => {
+    n = Math.max(1, Math.min(5, Math.round(+n) || 1));
+    return `<span class="heat" role="img" aria-label="Viktighet ${n} av 5"><span class="heat-lbl" aria-hidden="true">Viktighet</span>${[1, 2, 3, 4, 5].map((i) => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}</span>`;
+  };
+  const srcLink = (s) => {
+    const k = s.kilde || {};
+    const url = safeUrl(k.url);
+    if (!url) return '';
+    return `<a class="src" href="${esc(url)}" target="_blank" rel="noopener"><span class="via">Kilde:</span> ${esc(k.navn || host(url))} <span aria-hidden="true">↗</span></a>`;
+  };
+  const shareBtn = (w, s) => `<button class="share" type="button" data-share="${esc(w.key)}/${esc(s.id)}" data-title="${esc(s.tittel)}" aria-label="Del saken: ${esc(s.tittel)}">${ICON_LINK}Del</button>`;
+  const tags = (s) => s.stikkord.length ? `<ul class="tags" aria-label="Stikkord">${s.stikkord.map((t) => `<li><button class="tag" type="button" data-q="${esc(t)}" title="Søk etter «${esc(t)}» i alle uker">${esc(t)}</button></li>`).join('')}</ul>` : '';
+
+  function leadHTML(w, s) {
+    return `<article class="lead anchor" id="sak-${esc(s.id)}" aria-labelledby="t-${esc(s.id)}">
+      <div class="lead-grid">
+        <div class="lead-main">
+          <div class="meta"><span class="badge">Ukens viktigste</span>${catTag(s.kategori)}<span>${esc(fmtDay(s.dato))}</span></div>
+          <h3 id="t-${esc(s.id)}">${txt(s.tittel)}</h3>
+          <p class="ingress">${txt(s.ingress)}</p>
+          <div class="foot">${srcLink(s)}${shareBtn(w, s)}</div>
+        </div>
+        <aside class="lead-side">
+          <div class="top"><span class="rank">${pad(s.rank)}</span>${heat(s.viktighet || 5)}</div>
+          <div class="why-box"><div class="label">Hvorfor det betyr noe</div><p>${txt(s.hvorfor)}</p></div>
+          ${tags(s)}
+        </aside>
+      </div>
+    </article>`;
+  }
+
+  function cardHTML(w, s) {
+    return `<article class="card anchor" id="sak-${esc(s.id)}" style="--c:${catColor(s.kategori)}" aria-labelledby="t-${esc(s.id)}">
+      <div class="card-top"><span class="rank">${pad(s.rank)}</span>${heat(s.viktighet)}</div>
+      <div class="meta">${catTag(s.kategori)}<span>${esc(fmtDay(s.dato))}</span></div>
+      <h3 id="t-${esc(s.id)}">${txt(s.tittel)}</h3>
+      <p class="ingress">${txt(s.ingress)}</p>
+      <p class="why"><strong>Hvorfor det betyr noe:</strong> ${txt(s.hvorfor)}</p>
+      ${tags(s)}
+      <div class="foot">${srcLink(s)}${shareBtn(w, s)}</div>
+    </article>`;
+  }
+
+  function briefHTML(w, s) {
+    const body = `b-${esc(s.id)}`;
+    return `<div class="brief anchor" id="sak-${esc(s.id)}">
+      <h3 class="brief-h"><button class="brief-btn" type="button" aria-expanded="false" aria-controls="${body}">
+        <span class="brief-rank">${pad(s.rank)}</span>
+        <span class="brief-main">
+          ${catTag(s.kategori)}
+          <span class="brief-title">${txt(s.tittel)}</span>
+          <span class="brief-teaser" aria-hidden="true">${txt(s.ingress)}</span>
+        </span>
+        <span class="brief-date">${esc(fmtShort(s.dato))}</span>
+        <span class="plus" aria-hidden="true"></span>
+      </button></h3>
+      <div class="brief-body" id="${body}" hidden>
+        <span></span>
+        <div class="inner">
+          <p class="ingress">${txt(s.ingress)}</p>
+          <p class="why"><strong>Hvorfor det betyr noe:</strong> ${txt(s.hvorfor)}</p>
+          ${tags(s)}
+          <div class="foot"><span class="mdate">${esc(fmtDay(s.dato))}</span>${srcLink(s)}${shareBtn(w, s)}</div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // Treff må starte på en ordgrense, så «EU» ikke treffer «Reuters» og «AI» ikke treffer «mai».
+  const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const wordRe = (q, flags) => new RegExp(`(^|[^\\p{L}\\p{N}])(${escRe(q)})`, flags);
+
+  // Matcher på råteksten og escaper hver bit for seg, så «&» og anførselstegn aldri blir delt opp.
+  function highlight(text, q) {
+    const s = String(text == null ? '' : text);
+    if (!q) return esc(s);
+    const re = wordRe(q, 'giu');
+    let out = '', last = 0, m;
+    while ((m = re.exec(s))) {
+      const start = m.index + m[1].length;
+      out += esc(s.slice(last, start)) + `<mark>${esc(m[2])}</mark>`;
+      last = start + m[2].length;
+      if (re.lastIndex === m.index) re.lastIndex++;
+    }
+    return out + esc(s.slice(last));
+  }
+
+  // ---------- Rendering ----------
+  function renderHero(w) {
+    const latest = state.wi === 0;
+    $('hero-week').textContent = `Uke ${w.uke} · ${fmtRange(w.fra, w.til)}`;
+    const note = $('archive-note');
+    note.hidden = latest;
+    if (!latest) { note.href = `#${weeks[0].key}`; note.innerHTML = `Du leser arkivet. Gå til siste utgave (uke ${weeks[0].uke}) <span aria-hidden="true">→</span>`; }
+    $('hero-grid').hidden = false;
+    $('summary').textContent = nb(w.oppsummering || '');
+    const more = $('summary-more');
+    more.setAttribute('aria-expanded', 'false');
+    more.textContent = 'Les hele oppsummeringen';
+    updateSummaryClamp();
+    const meta = [`${w.saker.length} saker`, `Ca. ${readMinutes(w)} min lesing`];
+    const pub = w.publisert || (latest ? raw.oppdatert : '') || '';
+    if (pub) meta.push(`Publisert ${fmtWeekday(pub)}`);
+    $('hero-meta').innerHTML = meta.map((m) => `<span>${esc(m)}</span>`).join('');
+    const t = w.ukensTall;
+    const stat = $('stat');
+    const target = t && w.saker.find((s) => s.id === String(t.sakId));
+    stat.hidden = !(t && t.tall);
+    if (t && t.tall) {
+      $('stat-num').textContent = t.tall;
+      $('stat-text').textContent = nb(t.tekst || '');
+      stat.href = target ? `#${w.key}/${target.id}` : `#${w.key}`;
+      stat.querySelector('.stat-link').hidden = !target;
+    }
+  }
+
+  function renderToolbar(w) {
+    const sel = $('week-select');
+    sel.innerHTML = weeks.map((x, i) => `<option value="${i}"${i === state.wi ? ' selected' : ''}>Uke ${x.uke}${x.aar !== weeks[0].aar ? ` ${x.aar}` : ''}</option>`).join('');
+    sel.title = fmtRange(w.fra, w.til);
+    const prev = $('prev-week'), next = $('next-week');
+    const older = weeks[state.wi + 1], newer = weeks[state.wi - 1];
+    prev.href = older ? `#${older.key}` : '#';
+    prev.setAttribute('aria-disabled', String(!older));
+    prev.setAttribute('aria-label', older ? `Forrige uke (uke ${older.uke})` : 'Ingen eldre uker');
+    next.href = newer ? `#${newer.key}` : '#';
+    next.setAttribute('aria-disabled', String(!newer));
+    next.setAttribute('aria-label', newer ? `Neste uke (uke ${newer.uke})` : 'Ingen nyere uker');
+
+    const pool = searching() ? searchPool(false) : w.saker;
+    const counts = {};
+    pool.forEach((x) => { const s = x.s || x; counts[s.kategori] = (counts[s.kategori] || 0) + 1; });
+    const cats = Object.keys(CATS).concat(Object.keys(counts).filter((k) => !CATS[k]));
+    if (state.cat !== 'Alle' && !cats.includes(state.cat)) cats.push(state.cat);
+    const chips = $('chips');
+    const scroll = chips.scrollLeft;
+    chips.innerHTML = [`<button class="chip" type="button" data-cat="Alle" aria-pressed="${state.cat === 'Alle'}">Alle</button>`]
+      .concat(cats.filter((k) => counts[k] || k === state.cat).map((k) => `<button class="chip" type="button" data-cat="${esc(k)}" aria-pressed="${state.cat === k}" style="--c:${catColor(k)}" title="${counts[k] || 0} ${counts[k] === 1 ? 'sak' : 'saker'}"><i aria-hidden="true"></i>${esc(k)}</button>`))
+      .join('');
+    chips.scrollLeft = scroll;
+    updateChipFade();
+  }
+
+  // På mobil kortes oppsummeringen ned til fem linjer, med en knapp for å vise resten.
+  // Mål alltid med avkortingen på, og legg tilbake brukerens valg etterpå. Da skjules knappen
+  // på brede skjermer (der det ikke er noe å korte ned), også om teksten er utvidet.
+  function updateSummaryClamp() {
+    const p = $('summary'), btn = $('summary-more');
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    p.classList.add('clamp');
+    btn.hidden = !(p.scrollHeight > p.clientHeight + 2);
+    p.classList.toggle('clamp', !open);
+  }
+
+  function updateChipFade() {
+    const c = $('chips');
+    c.classList.toggle('fade-l', c.scrollLeft > 4);
+    c.classList.toggle('fade-r', c.scrollLeft + c.clientWidth < c.scrollWidth - 4);
+  }
+
+  // Skaler «Ukens tall» ned til det får plass på én linje.
+  function fitStat() {
+    const el = $('stat-num');
+    if (!el || $('stat').hidden) return;
+    el.style.fontSize = '';
+    let size = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.clientWidth + 1 && size > 26) {
+      size -= 2;
+      el.style.fontSize = `${size}px`;
+    }
+  }
+
+  // Stikkord-klikk gir eksakt treff på stikkordet; fritekst må være minst to tegn.
+  const searching = () => (state.tag ? state.q.trim().length > 0 : state.q.trim().length >= 2);
+  function searchPool(applyCat) {
+    const q = state.q.trim();
+    const lq = q.toLowerCase();
+    const re = wordRe(q, 'iu');
+    const out = [];
+    weeks.forEach((w) => w.saker.forEach((s) => {
+      // Et stikkord som også er et kategorinavn («Regulering»), treffer hele kategorien.
+      const hit = state.tag
+        ? s.stikkord.some((t) => String(t).toLowerCase() === lq) || String(s.kategori).toLowerCase() === lq
+        : re.test([s.tittel, s.ingress, s.hvorfor, s.kategori, s.stikkord.join(' · ')].join(' · '));
+      if (hit && (!applyCat || matchesCat(s))) out.push({ w, s });
+    }));
+    return out;
+  }
+
+  function renderResults() {
+    const q = state.q.trim();
+    const hits = searchPool(true);
+    const catTxt = state.cat === 'Alle' ? '' : ` i kategorien ${state.cat}`;
+    const what = state.tag ? `med stikkordet «${q}»` : `om «${q}»`;
+    const msg = hits.length
+      ? `${hits.length} ${hits.length === 1 ? 'sak' : 'saker'} ${what}${catTxt} i ${weeks.length === 1 ? 'denne uka' : weeks.length === 2 ? 'begge ukene' : `alle ${weeks.length} ukene`}.`
+      : `Ingen saker ${what}${catTxt}. Prøv et annet ord, for eksempel et selskapsnavn.`;
+    $('results-note').textContent = msg;
+    announce(msg);
+    $('results').innerHTML = hits.map(({ w, s }) => `<a class="result" href="#${esc(w.key)}/${esc(s.id)}">
+        <span class="wk">Uke ${w.uke}</span>
+        <span class="brief-main">${catTag(s.kategori)}<span class="brief-title">${nb(highlight(s.tittel, q))}</span><span class="brief-teaser" style="-webkit-line-clamp:2">${nb(highlight(s.ingress, q))}</span></span>
+        <span class="go">Les <span aria-hidden="true">→</span></span>
+      </a>`).join('');
+  }
+
+  function renderWeek(w) {
+    const vis = w.saker.filter(matchesCat);
+    const lead = vis.filter((s) => s.nivaa === 'hovedsak');
+    const top = vis.filter((s) => s.nivaa === 'topp');
+    const brief = vis.filter((s) => s.nivaa === 'kort');
+    $('sec-lead').hidden = !lead.length;
+    $('sec-top').hidden = !top.length;
+    $('sec-briefs').hidden = !brief.length;
+    $('lead').innerHTML = lead.map((s) => leadHTML(w, s)).join('');
+    $('top').innerHTML = top.map((s) => cardHTML(w, s)).join('');
+    $('briefs').innerHTML = brief.map((s) => briefHTML(w, s)).join('');
+    $('sec-empty').hidden = vis.length > 0;
+    if (!vis.length) $('empty-text').textContent = `Ingen saker i kategorien ${state.cat} i uke ${w.uke}. Prøv en annen kategori eller en annen uke.`;
+  }
+
+  function renderArchive() {
+    $('archive').innerHTML = weeks.map((w, i) => {
+      const lead = w.saker.find((s) => s.nivaa === 'hovedsak') || w.saker[0];
+      const cur = i === state.wi;
+      return `<a class="arch-card" href="#${esc(w.key)}" aria-current="${cur}">
+        <div class="arch-top"><span class="arch-week">Uke ${w.uke}</span>${i === 0 ? '<span class="arch-now">Siste</span>' : ''}</div>
+        <span class="arch-range">${esc(fmtRange(w.fra, w.til))}</span>
+        <span class="arch-title">${txt(lead.tittel)}</span>
+        <span class="arch-count">${w.saker.length} saker${cur ? ' · leser nå' : ''}</span>
+      </a>`;
+    }).join('');
+  }
+
+  function render() {
+    const w = week();
+    const s = searching();
+    renderHero(w);
+    renderToolbar(w);
+    $('sec-results').hidden = !s;
+    if (s) {
+      ['sec-lead', 'sec-top', 'sec-briefs', 'sec-empty'].forEach((id) => { $(id).hidden = true; });
+      renderResults();
+    } else {
+      renderWeek(w);
+    }
+    $('clear').hidden = !state.q;
+    $('q').parentNode.classList.toggle('has-q', !!state.q);
+    renderArchive();
+    fitStat();
+    setTbH();
+    document.title = state.wi === 0 ? 'Nyheter — NHHS AI' : `Nyheter uke ${w.uke} — NHHS AI`;
+  }
+
+  // ---------- Navigasjon ----------
+  function parseHash() {
+    let h = '';
+    try { h = decodeURIComponent(location.hash.slice(1)); } catch (e) { h = location.hash.slice(1); }
+    const m = /^uke-(\d{1,2})-(\d{4})(?:\/(.+))?$/.exec(h);
+    if (!m) return null;
+    const wi = weeks.findIndex((w) => w.uke === +m[1] && w.aar === +m[2]);
+    return wi < 0 ? null : { wi, story: m[3] || null };
+  }
+
+  function scrollToEl(el, smooth) {
+    el.scrollIntoView({ behavior: smooth && !reduceMotion ? 'smooth' : 'instant', block: 'start' });
+  }
+
+  function setBrief(el, open) {
+    const btn = el.querySelector('.brief-btn');
+    const body = el.querySelector('.brief-body');
+    if (!btn || !body) return;
+    el.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    body.hidden = !open;
+  }
+
+  // Gi et element fokus uten å scrolle (scrollingen styres separat). Elementer som ikke er
+  // fokuserbare fra før, får tabindex="-1".
+  function giveFocus(el) {
+    if (!el) return;
+    if (!el.matches('a[href], button, input, select, textarea') && !el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+  }
+
+  function focusStory(id, smooth, moveFocus) {
+    const el = document.getElementById(`sak-${id}`);
+    if (!el) return;
+    if (el.classList.contains('brief')) setBrief(el, true);
+    scrollToEl(el, smooth);
+    // Flytt fokus til saken (knappen i en kort sak, ellers overskriften), så tastatur og skjermleser følger med.
+    if (moveFocus) giveFocus(el.querySelector('.brief-btn') || el.querySelector('h3') || el);
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
+  }
+
+  // Hopp til et vanlig anker (#arkiv, #innhold) uten å røre uke-ruten, og flytt fokus dit.
+  function jumpTo(el, smooth) {
+    scrollToEl(el, smooth);
+    giveFocus(el);
+  }
+
+  // Skjermleservarsler går via en statusregion som alltid finnes i DOM-en.
+  let statusTimer;
+  function announce(msg) {
+    clearTimeout(statusTimer);
+    const s = $('status');
+    s.textContent = '';
+    statusTimer = setTimeout(() => { s.textContent = msg; }, 80);
+  }
+
+  const clearSearch = () => { if (state.q) { state.q = ''; state.tag = false; $('q').value = ''; } };
+
+  let first = true;
+  function applyHash(force) {
+    if (!weeks.length) return;
+    const frag = location.hash.slice(1);
+    const isRoute = /^uke-/.test(frag);
+    if (!first && frag && !isRoute) {
+      // Andre fragmenter (#arkiv, #innhold) er vanlige ankre, ikke et ønske om å bytte uke.
+      // Kommer man hit med Tilbake-knappen, vises siste uke, slik en ny innlasting av adressen ville gjort.
+      if (state.wi !== 0 || state.q) {
+        state.wi = 0;
+        clearSearch();
+        render();
+        const el = document.getElementById(frag);
+        if (el) scrollToEl(el, false);
+      }
+      return;
+    }
+    const h = isRoute ? parseHash() : null;
+    const wi = h ? h.wi : 0;
+    const changedWeek = wi !== state.wi;
+    const fromToolbar = tb.contains(document.activeElement);
+    state.wi = wi;
+    clearSearch();
+    if (h && h.story) {
+      const s = weeks[wi].saker.find((x) => x.id === h.story);
+      if (s && !matchesCat(s)) state.cat = 'Alle';
+    }
+    render();
+    const w = week();
+    if (changedWeek && !first) announce(`Viser uke ${w.uke}, ${fmtRange(w.fra, w.til)}. ${w.saker.length} saker.`);
+    if (h && h.story) focusStory(h.story, !first, !first);
+    else if ((changedWeek || force) && !first) {
+      if (fromToolbar) {
+        // Byttet fra verktøylinja: behold fokus der, og vis starten av innholdet rett under den.
+        if (tb.getBoundingClientRect().top <= 1) scrollToEl($('innhold'), true);
+      } else {
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'instant' : 'smooth' });
+        giveFocus($('hero-week'));
+      }
+    } else if (first && frag && !isRoute) {
+      const el = document.getElementById(frag);
+      if (el) scrollToEl(el, false);
+    }
+    first = false;
+  }
+
+  function setQuery(q, scroll, tag) {
+    state.q = q;
+    state.tag = !!tag && !!q;
+    $('q').value = q;
+    render();
+    if (scroll && searching()) scrollToEl($('sec-results'), true);
+  }
+
+  // ---------- Deling ----------
+  let toastTimer;
+  function toast(msg) {
+    const t = $('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  async function share(path, title) {
+    const url = location.href.split('#')[0] + (path ? `#${path}` : '');
+    const coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    if (navigator.share && coarse) {
+      try { await navigator.share({ title, url }); return; } catch (e) { if (e && e.name === 'AbortError') return; }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      toast('Lenken er kopiert');
+    } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      ta.remove();
+      toast(ok ? 'Lenken er kopiert' : url);
+    }
+  }
+
+  // ---------- Hendelser ----------
+  document.addEventListener('click', (e) => {
+    // Interne lenker: lenker til samme uke/sak som allerede står i adressen gir ingen hashchange,
+    // og vanlige ankre skal ikke bytte uke.
+    const a = e.target.closest('a[href^="#"]');
+    if (a && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && !a.matches('.icon-btn[aria-disabled="true"]')) {
+      const href = a.getAttribute('href');
+      if (href.startsWith('#uke-')) {
+        if (a.hash === location.hash) { e.preventDefault(); applyHash(true); }
+        return;
+      }
+      const target = href.length > 1 && document.getElementById(href.slice(1));
+      if (target) { e.preventDefault(); jumpTo(target, true); return; }
+    }
+    const t = e.target.closest('[data-cat],[data-q],[data-share],.brief-btn,#reset-filters,#share-week,.icon-btn[aria-disabled="true"]');
+    if (!t) return;
+    if (t.matches('.icon-btn')) { e.preventDefault(); return; }
+    if (t.dataset.cat) {
+      state.cat = t.dataset.cat;
+      render();
+      const chip = document.querySelector(`.chip[data-cat="${CSS.escape(state.cat)}"]`);
+      if (chip) { chip.focus({ preventScroll: true }); chip.scrollIntoView({ block: 'nearest', inline: 'nearest' }); }
+      // Vis starten av de filtrerte sakene rett under verktøylinja, også når man har scrollet langt ned
+      // (ellers kan en kortere liste ende over skjermkanten).
+      if (Math.abs($('innhold').getBoundingClientRect().top - tb.offsetHeight) > 1) scrollToEl($('innhold'), true);
+    } else if (t.dataset.q) {
+      setQuery(t.dataset.q, true, true);
+      giveFocus($('results-title'));
+    } else if (t.dataset.share) {
+      share(t.dataset.share, t.dataset.title || 'NHHS AI Nyheter');
+    } else if (t.matches('.brief-btn')) {
+      const el = t.closest('.brief');
+      setBrief(el, t.getAttribute('aria-expanded') !== 'true');
+    } else if (t.id === 'reset-filters') {
+      state.cat = 'Alle';
+      setQuery('', false);
+      giveFocus(document.querySelector('.chip[data-cat="Alle"]'));
+    } else if (t.id === 'share-week') {
+      const w = week();
+      share(w ? w.key : '', w ? `NHHS AI Nyheter – uke ${w.uke}` : 'NHHS AI Nyheter');
+    }
+  });
+
+  $('summary-more').addEventListener('click', (e) => {
+    const btn = e.currentTarget;
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    $('summary').classList.toggle('clamp', !open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? 'Vis mindre' : 'Les hele oppsummeringen';
+  });
+
+  // Valg i nedtrekkslista erstatter historikken i stedet for å legge til et steg per piltast.
+  $('week-select').addEventListener('change', (e) => {
+    history.replaceState(null, '', `#${weeks[+e.target.value].key}`);
+    applyHash();
+  });
+
+  let qTimer;
+  $('q').addEventListener('input', (e) => {
+    clearTimeout(qTimer);
+    qTimer = setTimeout(() => {
+      const wasSearching = searching();
+      state.q = e.target.value;
+      state.tag = false;
+      render();
+      if (!wasSearching && searching()) scrollToEl($('sec-results'), true);
+    }, 120);
+  });
+  $('q').addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { setQuery('', false); }
+    if (e.key === 'Enter') { e.preventDefault(); if (searching()) scrollToEl($('sec-results'), true); }
+  });
+  $('clear').addEventListener('click', () => { setQuery('', false); $('q').focus(); });
+  window.addEventListener('hashchange', () => applyHash());
+
+  // Søkefeltet er kompakt på store skjermer og utvides når det får fokus.
+  const q = $('q');
+  const wide = window.matchMedia('(min-width: 761px)');
+  const setPlaceholder = () => { q.placeholder = document.activeElement === q && wide.matches ? 'Søk i alle uker' : 'Søk'; };
+  q.addEventListener('focus', setPlaceholder);
+  q.addEventListener('blur', setPlaceholder);
+  if (wide.addEventListener) wide.addEventListener('change', setPlaceholder);
+  setPlaceholder();
+
+  // Kategoriraden kan rulles sidelengs, også med vanlig musehjul.
+  const chips = $('chips');
+  chips.addEventListener('scroll', updateChipFade, { passive: true });
+  chips.addEventListener('wheel', (e) => {
+    // Gi hjulet tilbake til siden når raden ikke kan rulle lenger i den retningen.
+    if (e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    const max = chips.scrollWidth - chips.clientWidth;
+    if (max <= 0) return;
+    if ((e.deltaY > 0 && chips.scrollLeft >= max - 1) || (e.deltaY < 0 && chips.scrollLeft <= 0)) return;
+    e.preventDefault();
+    chips.scrollLeft += e.deltaY;
+  }, { passive: false });
+
+  if (window.ResizeObserver) new ResizeObserver(setTbH).observe(tb);
+  setTbH();
+  let rTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(rTimer);
+    rTimer = setTimeout(() => { setTbH(); updateChipFade(); fitStat(); updateSummaryClamp(); }, 100);
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { fitStat(); updateChipFade(); });
+
+  $('year').textContent = String(new Date().getFullYear());
+
+  if (!weeks.length) {
+    ['sec-lead', 'sec-top', 'sec-briefs'].forEach((id) => { $(id).hidden = true; });
+    $('sec-empty').hidden = false;
+    $('empty-text').textContent = 'Den første utgaven kommer snart. Kom tilbake på fredag!';
+    $('reset-filters').hidden = true;
+    tb.hidden = true;
+    $('arkiv').hidden = true;
+    return;
+  }
+  applyHash();
+};
+</script>
+<script>
+// Datafila hentes med et tidsstempel (skifter hvert 10. minutt), så nye utgaver vises med en gang
+// i stedet for en gammel kopi fra nettleserens hurtigbuffer.
+(function () {
+  var s = document.createElement('script');
+  s.src = 'nyheter-data.js?t=' + Math.floor(Date.now() / 6e5);
+  s.onload = s.onerror = function () { window.startNyheter(); };
+  document.body.appendChild(s);
+})();
+</script>
+</body>
+</html>
