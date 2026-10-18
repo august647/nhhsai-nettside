@@ -1,21 +1,36 @@
 name: Ukentlig nyhetsutgave
 
-# Kjører hver lørdag kl. 00.00 UTC, altså natt til lørdag (02.00 sommertid og 01.00 vintertid i Norge).
-# Claude (Opus 5.5) finner, faktasjekker og skriver ukens AI-nyheter. Resultatet legges i
-# public/nyheter-data.js og pushes til main, og Netlify publiserer siden automatisk.
+# Hovedjobben er den planlagte oppgaven i Claude (natt til lørdag kl. 01.48 norsk tid).
+# Denne jobben er reserveløsning og manuell knapp. Den kjører lørdag kl. 04.00 UTC (06.00 sommertid,
+# 05.00 vintertid) og gjør ingenting hvis uka allerede er publisert.
+#
+# Innlogging. Med «auto» brukes den første som finnes:
+#   1. Abonnement: secret CLAUDE_CODE_OAUTH_TOKEN (lages med «claude setup-token»).
+#      Claude Code kjører utgaven og bruker Claude Pro-abonnementet ditt.
+#   2. API: secret ANTHROPIC_API_KEY. verktoy/nyheter_agenter.mjs kjører utgaven og belaster API-kontoen.
+# Du kan tvinge ett av dem med knappen «Run workflow», eller med repo-variabelen NYHETER_METODE
+# (abonnement eller api). Modellen for abonnement kan byttes med repo-variabelen NYHETER_MODELL.
 #
 # Manuell kjøring: Actions, «Ukentlig nyhetsutgave», Run workflow. Tørrkjøring er på som standard
 # og publiserer ingenting. Fjern haken for å publisere.
 
 on:
   schedule:
-    - cron: '0 0 * * 6'
+    - cron: '0 4 * * 6'
   workflow_dispatch:
     inputs:
       dry_run:
         description: 'Tørrkjøring: lag utgaven, men ikke publiser'
         type: boolean
         default: true
+      metode:
+        description: 'Innlogging: auto velger abonnement hvis token finnes, ellers API-nøkkel'
+        type: choice
+        options:
+          - auto
+          - abonnement
+          - api
+        default: auto
       dato:
         description: 'Dato utgaven lages for (ÅÅÅÅ-MM-DD). La stå tom for i dag.'
         type: string
@@ -35,9 +50,8 @@ concurrency:
 jobs:
   utgave:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 150
     env:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       MODEL: claude-opus-5-5
       MAX_COST_USD: '30'
       CONCURRENCY: '4'
@@ -75,8 +89,87 @@ jobs:
         run: |
           echo "Uka finnes allerede i public/nyheter-data.js. Ingenting å gjøre." | tee -a "$GITHUB_STEP_SUMMARY"
 
-      - name: Lag utgaven med Claude
+      - name: Velg innlogging
+        id: metode
         if: steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true'
+        env:
+          HAR_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' && 'ja' || 'nei' }}
+          HAR_NOKKEL: ${{ secrets.ANTHROPIC_API_KEY != '' && 'ja' || 'nei' }}
+          VALGT: ${{ inputs.metode || vars.NYHETER_METODE || 'auto' }}
+        run: |
+          case "$VALGT" in
+            abonnement) M=abonnement ;;
+            api) M=api ;;
+            *)
+              if [ "$HAR_TOKEN" = ja ]; then M=abonnement
+              elif [ "$HAR_NOKKEL" = ja ]; then M=api
+              else M=ingen
+              fi ;;
+          esac
+          if [ "$M" = ingen ]; then
+            echo "::error::Uka mangler, men ingen innlogging er satt opp. Legg inn secret CLAUDE_CODE_OAUTH_TOKEN (abonnement) eller ANTHROPIC_API_KEY (API) under Settings, Secrets and variables, Actions."
+            exit 1
+          fi
+          if [ "$M" = abonnement ] && [ "$HAR_TOKEN" != ja ]; then
+            echo "::error::Abonnement er valgt, men secret CLAUDE_CODE_OAUTH_TOKEN mangler."
+            exit 1
+          fi
+          if [ "$M" = api ] && [ "$HAR_NOKKEL" != ja ]; then
+            echo "::error::API er valgt, men secret ANTHROPIC_API_KEY mangler."
+            exit 1
+          fi
+          echo "metode=$M" >> "$GITHUB_OUTPUT"
+          echo "Innlogging: $M" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Installer Claude Code
+        if: steps.metode.outputs.metode == 'abonnement'
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude --version
+
+      - name: Lag utgaven med Claude (abonnement)
+        if: steps.metode.outputs.metode == 'abonnement'
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          MODELL: ${{ vars.NYHETER_MODELL || 'claude-opus-5-5' }}
+        run: |
+          set -o pipefail
+          # En API-nøkkel i miljøet går foran abonnementet, så den fjernes for sikkerhets skyld.
+          unset ANTHROPIC_API_KEY ANTHROPIC_AUTH_TOKEN
+          rm -f uke.json
+          # Bash er bare åpnet for hjelpeverktøyet. Alt som ikke står i --allowedTools nektes (dontAsk).
+          KODE=0
+          claude -p "$(cat verktoy/nyheter_prompt.md)" \
+            --model "$MODELL" \
+            --permission-mode dontAsk \
+            --allowedTools "Read,Write,Edit,Glob,Grep,Agent,ToolSearch,WebSearch,WebFetch,Bash(python3 verktoy/nyheter_verktoy.py *)" \
+            --output-format stream-json --verbose > claude-logg.jsonl || KODE=$?
+          SISTE=$(jq -c 'select(.type=="result")' claude-logg.jsonl | tail -n 1)
+          if [ -z "$SISTE" ]; then
+            echo "::error::Fant ingen resultat i loggen fra Claude. Se claude-logg.jsonl under Artifacts."
+            exit 1
+          fi
+          echo "$SISTE" | jq -r '.result // ""' > rapport.md
+          {
+            echo "### Claude (abonnement), modell $MODELL"
+            echo
+            echo "Turer: $(echo "$SISTE" | jq -r '.num_turns // "?"'). Nektede verktøykall: $(echo "$SISTE" | jq -r '(.permission_denials // []) | length')."
+            echo
+            cat rapport.md
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$KODE" != 0 ] || [ "$(echo "$SISTE" | jq -r '.is_error')" != "false" ]; then
+            echo "::error::Claude avsluttet med feil (kode $KODE). Hvis meldingen handler om grense, er abonnementets bruksgrense nådd. Se oppsummeringen."
+            exit 1
+          fi
+          if [ ! -s uke.json ]; then
+            echo "::error::Claude lagde ikke uke.json. Se rapporten i oppsummeringen."
+            exit 1
+          fi
+
+      - name: Lag utgaven med Claude (API)
+        if: steps.metode.outputs.metode == 'api'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           set -o pipefail
           node verktoy/nyheter_agenter.mjs --args args.json --ut uke.json --rapport rapport.md 2>&1 | tee konsoll.txt
@@ -115,6 +208,7 @@ jobs:
             rapport.md
             logg.txt
             konsoll.txt
+            claude-logg.jsonl
             args.json
           if-no-files-found: ignore
           retention-days: 30

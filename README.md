@@ -9,27 +9,43 @@ Nettsiden til NHHS AI (nhhsai.no). Netlify henter siden fra dette repoet og publ
 | `public/` | Selve nettsiden: forside, nyhetsside, bilder og datafil |
 | `public/nyheter-data.js` | Alle nyhetssakene. Det er bare denne fila som endres hver uke |
 | `verktoy/nyheter_verktoy.py` | Sjekker datafila og legger inn nye uker |
+| `verktoy/nyheter_prompt.md` | Arbeidsinstruksen Claude Code får når utgaven lages med abonnement |
 | `verktoy/nyheter_agenter.mjs` | Kjører workflowen med Claude API (Opus 5.5), nettsøk og kostnadsgrense |
-| `.github/workflows/nyheter-ukentlig.yml` | Tidsplan og publisering: natt til lørdag, med tørrkjøring |
+| `.github/workflows/nyheter-ukentlig.yml` | Reserveløsning og manuell knapp i GitHub, med tørrkjøring. Velger abonnement eller API |
 | `.claude/workflows/nyheter-ukentlig.js` | Beskriver hvordan en ukes nyheter blir funnet, faktasjekket og skrevet |
 | `netlify.toml` | Sier at Netlify skal publisere `public` og hoppe over bygg når `public` ikke er endret |
 
 ## Ukentlig oppdatering
 
-GitHub Actions (`.github/workflows/nyheter-ukentlig.yml`) kjører hver lørdag kl. 00.00 UTC, altså natt til lørdag (02.00 sommertid og 01.00 vintertid i Norge). Den starter `verktoy/nyheter_agenter.mjs`, som kjører `.claude/workflows/nyheter-ukentlig.js` med Claude Opus 5.5 via API-et: sju researchere, sammenslåing, faktasjekk, redaktør, korrektur og kodekontroll. Når `sjekk` er grønn, pushes `public/nyheter-data.js` til `main`, og Netlify publiserer siden.
+Det er to ting som kan lage utgaven. Begge hopper over uka hvis den allerede finnes i datafila.
 
-Oppsett (gjøres én gang):
+1. **Planlagt oppgave i Claude (hovedjobben).** Kjører natt til lørdag kl. 01.48 norsk tid, bruker Claude-abonnementet og trenger ingen nøkler. Den henter dette repoet, lager utgaven med subagenter og nettsøk, kjører `sjekk` og pusher `public/nyheter-data.js` til `main`.
+2. **GitHub Actions (`.github/workflows/nyheter-ukentlig.yml`).** Reserveløsning og manuell knapp. Kjører lørdag kl. 04.00 UTC (06.00 sommertid, 05.00 vintertid) og gjør ingenting hvis hovedjobben har levert. Den kan logge inn på to måter:
+   - **Abonnement** (secret `CLAUDE_CODE_OAUTH_TOKEN`): Claude Code kjører utgaven etter instruksen i `verktoy/nyheter_prompt.md`. Bruker Claude Pro-abonnementet, ingen API-kostnad.
+   - **API** (secret `ANTHROPIC_API_KEY`): `verktoy/nyheter_agenter.mjs` kjører `.claude/workflows/nyheter-ukentlig.js` med Claude Opus 5.5 via API-et. Belaster API-kontoen.
+
+Er begge secrets satt, velges abonnement. Du kan tvinge ett av dem med knappen «Run workflow», eller med repo-variabelen `NYHETER_METODE` (`abonnement` eller `api`). Modellen for abonnement er `claude-opus-5-5` og kan byttes med repo-variabelen `NYHETER_MODELL`, for eksempel til `claude-sonnet-5-5` hvis bruksgrensen i abonnementet blir for trang.
+
+### Oppsett med abonnement (gjøres én gang)
+
+1. Installer Claude Code på PC-en din. I PowerShell: `irm https://claude.ai/install.ps1 | iex`. Åpne et nytt PowerShell-vindu og sjekk at `claude --version` virker.
+2. Kjør `claude setup-token`, logg inn i nettleseren med Claude-kontoen din og kopier tokenet som skrives ut. Tokenet gjelder i ett år og vises bare én gang.
+3. Legg tokenet inn i repoet som secret: Settings, Secrets and variables, Actions, New repository secret. Navn: `CLAUDE_CODE_OAUTH_TOKEN`.
+4. Kjør en tørrkjøring: Actions, Ukentlig nyhetsutgave, Run workflow, la «Tørrkjøring» stå på. Les `uke.json` og `rapport.md` under Artifacts. Ingenting publiseres.
+
+Abonnementet har en bruksgrense per fem timer og per uke, delt med claude.ai. Hvor mye en utgave bruker, er ikke målt ennå. Treffer jobben grensen, feiler den uten å publisere, og GitHub sender e-post.
+
+### Oppsett med API
 
 1. Lag en API-nøkkel i Claude Console (platform.claude.com) og sørg for at kontoen har kreditt.
-2. Legg nøkkelen inn i repoet som secret: Settings, Secrets and variables, Actions, New repository secret. Navn: `ANTHROPIC_API_KEY`.
-3. Kjør en tørrkjøring: Actions, Ukentlig nyhetsutgave, Run workflow. Tørrkjøring er på som standard og publiserer ingenting. Les `uke.json` og `rapport.md` under Artifacts.
-4. Fjern haken for tørrkjøring når du er fornøyd, eller la lørdagskjøringen gjøre jobben.
+2. Legg nøkkelen inn som secret `ANTHROPIC_API_KEY`.
+3. Kjør en tørrkjøring som over.
 
 Kostnaden estimeres i oppsummeringen for hver kjøring. Skriptet stopper av seg selv hvis estimatet går over `MAX_COST_USD` (30 USD, endres i workflow-fila). Modellen kan byttes med `MODEL`.
 
-Feiler en kjøring, blir ingenting publisert, og GitHub sender e-post. Loggen ligger under Artifacts.
+### Når noe feiler
 
-Uka hoppes over hvis den allerede finnes i datafila. Det betyr også at en planlagt oppgave i Claude som publiserer før kl. 00.00 UTC kan overta jobben. Bare én av de to bør være slått på.
+Feiler en kjøring, blir ingenting publisert, og GitHub sender e-post. Loggen ligger under Artifacts. Mangler uka og ingen innlogging er satt opp, feiler jobben med en tydelig melding.
 
 ## Kjøre sjekken selv
 
