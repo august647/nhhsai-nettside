@@ -1,0 +1,120 @@
+name: Ukentlig nyhetsutgave
+
+# Kjører hver lørdag kl. 00.00 UTC, altså natt til lørdag (02.00 sommertid og 01.00 vintertid i Norge).
+# Claude (Opus 5.5) finner, faktasjekker og skriver ukens AI-nyheter. Resultatet legges i
+# public/nyheter-data.js og pushes til main, og Netlify publiserer siden automatisk.
+#
+# Manuell kjøring: Actions, «Ukentlig nyhetsutgave», Run workflow. Tørrkjøring er på som standard
+# og publiserer ingenting. Fjern haken for å publisere.
+
+on:
+  schedule:
+    - cron: '0 0 * * 6'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Tørrkjøring: lag utgaven, men ikke publiser'
+        type: boolean
+        default: true
+      dato:
+        description: 'Dato utgaven lages for (ÅÅÅÅ-MM-DD). La stå tom for i dag.'
+        type: string
+        required: false
+      overskriv:
+        description: 'Lag utgaven på nytt selv om uka allerede finnes'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nyheter-ukentlig
+  cancel-in-progress: false
+
+jobs:
+  utgave:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      MODEL: claude-opus-5-5
+      MAX_COST_USD: '30'
+      CONCURRENCY: '4'
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+      DATO: ${{ github.event_name == 'workflow_dispatch' && inputs.dato || '' }}
+      OVERSKRIV: ${{ github.event_name == 'workflow_dispatch' && inputs.overskriv && 'true' || 'false' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Finn uka
+        id: uke
+        run: |
+          IDAG="$DATO"
+          if [ -z "$IDAG" ]; then IDAG=$(TZ=Europe/Oslo date +%F); fi
+          python3 verktoy/nyheter_verktoy.py neste-uke "$IDAG" --ut args.json
+          python3 verktoy/nyheter_verktoy.py sjekk
+          FINNES=$(python3 - <<'EOF'
+          import json, sys
+          sys.path.insert(0, 'verktoy')
+          import nyheter_verktoy as v
+          a = json.load(open('args.json', encoding='utf-8-sig'))
+          d = v.les()
+          print('true' if any((w['uke'], w['aar']) == (a['uke'], a['aar']) for w in d['uker']) else 'false')
+          EOF
+          )
+          echo "finnes=$FINNES" >> "$GITHUB_OUTPUT"
+          echo "Uke $(python3 -c "import json; a=json.load(open('args.json', encoding='utf-8-sig')); print(a['uke'], a['aar'])"), finnes allerede: $FINNES"
+
+      - name: Hopp over hvis uka allerede er publisert
+        if: steps.uke.outputs.finnes == 'true' && env.OVERSKRIV != 'true'
+        run: |
+          echo "Uka finnes allerede i public/nyheter-data.js. Ingenting å gjøre." | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Lag utgaven med Claude
+        if: steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true'
+        run: |
+          set -o pipefail
+          node verktoy/nyheter_agenter.mjs --args args.json --ut uke.json --rapport rapport.md 2>&1 | tee konsoll.txt
+          cat rapport.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Legg inn og sjekk
+        if: steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true'
+        run: |
+          python3 verktoy/nyheter_verktoy.py legg-til uke.json
+          python3 verktoy/nyheter_verktoy.py sjekk
+          git --no-pager diff --stat
+
+      - name: Publiser til main
+        if: (steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true') && env.DRY_RUN != 'true'
+        run: |
+          UKE=$(python3 -c "import json; a=json.load(open('args.json', encoding='utf-8-sig')); print(a['uke'], a['aar'])")
+          git config user.name "NHHS AI nyhetsrobot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/nyheter-data.js
+          git commit -m "Nyhetsutgave uke $UKE"
+          git push
+          echo "Publisert: uke $UKE. Netlify bygger siden på nytt." | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Tørrkjøring ferdig
+        if: (steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true') && env.DRY_RUN == 'true'
+        run: |
+          echo "Tørrkjøring: ingenting er publisert. Last ned «utgave» under Artifacts for å lese uke.json." | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Lagre resultat og logg
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: utgave
+          path: |
+            uke.json
+            rapport.md
+            logg.txt
+            konsoll.txt
+            args.json
+          if-no-files-found: ignore
+          retention-days: 30
