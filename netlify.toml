@@ -1,0 +1,3 @@
+# Netlify: ren statisk nettside, ingen build. Bare mappa «public» publiseres.
+[build]
+  publish = "public"
