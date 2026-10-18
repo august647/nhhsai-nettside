@@ -13,6 +13,12 @@ name: Ukentlig nyhetsutgave
 #
 # Manuell kjøring: Actions, «Ukentlig nyhetsutgave», Run workflow. Tørrkjøring er på som standard
 # og publiserer ingenting. Fjern haken for å publisere.
+#
+# Bruksgrenser (abonnement). Utgaven kan bruke mer enn ett fem-timersvindu. Derfor:
+#   - Claude skriver mellomresultater til arbeid/, og jobben lagrer dem på grenen «arbeid» (mappe per uke),
+#     også når Claude stoppes. Neste kjøring av samme uke henter dem og fortsetter. «Frisk start» hopper over dette.
+#   - verktoy/bruksvokter.py stopper Claude når grensen er nådd, når ukebruken når UKEGRENSE
+#     (repo-variabelen NYHETER_UKEGRENSE, standard 0.95 = 95 %), eller etter MAKS_MINUTTER.
 
 on:
   schedule:
@@ -39,6 +45,10 @@ on:
         description: 'Lag utgaven på nytt selv om uka allerede finnes'
         type: boolean
         default: false
+      frisk_start:
+        description: 'Frisk start: ikke bruk lagret arbeid fra en tidligere kjøring av samme uke'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -50,11 +60,15 @@ concurrency:
 jobs:
   utgave:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 180
     env:
       MODEL: claude-opus-5-5
       MAX_COST_USD: '30'
       CONCURRENCY: '4'
+      # Abonnement: Claude stoppes av seg selv når ukebruken når denne grensen (0 til 1), eller etter så mange minutter.
+      UKEGRENSE: ${{ vars.NYHETER_UKEGRENSE || '0.95' }}
+      MAKS_MINUTTER: '150'
+      FRISK_START: ${{ github.event_name == 'workflow_dispatch' && inputs.frisk_start && 'true' || 'false' }}
       DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
       DATO: ${{ github.event_name == 'workflow_dispatch' && inputs.dato || '' }}
       OVERSKRIV: ${{ github.event_name == 'workflow_dispatch' && inputs.overskriv && 'true' || 'false' }}
@@ -82,6 +96,8 @@ jobs:
           EOF
           )
           echo "finnes=$FINNES" >> "$GITHUB_OUTPUT"
+          MAPPE=$(python3 -c "import json; a=json.load(open('args.json', encoding='utf-8-sig')); print('uke-%s-%s' % (a['uke'], a['aar']))")
+          echo "mappe=$MAPPE" >> "$GITHUB_OUTPUT"
           echo "Uke $(python3 -c "import json; a=json.load(open('args.json', encoding='utf-8-sig')); print(a['uke'], a['aar'])"), finnes allerede: $FINNES"
 
       - name: Hopp over hvis uka allerede er publisert
@@ -147,42 +163,89 @@ jobs:
             echo "::warning::Tokenet inneholder tegn som vanligvis ikke er med i et token (for eksempel anførselstegn eller likhetstegn)."
           fi
 
+      - name: Hent lagret arbeid fra forrige kjøring
+        if: steps.metode.outputs.metode == 'abonnement'
+        env:
+          MAPPE: ${{ steps.uke.outputs.mappe }}
+        run: |
+          # Arbeidsfilene ligger på grenen «arbeid», i en mappe per uke. Der fortsetter jobben etter en stopp.
+          # Grenen bygges ikke av Netlify, så dette koster ingen deploy.
+          mkdir -p arbeid
+          if [ "$FRISK_START" = true ]; then
+            echo "Frisk start valgt. Lagret arbeid brukes ikke." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          if git fetch --quiet --depth 1 origin +refs/heads/arbeid:refs/remotes/origin/arbeid 2>/dev/null \
+             && git cat-file -e "refs/remotes/origin/arbeid:$MAPPE" 2>/dev/null; then
+            git archive refs/remotes/origin/arbeid "$MAPPE" | tar -x -C "$RUNNER_TEMP"
+            cp -R "$RUNNER_TEMP/$MAPPE/." arbeid/
+            echo "Hentet lagret arbeid ($(find arbeid -type f | wc -l) filer) fra grenen arbeid, mappe $MAPPE:" | tee -a "$GITHUB_STEP_SUMMARY"
+            (cd arbeid && ls -1) | sed 's/^/- /' | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Ingen lagret arbeid for $MAPPE. Starter fra begynnelsen." | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Lag utgaven med Claude (abonnement)
         if: steps.metode.outputs.metode == 'abonnement'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           MODELL: ${{ vars.NYHETER_MODELL || 'claude-opus-5-5' }}
         run: |
-          set -o pipefail
           # En API-nøkkel i miljøet går foran abonnementet, så den fjernes for sikkerhets skyld.
           unset ANTHROPIC_API_KEY ANTHROPIC_AUTH_TOKEN
-          rm -f uke.json
+          rm -f uke.json claude-stopp.txt
+          mkdir -p arbeid
+          # Claude kjører i bakgrunnen, og bruksvokteren stopper den hvis en grense nås.
           # Bash er bare åpnet for hjelpeverktøyet. Alt som ikke står i --allowedTools nektes (dontAsk).
-          KODE=0
+          : > claude-logg.jsonl
           claude -p "$(cat verktoy/nyheter_prompt.md)" \
             --model "$MODELL" \
             --permission-mode dontAsk \
             --allowedTools "Read,Write,Edit,Glob,Grep,Agent,ToolSearch,WebSearch,WebFetch,Bash(python3 verktoy/nyheter_verktoy.py *)" \
-            --output-format stream-json --verbose > claude-logg.jsonl || KODE=$?
+            --output-format stream-json --verbose > claude-logg.jsonl &
+          CPID=$!
+          python3 verktoy/bruksvokter.py vokt --pid "$CPID" --logg claude-logg.jsonl --stopp claude-stopp.txt \
+            --ukegrense "$UKEGRENSE" --maks-minutter "$MAKS_MINUTTER" &
+          VPID=$!
+          KODE=0
+          wait "$CPID" || KODE=$?
+          kill "$VPID" 2>/dev/null || true
+          wait "$VPID" 2>/dev/null || true
+
+          {
+            echo "### Claude (abonnement), modell $MODELL"
+            echo
+            python3 verktoy/bruksvokter.py status --logg claude-logg.jsonl || true
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ -s claude-stopp.txt ]; then
+            {
+              echo "**Stoppet av bruksvokteren.** $(cat claude-stopp.txt)"
+              echo
+              echo "Arbeidet som er ferdig, er lagret på grenen arbeid. Kjør jobben på nytt når grensen er nullstilt, så fortsetter den der den slapp."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::error::Stoppet av bruksvokteren: $(cat claude-stopp.txt)"
+            exit 1
+          fi
+
           SISTE=$(jq -c 'select(.type=="result")' claude-logg.jsonl | tail -n 1)
           if [ -z "$SISTE" ]; then
-            echo "::error::Fant ingen resultat i loggen fra Claude. Se claude-logg.jsonl under Artifacts."
+            echo "::error::Fant ingen resultat i loggen fra Claude (kode $KODE). Se claude-logg.jsonl under Artifacts."
             exit 1
           fi
           echo "$SISTE" | jq -r '.result // ""' > rapport.md
           {
-            echo "### Claude (abonnement), modell $MODELL"
-            echo
             echo "Turer: $(echo "$SISTE" | jq -r '.num_turns // "?"'). Nektede verktøykall: $(echo "$SISTE" | jq -r '(.permission_denials // []) | length')."
             echo
             cat rapport.md
           } >> "$GITHUB_STEP_SUMMARY"
           if [ "$KODE" != 0 ] || [ "$(echo "$SISTE" | jq -r '.is_error')" != "false" ]; then
-            echo "::error::Claude avsluttet med feil (kode $KODE). Hvis meldingen handler om grense, er abonnementets bruksgrense nådd. Se oppsummeringen."
+            echo "::error::Claude avsluttet med feil (kode $KODE). Se oppsummeringen."
             exit 1
           fi
           if [ ! -s uke.json ]; then
-            echo "::error::Claude lagde ikke uke.json. Se rapporten i oppsummeringen."
+            echo "::error::Claude lagde ikke uke.json. Se rapporten i oppsummeringen. Står det «Stoppet av bruksgrensen», kjør jobben på nytt etter nullstilling."
             exit 1
           fi
 
@@ -218,6 +281,32 @@ jobs:
         run: |
           echo "Tørrkjøring: ingenting er publisert. Last ned «utgave» under Artifacts for å lese uke.json." | tee -a "$GITHUB_STEP_SUMMARY"
 
+      - name: Lagre arbeidsfiler på grenen arbeid
+        if: always() && steps.metode.outputs.metode == 'abonnement' && hashFiles('arbeid/**') != ''
+        env:
+          MAPPE: ${{ steps.uke.outputs.mappe }}
+        run: |
+          # Lagres også når Claude ble stoppet eller feilet, slik at neste kjøring kan fortsette.
+          W="$RUNNER_TEMP/arbeidsgren"
+          if git fetch --quiet --depth 1 origin +refs/heads/arbeid:refs/remotes/origin/arbeid 2>/dev/null; then
+            git worktree add --quiet --detach "$W" refs/remotes/origin/arbeid
+          else
+            git worktree add --quiet --detach "$W" HEAD
+            git -C "$W" checkout --quiet --orphan arbeid
+            git -C "$W" rm -rfq .
+          fi
+          mkdir -p "$W/$MAPPE"
+          cp -R arbeid/. "$W/$MAPPE/"
+          git -C "$W" add -A
+          if git -C "$W" diff --cached --quiet; then
+            echo "Ingen nye arbeidsfiler å lagre." | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            git -C "$W" -c user.name="NHHS AI nyhetsrobot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit --quiet -m "Arbeidsfiler $MAPPE"
+            git -C "$W" push --quiet origin HEAD:refs/heads/arbeid
+            echo "Lagret $(find arbeid -type f | wc -l) arbeidsfiler på grenen arbeid, mappe $MAPPE." | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Lagre resultat og logg
         if: always()
         uses: actions/upload-artifact@v4
@@ -229,6 +318,8 @@ jobs:
             logg.txt
             konsoll.txt
             claude-logg.jsonl
+            claude-stopp.txt
             args.json
+            arbeid/**
           if-no-files-found: ignore
           retention-days: 30

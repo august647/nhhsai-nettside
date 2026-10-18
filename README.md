@@ -10,6 +10,7 @@ Nettsiden til NHHS AI (nhhsai.no). Netlify henter siden fra dette repoet og publ
 | `public/nyheter-data.js` | Alle nyhetssakene. Det er bare denne fila som endres hver uke |
 | `verktoy/nyheter_verktoy.py` | Sjekker datafila og legger inn nye uker |
 | `verktoy/nyheter_prompt.md` | Arbeidsinstruksen Claude Code får når utgaven lages med abonnement |
+| `verktoy/bruksvokter.py` | Passer på bruksgrensene i abonnementet mens Claude jobber, og stopper kjøringen i tide |
 | `verktoy/nyheter_agenter.mjs` | Kjører workflowen med Claude API (Opus 5.5), nettsøk og kostnadsgrense |
 | `.github/workflows/nyheter-ukentlig.yml` | Reserveløsning og manuell knapp i GitHub, med tørrkjøring. Velger abonnement eller API |
 | `.claude/workflows/nyheter-ukentlig.js` | Beskriver hvordan en ukes nyheter blir funnet, faktasjekket og skrevet |
@@ -33,7 +34,17 @@ Er begge secrets satt, velges abonnement. Du kan tvinge ett av dem med knappen �
 3. Legg tokenet inn i repoet som secret: Settings, Secrets and variables, Actions, New repository secret. Navn: `CLAUDE_CODE_OAUTH_TOKEN`.
 4. Kjør en tørrkjøring: Actions, Ukentlig nyhetsutgave, Run workflow, la «Tørrkjøring» stå på. Les `uke.json` og `rapport.md` under Artifacts. Ingenting publiseres.
 
-Abonnementet har en bruksgrense per fem timer og per uke, delt med claude.ai. Hvor mye en utgave bruker, er ikke målt ennå. Treffer jobben grensen, feiler den uten å publisere, og GitHub sender e-post.
+### Bruksgrenser i abonnementet
+
+Abonnementet har en bruksgrense per fem timer og en per uke, delt med claude.ai. En hel utgave kan bruke mer enn ett fem-timersvindu. Derfor er jobben laget slik at den kan stoppe og fortsette:
+
+- Claude skriver hvert mellomresultat (sju søk, kandidatliste, faktasjekk i grupper på tre, utkast, korrektur) til mappa `arbeid/`.
+- Jobben lagrer `arbeid/` på grenen `arbeid` i en mappe per uke, for eksempel `uke-42-2026/`, også når Claude blir stoppet. Grenen bygges ikke av Netlify.
+- Neste kjøring av samme uke henter filene og hopper over det som er gjort. Bruk «Frisk start» i Run workflow for å begynne helt på nytt.
+- `verktoy/bruksvokter.py` leser bruksmålingene i loggen og stopper Claude når en grense er nådd, når ukebruken når 95 % (endres med repo-variabelen `NYHETER_UKEGRENSE`, for eksempel `0.9`), eller etter 150 minutter. Da blir kjøringen rød med en forklaring i oppsummeringen. Ingenting publiseres.
+- Oppsummeringen viser hvor mye av fem-timersvinduet og uka kjøringen brukte, og når de nullstilles.
+
+Blir kjøringen stoppet, start den på nytt etter at grensen er nullstilt. Er det fem-timersgrensen, holder det å vente noen timer. Er det ukegrensen, må du vente til uka nullstilles. Bruker utgaven for mye, kan du bytte til en lettere modell med repo-variabelen `NYHETER_MODELL` (`claude-sonnet-5-5`).
 
 ### Oppsett med API
 
