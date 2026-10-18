@@ -9,12 +9,27 @@ Nettsiden til NHHS AI (nhhsai.no). Netlify henter siden fra dette repoet og publ
 | `public/` | Selve nettsiden: forside, nyhetsside, bilder og datafil |
 | `public/nyheter-data.js` | Alle nyhetssakene. Det er bare denne fila som endres hver uke |
 | `verktoy/nyheter_verktoy.py` | Sjekker datafila og legger inn nye uker |
+| `verktoy/nyheter_agenter.mjs` | Kjører workflowen med Claude API (Opus 5.5), nettsøk og kostnadsgrense |
+| `.github/workflows/nyheter-ukentlig.yml` | Tidsplan og publisering: natt til lørdag, med tørrkjøring |
 | `.claude/workflows/nyheter-ukentlig.js` | Beskriver hvordan en ukes nyheter blir funnet, faktasjekket og skrevet |
 | `netlify.toml` | Sier at Netlify skal publisere `public` og hoppe over bygg når `public` ikke er endret |
 
 ## Ukentlig oppdatering
 
-En planlagt oppgave i Claude kjører natt til lørdag (ca. kl. 01.48 norsk tid). Den lager uka sine nyheter, kjører `sjekk`, og pusher bare `public/nyheter-data.js` til `main`. Netlify publiserer da den nye utgaven i løpet av et minutt eller to. Feiler sjekken, blir ingenting publisert. Endringen havner da på en egen gren som heter `nyheter-feilet-<dato>`.
+GitHub Actions (`.github/workflows/nyheter-ukentlig.yml`) kjører hver lørdag kl. 00.00 UTC, altså natt til lørdag (02.00 sommertid og 01.00 vintertid i Norge). Den starter `verktoy/nyheter_agenter.mjs`, som kjører `.claude/workflows/nyheter-ukentlig.js` med Claude Opus 5.5 via API-et: sju researchere, sammenslåing, faktasjekk, redaktør, korrektur og kodekontroll. Når `sjekk` er grønn, pushes `public/nyheter-data.js` til `main`, og Netlify publiserer siden.
+
+Oppsett (gjøres én gang):
+
+1. Lag en API-nøkkel i Claude Console (platform.claude.com) og sørg for at kontoen har kreditt.
+2. Legg nøkkelen inn i repoet som secret: Settings, Secrets and variables, Actions, New repository secret. Navn: `ANTHROPIC_API_KEY`.
+3. Kjør en tørrkjøring: Actions, Ukentlig nyhetsutgave, Run workflow. Tørrkjøring er på som standard og publiserer ingenting. Les `uke.json` og `rapport.md` under Artifacts.
+4. Fjern haken for tørrkjøring når du er fornøyd, eller la lørdagskjøringen gjøre jobben.
+
+Kostnaden estimeres i oppsummeringen for hver kjøring. Skriptet stopper av seg selv hvis estimatet går over `MAX_COST_USD` (30 USD, endres i workflow-fila). Modellen kan byttes med `MODEL`.
+
+Feiler en kjøring, blir ingenting publisert, og GitHub sender e-post. Loggen ligger under Artifacts.
+
+Uka hoppes over hvis den allerede finnes i datafila. Det betyr også at en planlagt oppgave i Claude som publiserer før kl. 00.00 UTC kan overta jobben. Bare én av de to bør være slått på.
 
 ## Kjøre sjekken selv
 
