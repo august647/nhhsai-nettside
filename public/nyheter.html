@@ -3,13 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nyheter — NHHS AI</title>
-<meta name="description" content="Ukens viktigste AI-nyheter for studenter, forskere og næringsliv – kuratert hver fredag av NHHS AI, interessegruppen for kunstig intelligens ved NHH.">
+<title>AI-nyheter hver uke | NHHS AI</title>
+<meta name="description" content="Ukens viktigste AI-nyheter for studenter, forskere og næringsliv. Kuratert hver fredag av NHHS AI, interessegruppen for kunstig intelligens ved NHH.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NHHS AI">
-<meta property="og:title" content="Nyheter — NHHS AI">
-<meta property="og:description" content="Ukens viktigste AI-nyheter, kuratert hver fredag av NHHS AI ved NHH.">
-<meta property="og:image" content="assets/desert-sahara.jpg">
+<meta property="og:title" content="AI-nyheter hver uke | NHHS AI">
+<meta property="og:description" content="Ukens viktigste AI-nyheter for studenter, forskere og næringsliv. Kuratert hver fredag av NHHS AI, interessegruppen for kunstig intelligens ved NHH.">
+<meta property="og:image" content="https://nhhsai.no/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NHHS AI, interessegruppen for kunstig intelligens ved NHH">
+<meta property="og:url" content="https://nhhsai.no/nyheter.html">
+<meta property="og:locale" content="nb_NO">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://nhhsai.no/nyheter.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "AI-nyheter hver uke | NHHS AI",
+  "url": "https://nhhsai.no/nyheter.html",
+  "description": "Ukens viktigste AI-nyheter for studenter, forskere og næringsliv. Kuratert hver fredag av NHHS AI, interessegruppen for kunstig intelligens ved NHH.",
+  "inLanguage": "nb",
+  "isPartOf": { "@type": "WebSite", "name": "NHHS AI", "url": "https://nhhsai.no/" },
+  "publisher": { "@type": "Organization", "name": "NHHS AI", "url": "https://nhhsai.no/" }
+}
+</script>
 <meta name="theme-color" content="#2B1A12">
 <meta name="color-scheme" content="light">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -821,7 +840,7 @@ window.startNyheter = () => {
     renderArchive();
     fitStat();
     setTbH();
-    document.title = state.wi === 0 ? 'Nyheter — NHHS AI' : `Nyheter uke ${w.uke} — NHHS AI`;
+    document.title = state.wi === 0 ? 'AI-nyheter hver uke | NHHS AI' : `AI-nyheter uke ${w.uke} | NHHS AI`;
   }
 
   // ---------- Navigasjon ----------
