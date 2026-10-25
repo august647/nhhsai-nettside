@@ -19,6 +19,7 @@ Bruksgrensen er trang, så jobben skal bruke så lite som mulig uten å miste kv
 - Nettsøk: Bruk WebSearch med mode `standard`. Bytt til `extended` bare hvis standard gir tynne eller utdaterte treff. Be subagentene gjøre det samme.
 - Subagentene åpner bare artikler som faktisk trengs for å bekrefte dato og fakta. De skal ikke lese lange artikler til slutt eller søke videre når de allerede har svaret.
 - Faktasjekk høyst 24 kandidater totalt, de høyest rangerte først (se Merge og Verify under). Resten kastes uten å sjekkes.
+- Spar aldri på Proof (korrektur) eller Kodekontroll. Disse fasene er billige og skal alltid kjøres, også når mye annet er hoppet over. Sparingen skal komme fra modellvalg og færre saker, ikke fra å droppe kvalitetssjekker.
 - Når du lagrer et resultat, lagre det som det er. Ikke skriv det om, og ikke les filene på nytt uten grunn.
 
 ## Arbeidsfiler og fortsettelse
