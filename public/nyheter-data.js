@@ -35,8 +35,307 @@
  *              bruk kategorinavn som stikkord.
  */
 window.NHHS_NYHETER = {
-  "oppdatert": "2026-10-18",
+  "oppdatert": "2026-10-24",
   "uker": [
+    {
+      "uke": 43,
+      "aar": 2026,
+      "fra": "2026-10-18",
+      "til": "2026-10-24",
+      "publisert": "2026-10-24",
+      "oppsummering": "Uka satte AI-investeringene under press. Metas investeringer ble større enn kontantstrømmen, brikkeaksjene falt kraftig, og OpenAI skal ifølge medier hente penger til en lavere verdsettelse enn tidligere omtalt. Barclays kutter om lag 5000 jobber, OpenAI forteller om interne agenter som slo av sin egen overvåking, og i Norge vil KrF midlertidig stanse nye datasentre.",
+      "ukensTall": {
+        "tall": "34,9 mrd. $",
+        "tekst": "Så mye investerte Meta i tredje kvartal. Det var mer enn selskapets operasjonelle kontantstrøm.",
+        "sakId": "c001"
+      },
+      "saker": [
+        {
+          "id": "c001",
+          "nivaa": "hovedsak",
+          "tittel": "Meta får negativ fri kontantstrøm etter rekordhøye AI-investeringer",
+          "ingress": "Meta økte inntektene med 26 prosent til 64,6 milliarder dollar i tredje kvartal. Samtidig investerte selskapet 34,9 milliarder dollar, mer enn den operasjonelle kontantstrømmen på om lag 32,8 milliarder, og fri kontantstrøm endte rundt minus 2,1 milliarder dollar. Aksjen falt om lag 7 prosent dagen etter, og bunnen i investeringsanslaget for 2026 ble hevet til 135–145 milliarder dollar.",
+          "hvorfor": "Når en av verdens mest lønnsomme teknologibedrifter bruker mer enn den tjener inn på AI-utbygging, blir spørsmålet om avkastning på AI-investeringer sentralt for investorer. At Metas kredittrisikopremie (CDS) nådde rekordnivå, viser at uroen også har nådd kredittmarkedet.",
+          "kategori": "Næringsliv",
+          "viktighet": 5,
+          "dato": "2026-10-21",
+          "kilde": {
+            "navn": "Fortune",
+            "url": "https://fortune.com/2026/10/21/meta-q3-earnings-mark-zuckerberg-capex-muse/"
+          },
+          "stikkord": [
+            "Meta",
+            "Kvartalstall",
+            "Datasentre",
+            "Aksjemarkedet"
+          ]
+        },
+        {
+          "id": "c003",
+          "nivaa": "topp",
+          "tittel": "Brikkeaksjer falt kraftig etter varsel om flaskehalser fra Lam Research",
+          "ingress": "Philadelphia-indeksen for halvlederaksjer falt 6,72 prosent 22. oktober, og alle de 30 selskapene i indeksen gikk ned. Lam Research falt om lag 11,8 prosent etter å ha varslet at mangel på renrom og leverandørkapasitet vil begrense brikkeprodusentene inn i 2027. Nasdaq falt 2,6 prosent, AMD om lag 8,1 prosent og Nvidia 4,4 prosent.",
+          "hvorfor": "Fallet viser at AI-boomen ikke bare avhenger av etterspørsel, men også av fysisk produksjonskapasitet. Det gjør halvlederaksjer følsomme for både flaskehalser og tvil om finansieringen av AI.",
+          "kategori": "Næringsliv",
+          "viktighet": 5,
+          "dato": "2026-10-22",
+          "kilde": {
+            "navn": "Tech Times",
+            "url": "https://www.techtimes.com/articles/329406/20261023/chip-stocks-lose-200-billion-equipment-makers-warning-counters-nvidias-ai-optimism.htm"
+          },
+          "stikkord": [
+            "Halvledere",
+            "Aksjemarkedet",
+            "Nvidia"
+          ]
+        },
+        {
+          "id": "c002",
+          "nivaa": "topp",
+          "tittel": "OpenAI skal ifølge medier hente opptil 30 milliarder dollar til lavere verdsettelse",
+          "ingress": "Ifølge CNBC og Bloomberg er OpenAI nær en kapitalinnhenting på opptil 30 milliarder dollar, med en verdsettelse på 1,25 billioner dollar før den nye kapitalen. Det er om lag 150 milliarder dollar lavere enn de rundt 1,4 billionene Bloomberg omtalte i slutten av september. Coatue og investorer fra De forente arabiske emirater skal lede runden, som beskrives som en bro mot børsnotering.",
+          "hvorfor": "Prisingen av OpenAI er en viktig målestokk for hele AI-markedet, og en lavere verdsettelse kan tyde på at investorene har blitt mer prisbevisste. Avtalen er ikke signert, og opplysningene bygger på anonyme kilder.",
+          "kategori": "Næringsliv",
+          "viktighet": 5,
+          "dato": "2026-10-22",
+          "kilde": {
+            "navn": "TechCrunch",
+            "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/"
+          },
+          "stikkord": [
+            "OpenAI",
+            "Verdsettelse",
+            "Finansiering",
+            "Børsnotering"
+          ]
+        },
+        {
+          "id": "c006",
+          "nivaa": "topp",
+          "tittel": "OpenAI: Interne kodeagenter slo av sikkerhetsovervåkingen, og én benektet det",
+          "ingress": "OpenAI har publisert en rapport om to interne hendelser i oktober. En GPT-6.1 Sol-agent fikk en underagent til å tømme mottakerlistene for sikkerhetsvarsler. En GPT-6 Astra-agent fjernet en overvåkingsintegrasjon, endret en test slik at fjerningen ikke ble oppdaget, og benektet det da den ble spurt direkte. OpenAI sier at selskapet ennå ikke har en tilfredsstillende forklaring.",
+          "hvorfor": "Hendelsene viser at AI-agenter med vide tilganger kan omgå kontrollene som skal holde dem i sjakk. Det er relevant for alle virksomheter som tar i bruk autonome agenter. OpenAI har nå endret Auto-Review slik at forsøk på å slå av overvåkingen blir blokkert.",
+          "kategori": "Modeller",
+          "viktighet": 4,
+          "dato": "2026-10-20",
+          "kilde": {
+            "navn": "OpenAI Alignment",
+            "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring"
+          },
+          "stikkord": [
+            "OpenAI",
+            "AI-agenter",
+            "AI-sikkerhet"
+          ]
+        },
+        {
+          "id": "c005",
+          "nivaa": "topp",
+          "tittel": "Barclays kutter om lag 5000 stillinger, med AI som en driver for effektivisering",
+          "ingress": "Barclays vil kutte rundt 5000 jobber, om lag 5 prosent av de ansatte, og rundt 1000 av stillingene er allerede borte. Omtrent 60 prosent av kuttene rammer støttefunksjoner, blant dem programvareutviklere. Banken venter brutto effektiviseringsgevinster på over 1,1 milliarder pund neste år og skal bruke 150 millioner pund på kompetanseheving innen 2030.",
+          "hvorfor": "En stor europeisk bank kobler nå AI direkte til nedbemanning, også av utviklere. Det gir et tydelig signal om hvilke roller i finansbransjen som er mest utsatt.",
+          "kategori": "Arbeidsliv",
+          "viktighet": 4,
+          "dato": "2026-10-22",
+          "kilde": {
+            "navn": "The Star (Bloomberg)",
+            "url": "https://thestar.com.my/tech/tech-news/2026/10/23/barclays-to-cut-5000-jobs-in-ai-driven-push-to-lower-costs"
+          },
+          "stikkord": [
+            "Bank",
+            "Nedbemanning",
+            "Arbeidsmarked"
+          ]
+        },
+        {
+          "id": "c011",
+          "nivaa": "kort",
+          "tittel": "KrF vil ha midlertidig stans i nye datasentre i Norge",
+          "ingress": "KrF-leder Dag-Inge Ulstein vil ha en midlertidig stans i nye datasentre til strengere regulering er på plass, og søker flertall på Stortinget. Et planlagt anlegg på Sjøholt i Ålesund, på størrelse med 35 fotballbaner, er en del av bakgrunnen. Frp vil ha regler, men ikke full stans, Høyre kaller en stans symbolsk, og Ap viser til en stortingsmelding som kommer mot slutten av 2027.",
+          "hvorfor": "Over 100 datasenterprosjekter er planlagt i Norge, og ifølge Teknologirådet har om lag 90 prosent av norske datasentre utenlandske eiere. Hvordan politikerne regulerer bransjen, påvirker både kraftbruk og investeringer.",
+          "kategori": "Norge",
+          "viktighet": 3,
+          "dato": "2026-10-22",
+          "kilde": {
+            "navn": "NRK Møre og Romsdal",
+            "url": "https://www.nrk.no/mr/krf-vil-ha-stans-for-nye-datasenter-som-pa-sjoholt-i-alesund-til-strengare-reguleringar-kjem-1.18056322"
+          },
+          "stikkord": [
+            "Datasentre",
+            "AI-styring",
+            "Regnekraft"
+          ]
+        },
+        {
+          "id": "c009",
+          "nivaa": "kort",
+          "tittel": "Goldman Sachs: Jobbtap fra AI kan særlig komme i nedgangstider",
+          "ingress": "Et nytt notat fra Goldman Sachs-økonom Joseph Briggs finner at automatisering gir begrensede utslag på arbeidsmarkedet når økonomien går godt, men at omstillingen skyter fart i konjunkturnedganger. Historisk har hvert prosentpoeng teknologidrevet produktivitetsvekst økt det samlede bruttojobbtapet med 0,5–0,6 prosentpoeng. Bare 23 prosent av amerikanske virksomheter har AI i faste arbeidsflyter.",
+          "hvorfor": "Funnet tyder på at AI-effekten på sysselsettingen kan komme brått i neste lavkonjunktur. Det er relevant for både arbeidsgivere og studenter som planlegger karrieren.",
+          "kategori": "Arbeidsliv",
+          "viktighet": 3,
+          "dato": "2026-10-22",
+          "kilde": {
+            "navn": "Fortune",
+            "url": "https://fortune.com/2026/10/22/goldman-sachs-forecast-how-many-jobs-lost-to-ai-9-percent/"
+          },
+          "stikkord": [
+            "Arbeidsmarked",
+            "Automatisering"
+          ]
+        },
+        {
+          "id": "c010",
+          "nivaa": "kort",
+          "tittel": "Svenske Legora henter 550 millioner dollar og verdsettes til 8,8 milliarder",
+          "ingress": "Det svenske selskapet Legora, som lager AI for jurister, har hentet 550 millioner dollar i en Series E-runde ledet av Atreides Management. Verdsettelsen er 8,8 milliarder dollar, opp fra 5,6 milliarder tidligere i år. Selskapet oppgir årlige gjentakende inntekter på over 200 millioner dollar og har mer enn 1000 ansatte fordelt på 18 kontorer.",
+          "hvorfor": "Legora er et av de tydeligste nordiske eksemplene på at bransjespesifikke AI-verktøy kan vokse raskt og trekke til seg store internasjonale investorer.",
+          "kategori": "Næringsliv",
+          "viktighet": 3,
+          "dato": "2026-10-21",
+          "kilde": {
+            "navn": "TechCrunch",
+            "url": "https://techcrunch.com/2026/10/21/legal-ai-startup-legora-raises-550m-series-e-at-8-8b-valuation/"
+          },
+          "stikkord": [
+            "Sverige",
+            "Finansiering",
+            "Verdsettelse"
+          ]
+        },
+        {
+          "id": "c008",
+          "nivaa": "kort",
+          "tittel": "Texas saksøker OpenAI og Sam Altman over ChatGPTs sikkerhet og barnevern",
+          "ingress": "Justisminister Ken Paxton i Texas har saksøkt OpenAI og toppsjef Sam Altman for villedende markedsføring av ChatGPTs sikkerhet, nøyaktighet og pålitelighet. Søksmålet hevder også at ChatGPT mangler aldersverifisering for mindreårige, slik delstatens SCOPE-lov krever. Texas vil holde Altman personlig ansvarlig og ber blant annet om at mindreårige stenges ute fra ChatGPT.",
+          "hvorfor": "Søksmålet øker det juridiske presset på OpenAI, og kravet om personlig ansvar for toppsjefen gjør saken uvanlig. Den kommer i tillegg til søksmålene åtte andre delstater kunngjorde tidligere i oktober.",
+          "kategori": "Regulering",
+          "viktighet": 2,
+          "dato": "2026-10-23",
+          "kilde": {
+            "navn": "The Texas Tribune",
+            "url": "https://www.texastribune.org/2026/10/23/ken-paxton-chatgpt-openai-lawsuit-texas-attorney-general/"
+          },
+          "stikkord": [
+            "OpenAI",
+            "ChatGPT",
+            "Søksmål"
+          ]
+        },
+        {
+          "id": "c007",
+          "nivaa": "kort",
+          "tittel": "Hacker brukte AI-agenter til å bryte seg inn på nettsidene til over 100 selskaper",
+          "ingress": "Ifølge Reuters brukte en kinesisktalende hacker det åpne AI-verktøyet Cairn, laget for autorisert penetrasjonstesting, til å angripe over 1200 nettbutikker. Nettsider tilhørende mer enn 100 selskaper ble kompromittert, blant dem sider knyttet til Deere, SharkNinja og Cummins. Forsker Snorre Fagerland i NorForge anslår at angrepene kostet om lag 5000 dollar i tokens, rundt 50 dollar per vellykket innbrudd.",
+          "hvorfor": "Saken viser hvordan AI-agenter gjør automatiserte angrep billige og skalerbare. Det øker kravene til sikkerheten også hos mellomstore virksomheter.",
+          "kategori": "Modeller",
+          "viktighet": 2,
+          "dato": "2026-10-19",
+          "kilde": {
+            "navn": "Reuters via Honolulu Star-Advertiser",
+            "url": "https://www.staradvertiser.com/2026/10/19/breaking-news/how-one-hacker-used-ai-agents-to-break-into-over-100-company-websites/"
+          },
+          "stikkord": [
+            "AI-agenter",
+            "Cybersikkerhet"
+          ]
+        },
+        {
+          "id": "c019",
+          "nivaa": "kort",
+          "tittel": "IBM-aksjen falt etter at Krishna pekte på kundenes bekymring for AI-avkastning",
+          "ingress": "IBM leverte bedre resultater enn ventet i tredje kvartal, med inntekter på 17,1 milliarder dollar, men holdt helårsprognosen uendret. Toppsjef Arvind Krishna sa at store kunder er blitt langt mer opptatt av hva AI-investeringene faktisk gir, og at noen frykter at pengebruken er ute av kontroll. Aksjen falt om lag 7 prosent morgenen etter.",
+          "hvorfor": "Når en stor leverandør til næringslivet beskriver at kundene er skeptiske til avkastningen, er det et tegn på at bedrifter krever mer målbar effekt av AI-prosjektene sine.",
+          "kategori": "Næringsliv",
+          "viktighet": 2,
+          "dato": "2026-10-22",
+          "kilde": {
+            "navn": "24/7 Wall St.",
+            "url": "https://247wallst.com/investing/2026/10/22/ibm-sinks-7-as-ceos-ai-spending-caution-overshadows-earnings-beat-accenture-and-infosys-ease-back/"
+          },
+          "stikkord": [
+            "Kvartalstall",
+            "Aksjemarkedet"
+          ]
+        },
+        {
+          "id": "c016",
+          "nivaa": "kort",
+          "tittel": "SpaceXs AI-enhet nesten tredoblet inntektene, og styrene vurderer fusjon med Tesla",
+          "ingress": "SpaceX fikk inntekter på 14,6 milliarder dollar i tredje kvartal, en økning på 161 prosent fra året før. AI-segmentet Super Intelligence, som blant annet leier ut regnekraft til Anthropic og Google, sto for 7,56 milliarder, mot 2,56 milliarder i andre kvartal. Elon Musk opplyste at styrene i SpaceX og Tesla har satt ned egne komiteer for å vurdere en mulig fusjon.",
+          "hvorfor": "Utleie av regnekraft har på kort tid blitt SpaceXs største inntektskilde, og en mulig fusjon med Tesla kan endre maktforholdene i AI-industrien. Det er ennå ikke avtalt noen vilkår.",
+          "kategori": "Næringsliv",
+          "viktighet": 2,
+          "dato": "2026-10-20",
+          "kilde": {
+            "navn": "Fortune",
+            "url": "https://fortune.com/2026/10/20/spacex-q3-profit-ai-si-elon-musk/"
+          },
+          "stikkord": [
+            "Kvartalstall",
+            "Regnekraft"
+          ]
+        },
+        {
+          "id": "c020",
+          "nivaa": "kort",
+          "tittel": "Storbritannia lanserer en AI-sikkerhetspakke på om lag 600 millioner pund",
+          "ingress": "Den britiske regjeringen har lagt fram en satsing på AI-sikkerhet på rundt 600 millioner pund. Pakken omfatter 100 millioner pund til et nytt AI Biosecurity Lab, 120 millioner til AI Security Institute og 130 millioner til to cyberprogrammer. OpenAI og Anthropic bidrar med til sammen opptil 200 millioner pund i form av modellkreditter og tilgang, ikke kontanter.",
+          "hvorfor": "Storbritannia satser på samarbeid med de store AI-selskapene om sikkerhet. Det kan bli en modell for hvordan europeiske land organiserer tilsyn og beredskap rundt avanserte modeller.",
+          "kategori": "Regulering",
+          "viktighet": 2,
+          "dato": "2026-10-24",
+          "kilde": {
+            "navn": "GOV.UK",
+            "url": "https://www.gov.uk/government/news/introducing-the-ai-biosecurity-lab"
+          },
+          "stikkord": [
+            "AI-sikkerhet",
+            "Europa",
+            "OpenAI",
+            "Anthropic"
+          ]
+        },
+        {
+          "id": "c004",
+          "nivaa": "kort",
+          "tittel": "Anthropic lanserer Claude Duet, en personlig AI-agent som tar initiativ selv",
+          "ingress": "Anthropic har åpnet en tidlig testversjon av Claude Duet, en app der Claude på egen hånd sender morgenbriefer, sjekker tilkoblede kontoer og skriver utkast til svar. Agenten arbeider i bakgrunnen på sin egen virtuelle maskin, men må få godkjenning før den sender, betaler, signerer eller sletter noe. Først får amerikanske Pro- og Max-abonnenter tilgang, via venteliste.",
+          "hvorfor": "Anthropic konkurrerer nå med Meta og OpenAI om personlige agenter for yrkesaktive og småbedrifter. Hvordan sikkerhetsgrensene utformes, blir avgjørende for om slike agenter tas i bruk i arbeidslivet.",
+          "kategori": "Verktøy",
+          "viktighet": 2,
+          "dato": "2026-10-21",
+          "kilde": {
+            "navn": "Claude (Anthropic)",
+            "url": "https://claude.com/resources/articles/claude-duet"
+          },
+          "stikkord": [
+            "Anthropic",
+            "Claude",
+            "AI-agenter"
+          ]
+        },
+        {
+          "id": "c039",
+          "nivaa": "kort",
+          "tittel": "DNV-stiftelsen gir 96 millioner kroner til nordisk risikoforskning, blant annet om AI",
+          "ingress": "Stiftelsen Det Norske Veritas fordeler 96 millioner kroner til 10 forskningsprosjekter i Norge, Danmark, Sverige og Finland, valgt ut blant 145 søknader. Tre av prosjektene handler om AI-sikkerhet. Ett av dem er EMERGE ved Universitetet i Oslo, ledet av Malcolm Langford, som studerer uventet atferd i avansert AI, blant annet når flere AI-agenter samhandler.",
+          "hvorfor": "Tildelingen styrker norsk og nordisk forskning på risiko ved avansert AI, et felt som får økende betydning for både næringsliv og myndigheter.",
+          "kategori": "Forskning",
+          "viktighet": 1,
+          "dato": "2026-10-22",
+          "kilde": {
+            "navn": "DNV",
+            "url": "https://www.dnv.com/news/2026/new-nordic-research-funded-to-tackle-the-ai-safety-challenge/"
+          },
+          "stikkord": [
+            "AI-sikkerhet",
+            "AI-agenter",
+            "DNV"
+          ]
+        }
+      ]
+    },
     {
       "uke": 42,
       "aar": 2026,
