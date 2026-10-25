@@ -18,7 +18,11 @@ if (!A.today || !A.uke || !A.aar || !A.fra || !A.til) throw new Error('Mangler a
 const PREV = Array.isArray(A.forrigeTitler) ? A.forrigeTitler : []
 
 const CONTEXT = `Context: NHHS AI is a student AI interest group at NHH (Norwegian School of Economics, Bergen). It runs a weekly AI news page ("Nyheter") read by business students, professors and people in Norwegian business (finance, consulting, strategy, tech). Today is ${A.today}. Your training knowledge may end before this date, so you MUST rely on live web research for every claim — never report an event from memory, never guess a date, never invent or reconstruct a URL.`
-const TOOLS = 'Load the web tools first with ToolSearch query "select:WebSearch,WebFetch". Use WebSearch (mode "extended" suits very recent news; "standard" for quick checks) and WebFetch to open articles.'
+const TOOLS = 'Load the web tools first with ToolSearch query "select:WebSearch,WebFetch". Use WebSearch in mode "standard" (cheap) and only switch to "extended" when standard results are thin or clearly outdated. Use WebFetch to open the articles that matter.'
+
+// Bruk: de fleste agentene kjører på Sonnet. Bare redaktøren (Edit) kjører på Opus.
+// MAX_KANDIDATER: bare de høyest rangerte sakene etter sammenslåingen faktasjekkes.
+const MAX_KANDIDATER = 24
 const PREV_NOTE = PREV.length ? `\nThese stories were already published in earlier weeks — do NOT return them again unless there is a genuinely new development this week:\n${PREV.map((t) => `- ${t}`).join('\n')}\n` : ''
 
 const CATS = ['models', 'business', 'policy', 'norway', 'research', 'tools', 'work']
@@ -123,14 +127,14 @@ Task: find the most important REAL AI news in this focus area with event dates b
 Focus area: ${d.focus}
 ${PREV_NOTE}
 ${TOOLS}
-Method: run many varied searches (by company, by topic, with date terms). Open the articles that matter to confirm date and facts. Prefer primary sources and reputable outlets.
+Method: run about 6-10 focused searches (by company, by topic, with date terms). Open only the articles that matter to confirm date and facts. Prefer primary sources and reputable outlets.
 Rules:
 - Only include events whose announcement/occurrence date is inside the window.
 - Every item needs at least one source URL you actually saw.
 - Facts only: names, numbers, dates.
-- Return 5-12 items, most significant first. Quality over quantity.
+- Return 4-8 items, most significant first. Quality over quantity.
 - Set category to "${d.key}" unless another category clearly fits better.`,
-  { label: `sweep:${d.key}`, phase: 'Sweep', schema: FINDINGS },
+  { label: `sweep:${d.key}`, phase: 'Sweep', schema: FINDINGS, model: 'sonnet' },
 )))
 const raw = sweeps.filter(Boolean).flatMap((s) => s.items)
 log(`Sweep: ${raw.length} kandidater fra ${sweeps.filter(Boolean).length}/${DOMAINS.length} researchere`)
@@ -145,7 +149,7 @@ const merged = await agent(
 
 Candidates (JSON):
 ${JSON.stringify(raw)}`,
-  { label: 'merge', phase: 'Merge', schema: MERGED },
+  { label: 'merge', phase: 'Merge', schema: MERGED, model: 'sonnet' },
 )
 if (!merged) throw new Error('Merge-agenten returnerte ingenting — kjør workflowen på nytt (resume)')
 let mergedItems = merged.items
@@ -161,12 +165,15 @@ ${mergedItems.map((c) => `[${c.date}] ${c.title}`).join('\n')}
 
 B (raw, JSON):
 ${JSON.stringify(raw)}`,
-    { label: 'merge-recover', phase: 'Merge', schema: MERGED },
+    { label: 'merge-recover', phase: 'Merge', schema: MERGED, model: 'sonnet' },
   )
   if (recovered) mergedItems = mergedItems.concat(recovered.items)
 }
-const candidates = mergedItems.map((it, i) => ({ id: `c${String(i + 1).padStart(3, '0')}`, ...it }))
-log(`Merge: ${candidates.length} unike, ${merged.dropped.length} droppet`)
+// Bare de mest lovende sakene faktasjekkes (60 % global betydning, 40 % relevans for leserne).
+const poeng = (c) => 0.6 * (c.significance || 0) + 0.4 * (c.audience_relevance || 0)
+const rangert = mergedItems.slice().sort((a, b) => poeng(b) - poeng(a))
+const candidates = rangert.slice(0, MAX_KANDIDATER).map((it, i) => ({ id: `c${String(i + 1).padStart(3, '0')}`, ...it }))
+log(`Merge: ${mergedItems.length} unike, ${merged.dropped.length} droppet, ${candidates.length} går videre til faktasjekk`)
 
 const verifyPrompt = (batch) => `${CONTEXT}
 
@@ -187,8 +194,8 @@ ${JSON.stringify(batch, null, 2)}`
 
 const chunk = (arr, n) => { const out = []; for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n)); return out }
 const runVerify = async (items, phaseName, labelPrefix) => {
-  const batches = chunk(items, 3)
-  const res = await parallel(batches.map((b, i) => () => agent(verifyPrompt(b), { label: `${labelPrefix}:${i + 1}/${batches.length}`, phase: phaseName, schema: VERDICTS })))
+  const batches = chunk(items, 4)
+  const res = await parallel(batches.map((b, i) => () => agent(verifyPrompt(b), { label: `${labelPrefix}:${i + 1}/${batches.length}`, phase: phaseName, schema: VERDICTS, model: 'sonnet' })))
   const byId = new Map(items.map((it) => [it.id, it]))
   const out = []
   res.forEach((r, i) => {
@@ -214,11 +221,11 @@ const gap = await agent(
 
 You are the completeness critic for the week ${A.uke} edition (${A.fra} .. ${A.til}) of the NHHS AI news page. Below are the verified stories already found. Find IMPORTANT AI news from this exact window that is MISSING (major launches, big funding/M&A, regulation milestones, Norwegian/Nordic AI news, major research results, incidents, big moves relevant to finance/consulting/business).
 ${TOOLS}
-Weekly AI newsletters/roundups are a good way to spot gaps, but confirm each story at a primary or reputable source. Only return stories dated within ${A.fra} .. ${A.til} that are not duplicates. Return 0-8 items; an empty list is fine.
+Weekly AI newsletters/roundups are a good way to spot gaps, but confirm each story at a primary or reputable source. Only return stories dated within ${A.fra} .. ${A.til} that are not duplicates. Return 0-4 items; an empty list is fine.
 ${PREV_NOTE}
 Already covered:
 ${pool.map((c) => `- [${c.event_date}] ${c.corrected_title || c.title}`).join('\n') || '(nothing yet)'}`,
-  { label: `gaps:uke${A.uke}`, phase: 'Gaps', schema: FINDINGS },
+  { label: `gaps:uke${A.uke}`, phase: 'Gaps', schema: FINDINGS, model: 'sonnet' },
 )
 const fresh = (gap?.items || []).map((it, i) => ({ id: `g${String(i + 1).padStart(2, '0')}`, ...it }))
 const freshChecked = fresh.length ? await runVerify(fresh, 'Gaps', 'verify-gaps') : []
@@ -257,7 +264,7 @@ Skriving (norsk bokmål, nøkternt og presist, egne formuleringer):
 
 Faktasjekkede saker (JSON):
 ${JSON.stringify(facts, null, 2)}`,
-  { label: `edit:uke${A.uke}`, phase: 'Edit', schema: WEEK },
+  { label: `edit:uke${A.uke}`, phase: 'Edit', schema: WEEK, model: 'opus' },
 )
 if (!draft) throw new Error('Redaktør-agenten returnerte ingenting — kjør workflowen på nytt (resume)')
 
@@ -277,7 +284,7 @@ ${JSON.stringify(draft, null, 2)}
 
 Kildefakta (JSON):
 ${JSON.stringify(facts, null, 2)}`,
-  { label: `proof:uke${A.uke}`, phase: 'Proof', schema: PROOFED },
+  { label: `proof:uke${A.uke}`, phase: 'Proof', schema: PROOFED, model: 'sonnet' },
 )
 
 const week = proof && proof.week ? proof.week : draft

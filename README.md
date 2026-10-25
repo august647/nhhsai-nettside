@@ -11,21 +11,30 @@ Nettsiden til NHHS AI (nhhsai.no). Netlify henter siden fra dette repoet og publ
 | `verktoy/nyheter_verktoy.py` | Sjekker datafila og legger inn nye uker |
 | `verktoy/nyheter_prompt.md` | Arbeidsinstruksen Claude Code får når utgaven lages med abonnement |
 | `verktoy/bruksvokter.py` | Passer på bruksgrensene i abonnementet mens Claude jobber, og stopper kjøringen i tide |
-| `verktoy/nyheter_agenter.mjs` | Kjører workflowen med Claude API (Opus 5.5), nettsøk og kostnadsgrense |
-| `.github/workflows/nyheter-ukentlig.yml` | Reserveløsning og manuell knapp i GitHub, med tørrkjøring. Velger abonnement eller API |
+| `verktoy/nyheter_agenter.mjs` | Kjører workflowen med Claude API (Sonnet, og Opus på redaktøren), nettsøk og kostnadsgrense |
+| `.github/workflows/nyheter-ukentlig.yml` | Hovedjobben i GitHub: kjører automatisk lørdag og søndag til uka er publisert, og har knapp for manuell kjøring med tørrkjøring. Velger abonnement eller API |
 | `.claude/workflows/nyheter-ukentlig.js` | Beskriver hvordan en ukes nyheter blir funnet, faktasjekket og skrevet |
 | `netlify.toml` | Sier at Netlify skal publisere `public` og hoppe over bygg når `public` ikke er endret |
 
 ## Ukentlig oppdatering
 
-Det er to ting som kan lage utgaven. Begge hopper over uka hvis den allerede finnes i datafila.
+Utgaven lages av GitHub Actions (`.github/workflows/nyheter-ukentlig.yml`). Den trenger ingen kobling mellom GitHub og Claude-appen, bare secreten under.
 
-1. **Planlagt oppgave i Claude (hovedjobben).** Kjører natt til lørdag kl. 01.48 norsk tid, bruker Claude-abonnementet og trenger ingen nøkler. Den henter dette repoet, lager utgaven med subagenter og nettsøk, kjører `sjekk` og pusher `public/nyheter-data.js` til `main`.
-2. **GitHub Actions (`.github/workflows/nyheter-ukentlig.yml`).** Reserveløsning og manuell knapp. Kjører lørdag kl. 04.00 UTC (06.00 sommertid, 05.00 vintertid) og gjør ingenting hvis hovedjobben har levert. Den kan logge inn på to måter:
-   - **Abonnement** (secret `CLAUDE_CODE_OAUTH_TOKEN`): Claude Code kjører utgaven etter instruksen i `verktoy/nyheter_prompt.md`. Bruker Claude Pro-abonnementet, ingen API-kostnad.
-   - **API** (secret `ANTHROPIC_API_KEY`): `verktoy/nyheter_agenter.mjs` kjører `.claude/workflows/nyheter-ukentlig.js` med Claude Opus 5.5 via API-et. Belaster API-kontoen.
+- **Når:** Første forsøk er natt til lørdag (00.17 UTC). Er uka ikke publisert, prøver jobben på nytt hver femte time og tjue minutter, lørdag og søndag, til siste forsøk søndag 13.37 UTC. Er uka allerede i datafila, gjør kjøringen ingenting og tar under ett minutt.
+- **Hvis bruksgrensen nås:** Jobben stopper rolig med en advarsel (ikke en feil), lagrer det som er gjort, og neste forsøk fortsetter der den slapp. Feiler siste forsøk fordi uka fortsatt mangler, får du e-post fra GitHub.
+- **Innlogging:** To måter, og jobben velger den første som finnes:
+  - **Abonnement** (secret `CLAUDE_CODE_OAUTH_TOKEN`): Claude Code kjører utgaven etter instruksen i `verktoy/nyheter_prompt.md`. Bruker Claude Pro-abonnementet, ingen API-kostnad.
+  - **API** (secret `ANTHROPIC_API_KEY`): `verktoy/nyheter_agenter.mjs` kjører `.claude/workflows/nyheter-ukentlig.js` via API-et. Belaster API-kontoen.
 
-Er begge secrets satt, velges abonnement. Du kan tvinge ett av dem med knappen «Run workflow», eller med repo-variabelen `NYHETER_METODE` (`abonnement` eller `api`). Modellen for abonnement er `claude-opus-5-5` og kan byttes med repo-variabelen `NYHETER_MODELL`, for eksempel til `claude-sonnet-5-5` hvis bruksgrensen i abonnementet blir for trang.
+Du kan tvinge ett av dem med knappen «Run workflow», eller med repo-variabelen `NYHETER_METODE` (`abonnement` eller `api`).
+
+### Modeller og forbruk
+
+For å spare bruk i abonnementet kjører alt på Sonnet (`claude-sonnet-5-5`), bortsett fra redaktøren, som er den eneste Opus-agenten (`claude-opus-5-5`). Hovedmodellen kan byttes med repo-variabelen `NYHETER_MODELL`. I tillegg:
+
+- Hver av de sju researcherne leverer 4 til 8 saker, og nettsøk bruker `standard` med mindre treffene er tynne.
+- Bare de 24 høyest rangerte kandidatene faktasjekkes (60 % global betydning, 40 % relevans), i grupper på fire. Før ble alle sjekket, og en uke kunne ha over 60 kandidater.
+- Kritikeren for hull leverer høyst fire saker.
 
 ### Oppsett med abonnement (gjøres én gang)
 
@@ -38,13 +47,13 @@ Er begge secrets satt, velges abonnement. Du kan tvinge ett av dem med knappen �
 
 Abonnementet har en bruksgrense per fem timer og en per uke, delt med claude.ai. En hel utgave kan bruke mer enn ett fem-timersvindu. Derfor er jobben laget slik at den kan stoppe og fortsette:
 
-- Claude skriver hvert mellomresultat (sju søk, kandidatliste, faktasjekk i grupper på tre, utkast, korrektur) til mappa `arbeid/`.
+- Claude skriver hvert mellomresultat (sju søk, kandidatliste, faktasjekk i grupper, utkast, korrektur) til mappa `arbeid/`.
 - Jobben lagrer `arbeid/` på grenen `arbeid` i en mappe per uke, for eksempel `uke-42-2026/`, også når Claude blir stoppet. Grenen bygges ikke av Netlify.
 - Neste kjøring av samme uke henter filene og hopper over det som er gjort. Bruk «Frisk start» i Run workflow for å begynne helt på nytt.
-- `verktoy/bruksvokter.py` leser bruksmålingene i loggen og stopper Claude når en grense er nådd, når ukebruken når 95 % (endres med repo-variabelen `NYHETER_UKEGRENSE`, for eksempel `0.9`), eller etter 150 minutter. Da blir kjøringen rød med en forklaring i oppsummeringen. Ingenting publiseres.
+- `verktoy/bruksvokter.py` leser bruksmålingene i loggen og stopper Claude når en grense er nådd, når ukebruken når 95 % (endres med repo-variabelen `NYHETER_UKEGRENSE`, for eksempel `0.9`), eller etter 150 minutter. Da stopper kjøringen med en advarsel og en forklaring i oppsummeringen, og ingenting publiseres før uka er ferdig.
 - Oppsummeringen viser hvor mye av fem-timersvinduet og uka kjøringen brukte, og når de nullstilles.
 
-Blir kjøringen stoppet, start den på nytt etter at grensen er nullstilt. Er det fem-timersgrensen, holder det å vente noen timer. Er det ukegrensen, må du vente til uka nullstilles. Bruker utgaven for mye, kan du bytte til en lettere modell med repo-variabelen `NYHETER_MODELL` (`claude-sonnet-5-5`).
+Blir kjøringen stoppet, starter neste planlagte forsøk av seg selv. Er det fem-timersgrensen, har den rukket å nullstilles. Er det ukegrensen, må uka nullstilles først, og da kan du starte jobben manuelt med «Run workflow» (fjern haken for tørrkjøring).
 
 ### Oppsett med API
 
@@ -52,7 +61,7 @@ Blir kjøringen stoppet, start den på nytt etter at grensen er nullstilt. Er de
 2. Legg nøkkelen inn som secret `ANTHROPIC_API_KEY`.
 3. Kjør en tørrkjøring som over.
 
-Kostnaden estimeres i oppsummeringen for hver kjøring. Skriptet stopper av seg selv hvis estimatet går over `MAX_COST_USD` (30 USD, endres i workflow-fila). Modellen kan byttes med `MODEL`.
+Kostnaden estimeres i oppsummeringen for hver kjøring. Skriptet stopper av seg selv hvis estimatet går over `MAX_COST_USD` (30 USD, endres i workflow-fila). Modellene kan byttes med `MODEL` (alle agenter) og `MODEL_REDAKTOR` (redaktøren).
 
 ### Når noe feiler
 

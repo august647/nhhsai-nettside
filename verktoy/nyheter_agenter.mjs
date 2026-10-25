@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /*
- * Kjører workflowen .claude/workflows/nyheter-ukentlig.js med Claude API (Opus 5.5).
+ * Kjører workflowen .claude/workflows/nyheter-ukentlig.js med Claude API.
+ * Alle agenter bruker Sonnet, bortsett fra redaktøren som bruker Opus (se MODEL og MODEL_REDAKTOR).
  *
  * Workflow-fila er den eneste kilden til promptene og kontrollene. Dette skriptet gir den
  * funksjonene den forventer (agent, parallel, phase, log) og lar hver «agent» være et kall
@@ -13,11 +14,12 @@
  *
  * Miljøvariabler (alle valgfrie unntatt nøkkelen):
  *   ANTHROPIC_API_KEY   API-nøkkel fra Claude Console (påkrevd)
- *   MODEL               modell, standard claude-opus-5-5
+ *   MODEL               modell for alle agenter unntatt redaktøren, standard claude-sonnet-5-5
+ *   MODEL_REDAKTOR      modell for redaktøren (Edit), standard claude-opus-5-5
  *   MAX_COST_USD        stopper kjøringen hvis estimert kostnad går over dette, standard 30
  *   CONCURRENCY         antall samtidige kall, standard 4 (sett lavere ved 429-feil)
  *   MAX_TOKENS          maks utdata per kall, standard 16000
- *   PRIS_INN, PRIS_UT   USD per million tokens, standard 4 og 20 (Opus 5.5). Sett ved annen modell.
+ *   PRIS_INN, PRIS_UT   USD per million tokens, standard 4 og 20 (Opus-pris, så anslaget er forsiktig høyt når Sonnet brukes).
  *   WEB_SEARCH_TOOL     standard web_search_20250305
  *   WEB_FETCH_TOOL      standard web_fetch_20250910
  *   ANTHROPIC_BETA      kommaseparert liste med beta-headere, standard ingen
@@ -33,7 +35,8 @@ const WORKFLOW = path.join(ROOT, '.claude', 'workflows', 'nyheter-ukentlig.js')
 
 const env = process.env
 const API_URL = `${(env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com').replace(/\/$/, '')}/v1/messages`
-const MODEL = env.MODEL || 'claude-opus-5-5'
+const MODEL = env.MODEL || 'claude-sonnet-5-5'
+const MODEL_REDAKTOR = env.MODEL_REDAKTOR || 'claude-opus-5-5'
 const MAX_COST = Number(env.MAX_COST_USD || 30)
 const CONCURRENCY = Math.max(1, Number(env.CONCURRENCY || 4))
 const MAX_TOKENS = Number(env.MAX_TOKENS || 16000)
@@ -46,9 +49,9 @@ const FETCH_TOOL = env.WEB_FETCH_TOOL || 'web_fetch_20250910'
 // Hvilke faser som får nettverktøy, og hvor mange søk/oppslag ett kall får bruke.
 // Merge, Edit og Proof jobber bare på data de har fått, uten tilgang til nettet.
 const WEB = {
-  Sweep: { search: 15, fetch: 10 },
+  Sweep: { search: 10, fetch: 8 },
   Verify: { search: 8, fetch: 12 },
-  Gaps: { search: 12, fetch: 8 },
+  Gaps: { search: 8, fetch: 6 },
 }
 
 const SYSTEM = [
@@ -214,7 +217,7 @@ async function agent(prompt, opts = {}) {
       let resp
       try {
         resp = await callApi({
-          model: MODEL,
+          model: opts.model === 'opus' ? MODEL_REDAKTOR : MODEL,
           max_tokens: MAX_TOKENS,
           system: SYSTEM,
           tools,
@@ -292,7 +295,7 @@ function lagRapport(res, A) {
   rader.push(`- Saker: ${w.saker.length} (${n('hovedsak')} hovedsak, ${n('topp')} topp, ${n('kort')} kort)`)
   rader.push(`- Kandidater: ${res.counts.raw} funnet, ${res.counts.candidates} etter sammenslåing, ${res.counts.verified} bekreftet`)
   rader.push(`- API-kall: ${usage.kall}, nettsøk: ${usage.sok}, tokens inn/ut: ${usage.inn}/${usage.ut}`)
-  rader.push(`- Estimert kostnad: ${kostnad().toFixed(2)} USD (modell ${MODEL})`)
+  rader.push(`- Estimert kostnad: ${kostnad().toFixed(2)} USD (modell ${MODEL}, redaktør ${MODEL_REDAKTOR})`)
   rader.push('')
   rader.push('### Sakene')
   for (const s of w.saker.filter((x) => x.nivaa !== 'kort')) rader.push(`- ${s.nivaa === 'hovedsak' ? 'Hovedsak' : 'Topp'}: ${s.tittel} (${s.kilde.navn})`)
@@ -322,7 +325,7 @@ async function main() {
   const A = JSON.parse(fs.readFileSync(argv.args, 'utf8').replace(/^﻿/, ''))
   const utFil = argv.ut || 'uke.json'
   const rapportFil = argv.rapport || 'rapport.md'
-  log(`Lager uke ${A.uke} ${A.aar} (${A.fra} til ${A.til}) med ${MODEL}. Kostnadsgrense ${MAX_COST} USD, ${CONCURRENCY} samtidige kall.`)
+  log(`Lager uke ${A.uke} ${A.aar} (${A.fra} til ${A.til}) med ${MODEL} (redaktør ${MODEL_REDAKTOR}). Kostnadsgrense ${MAX_COST} USD, ${CONCURRENCY} samtidige kall.`)
 
   let kilde = fs.readFileSync(WORKFLOW, 'utf8')
   kilde = kilde.replace(/^export const meta/m, 'const meta')

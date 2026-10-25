@@ -1,15 +1,21 @@
 name: Ukentlig nyhetsutgave
 
-# Hovedjobben er den planlagte oppgaven i Claude (natt til lørdag kl. 01.48 norsk tid).
-# Denne jobben er reserveløsning og manuell knapp. Den kjører lørdag kl. 04.00 UTC (06.00 sommertid,
-# 05.00 vintertid) og gjør ingenting hvis uka allerede er publisert.
+# Dette er hovedjobben for den ukentlige nyhetsutgaven, og den trenger ikke Claude-appen eller noen
+# GitHub-kobling i Claude. Den starter natt til lørdag (00.17 UTC, 02.17 sommertid, 01.17 vintertid) og
+# prøver på nytt hver femte time og tjue minutter til uka er publisert (siste forsøk søndag 13.37 UTC).
+# Fem-timersgrensen i abonnementet har da alltid rukket å nullstilles mellom forsøkene, og jobben fortsetter
+# med arbeidsfilene fra forrige forsøk. Er uka allerede publisert, gjør kjøringen ingenting (tar under ett minutt).
+# Stopper jobben på bruksgrensen, er det en advarsel og ikke en feil. Mangler uka etter siste forsøk, feiler
+# siste kjøring, så du får varsel fra GitHub.
+#
+# Modeller (abonnement). Alle agenter bruker Sonnet. Bare redaktøren bruker Opus. Se verktoy/nyheter_prompt.md.
 #
 # Innlogging. Med «auto» brukes den første som finnes:
 #   1. Abonnement: secret CLAUDE_CODE_OAUTH_TOKEN (lages med «claude setup-token»).
 #      Claude Code kjører utgaven og bruker Claude Pro-abonnementet ditt.
 #   2. API: secret ANTHROPIC_API_KEY. verktoy/nyheter_agenter.mjs kjører utgaven og belaster API-kontoen.
 # Du kan tvinge ett av dem med knappen «Run workflow», eller med repo-variabelen NYHETER_METODE
-# (abonnement eller api). Modellen for abonnement kan byttes med repo-variabelen NYHETER_MODELL.
+# (abonnement eller api). Hovedmodellen for abonnement kan byttes med repo-variabelen NYHETER_MODELL.
 #
 # Manuell kjøring: Actions, «Ukentlig nyhetsutgave», Run workflow. Tørrkjøring er på som standard
 # og publiserer ingenting. Fjern haken for å publisere.
@@ -22,7 +28,15 @@ name: Ukentlig nyhetsutgave
 
 on:
   schedule:
-    - cron: '0 4 * * 6'
+    # Lørdag og søndag, med fem timer og tjue minutter mellom hvert forsøk (UTC).
+    - cron: '17 0 * * 6'
+    - cron: '37 5 * * 6'
+    - cron: '57 10 * * 6'
+    - cron: '17 16 * * 6'
+    - cron: '37 21 * * 6'
+    - cron: '57 2 * * 0'
+    - cron: '17 8 * * 0'
+    - cron: '37 13 * * 0'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -62,7 +76,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 180
     env:
-      MODEL: claude-opus-5-5
+      # Bare brukt av API-varianten. Alle agenter på Sonnet, redaktøren på Opus.
+      MODEL: claude-sonnet-5-5
+      MODEL_REDAKTOR: claude-opus-5-5
       MAX_COST_USD: '30'
       CONCURRENCY: '4'
       # Abonnement: Claude stoppes av seg selv når ukebruken når denne grensen (0 til 1), eller etter så mange minutter.
@@ -186,10 +202,12 @@ jobs:
           fi
 
       - name: Lag utgaven med Claude (abonnement)
+        id: claude
         if: steps.metode.outputs.metode == 'abonnement'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          MODELL: ${{ vars.NYHETER_MODELL || 'claude-opus-5-5' }}
+          # Hovedøkten og alle subagenter kjører på Sonnet. Redaktøren velger selv Opus (se verktoy/nyheter_prompt.md).
+          MODELL: ${{ vars.NYHETER_MODELL || 'claude-sonnet-5-5' }}
         run: |
           # En API-nøkkel i miljøet går foran abonnementet, så den fjernes for sikkerhets skyld.
           unset ANTHROPIC_API_KEY ANTHROPIC_AUTH_TOKEN
@@ -223,10 +241,11 @@ jobs:
             {
               echo "**Stoppet av bruksvokteren.** $(cat claude-stopp.txt)"
               echo
-              echo "Arbeidet som er ferdig, er lagret på grenen arbeid. Kjør jobben på nytt når grensen er nullstilt, så fortsetter den der den slapp."
+              echo "Arbeidet som er ferdig, er lagret på grenen arbeid. Neste planlagte forsøk fortsetter der denne slapp."
             } >> "$GITHUB_STEP_SUMMARY"
-            echo "::error::Stoppet av bruksvokteren: $(cat claude-stopp.txt)"
-            exit 1
+            echo "::warning::Stoppet av bruksvokteren: $(cat claude-stopp.txt)"
+            echo "stoppet=true" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
 
           SISTE=$(jq -c 'select(.type=="result")' claude-logg.jsonl | tail -n 1)
@@ -259,14 +278,15 @@ jobs:
           cat rapport.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Legg inn og sjekk
-        if: steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true'
+        if: (steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true') && steps.claude.outputs.stoppet != 'true'
         run: |
           python3 verktoy/nyheter_verktoy.py legg-til uke.json
           python3 verktoy/nyheter_verktoy.py sjekk
           git --no-pager diff --stat
 
       - name: Publiser til main
-        if: (steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true') && env.DRY_RUN != 'true'
+        id: publiser
+        if: (steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true') && env.DRY_RUN != 'true' && steps.claude.outputs.stoppet != 'true'
         run: |
           UKE=$(python3 -c "import json; a=json.load(open('args.json', encoding='utf-8-sig')); print(a['uke'], a['aar'])")
           git config user.name "NHHS AI nyhetsrobot"
@@ -277,7 +297,7 @@ jobs:
           echo "Publisert: uke $UKE. Netlify bygger siden på nytt." | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Tørrkjøring ferdig
-        if: (steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true') && env.DRY_RUN == 'true'
+        if: (steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true') && env.DRY_RUN == 'true' && steps.claude.outputs.stoppet != 'true'
         run: |
           echo "Tørrkjøring: ingenting er publisert. Last ned «utgave» under Artifacts for å lese uke.json." | tee -a "$GITHUB_STEP_SUMMARY"
 
@@ -306,6 +326,12 @@ jobs:
             git -C "$W" push --quiet origin HEAD:refs/heads/arbeid
             echo "Lagret $(find arbeid -type f | wc -l) arbeidsfiler på grenen arbeid, mappe $MAPPE." | tee -a "$GITHUB_STEP_SUMMARY"
           fi
+
+      - name: Feil hvis uka fortsatt ikke er publisert (siste planlagte forsøk)
+        if: always() && github.event.schedule == '37 13 * * 0' && steps.uke.outputs.finnes != 'true' && steps.publiser.outcome != 'success'
+        run: |
+          echo "::error::Uka er fortsatt ikke publisert etter siste planlagte forsøk. Se tidligere kjøringer, og start jobben manuelt med «Run workflow» (fjern haken for tørrkjøring)."
+          exit 1
 
       - name: Lagre resultat og logg
         if: always()
