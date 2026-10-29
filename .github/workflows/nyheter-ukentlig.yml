@@ -186,7 +186,7 @@ jobs:
           MAPPE: ${{ steps.uke.outputs.mappe }}
         run: |
           # Arbeidsfilene ligger på grenen «arbeid», i en mappe per uke. Der fortsetter jobben etter en stopp.
-          # Grenen bygges ikke av Netlify, så dette koster ingen deploy.
+          # Grenen publiseres ikke til nettsiden.
           mkdir -p arbeid
           if [ "$FRISK_START" = true ]; then
             echo "Frisk start valgt. Lagret arbeid brukes ikke." | tee -a "$GITHUB_STEP_SUMMARY"

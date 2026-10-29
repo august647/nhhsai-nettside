@@ -1,6 +1,6 @@
 # NHHS AI: nettside
 
-Nettsiden til NHHS AI (nhhsai.no). Netlify henter siden fra dette repoet og publiserer den automatisk hver gang `main` endres i mappa `public`.
+Nettsiden til NHHS AI (nhhsai.no). Siden ligger på GitHub Pages og publiseres automatisk av `.github/workflows/nettside.yml` hver gang `main` endres i mappa `public`, og etter hver ny nyhetsutgave. GitHub Pages er gratis og har ingen kredittgrense.
 
 ## Mapper
 
@@ -14,7 +14,7 @@ Nettsiden til NHHS AI (nhhsai.no). Netlify henter siden fra dette repoet og publ
 | `verktoy/nyheter_agenter.mjs` | Kjører workflowen med Claude API (Sonnet, og Opus på redaktøren), nettsøk og kostnadsgrense |
 | `.github/workflows/nyheter-ukentlig.yml` | Hovedjobben i GitHub: kjører automatisk lørdag og søndag til uka er publisert, og har knapp for manuell kjøring med tørrkjøring. Velger abonnement eller API |
 | `.claude/workflows/nyheter-ukentlig.js` | Beskriver hvordan en ukes nyheter blir funnet, faktasjekket og skrevet |
-| `netlify.toml` | Sier at Netlify skal publisere `public` og hoppe over bygg når `public` ikke er endret |
+| `.github/workflows/nettside.yml` | Publiserer mappa `public` til GitHub Pages (nhhsai.no) |
 
 ## Ukentlig oppdatering
 
@@ -48,7 +48,7 @@ For å spare bruk i abonnementet kjører alt på Sonnet (`claude-sonnet-5-5`), b
 Abonnementet har en bruksgrense per fem timer og en per uke, delt med claude.ai. En hel utgave kan bruke mer enn ett fem-timersvindu. Derfor er jobben laget slik at den kan stoppe og fortsette:
 
 - Claude skriver hvert mellomresultat (sju søk, kandidatliste, faktasjekk i grupper, utkast, korrektur) til mappa `arbeid/`.
-- Jobben lagrer `arbeid/` på grenen `arbeid` i en mappe per uke, for eksempel `uke-42-2026/`, også når Claude blir stoppet. Grenen bygges ikke av Netlify.
+- Jobben lagrer `arbeid/` på grenen `arbeid` i en mappe per uke, for eksempel `uke-42-2026/`, også når Claude blir stoppet. Grenen publiseres ikke.
 - Neste kjøring av samme uke henter filene og hopper over det som er gjort. Bruk «Frisk start» i Run workflow for å begynne helt på nytt.
 - `verktoy/bruksvokter.py` leser bruksmålingene i loggen og stopper Claude når en grense er nådd, når ukebruken når 95 % (endres med repo-variabelen `NYHETER_UKEGRENSE`, for eksempel `0.9`), eller etter 150 minutter. Da stopper kjøringen med en advarsel og en forklaring i oppsummeringen, og ingenting publiseres før uka er ferdig.
 - Oppsummeringen viser hvor mye av fem-timersvinduet og uka kjøringen brukte, og når de nullstilles.
@@ -78,6 +78,11 @@ Feltene i datafila er forklart øverst i `public/nyheter-data.js`.
 
 ## Bra å vite
 
-- Hver endring i `public` på `main` gir en ny produksjonsdeploy i Netlify, og det koster Netlify-kreditter. Samle derfor flere endringer i én commit når det er mulig.
-- Skal du rette tekst for hånd, endre filene i `public/` og commit til `main`. Ikke last opp zip-filer til Netlify lenger. Da blir GitHub og nettsiden ute av takt.
-- Netlify-agenten kan også endre nettsiden. Når den gjør det, må endringen havne i dette repoet, ellers blir den overskrevet av neste deploy.
+- Hver endring i `public` på `main` publiseres automatisk til GitHub Pages i løpet av et par minutter. Det koster ingenting.
+- Skal du rette tekst for hånd, endre filene i `public/` og commit til `main`.
+
+### Domene og DNS
+
+- Domenet nhhsai.no er registrert hos Webhuset. Navnetjenerne peker foreløpig til Netlify DNS (`dns1.p08.nsone.net` til `dns4`), og DNS-postene ligger der.
+- `nhhsai.no` har A-poster til GitHub Pages: `185.199.108.153`, `185.199.109.153`, `185.199.110.153` og `185.199.111.153`. `www.nhhsai.no` er en CNAME til `august647.github.io`. TXT-posten for Google-verifisering må beholdes.
+- Eget domene og «Enforce HTTPS» settes under Settings, Pages i dette repoet.
