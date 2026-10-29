@@ -1,0 +1,42 @@
+name: Publiser nettsiden
+
+# Publiserer mappa «public» til GitHub Pages (nhhsai.no). Gratis, uten kreditter eller byggegrenser
+# som betyr noe for en side av denne størrelsen.
+#
+# Kjører når noe i «public» endres på main, og når nyhetsjobben ber om det etter en ny utgave.
+# Push fra nyhetsjobben (GITHUB_TOKEN) starter ikke andre workflows av seg selv, derfor starter
+# nyhetsjobben denne med «gh workflow run» etter publisering.
+
+on:
+  push:
+    branches: [main]
+    paths: ['public/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publiser:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      # v3 tar med skjulte filer, og siden trenger public/.image-slots.state.json.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

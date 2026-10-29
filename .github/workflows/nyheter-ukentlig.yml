@@ -66,6 +66,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: nyheter-ukentlig
@@ -286,6 +287,8 @@ jobs:
 
       - name: Publiser til main
         id: publiser
+        env:
+          GH_TOKEN: ${{ github.token }}
         if: (steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true') && env.DRY_RUN != 'true' && steps.claude.outputs.stoppet != 'true'
         run: |
           UKE=$(python3 -c "import json; a=json.load(open('args.json', encoding='utf-8-sig')); print(a['uke'], a['aar'])")
@@ -294,7 +297,9 @@ jobs:
           git add public/nyheter-data.js
           git commit -m "Nyhetsutgave uke $UKE"
           git push
-          echo "Publisert: uke $UKE. Netlify bygger siden på nytt." | tee -a "$GITHUB_STEP_SUMMARY"
+          # Push med GITHUB_TOKEN starter ikke andre workflows, så nettsiden publiseres eksplisitt.
+          gh workflow run nettside.yml --ref main
+          echo "Publisert: uke $UKE. Nettsiden (GitHub Pages) publiseres på nytt." | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Tørrkjøring ferdig
         if: (steps.uke.outputs.finnes != 'true' || env.OVERSKRIV == 'true') && env.DRY_RUN == 'true' && steps.claude.outputs.stoppet != 'true'
