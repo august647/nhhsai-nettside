@@ -1,0 +1,16 @@
+{"results":[
+{"id":"c013","verified":true,"confidence":"medium","event_date":"2026-10-27",
+"corrected_title":"ChatGPT adds iCloud Mail and Calendar plugins; limited US beta lets some Pro users text their 'Dot' agent",
+"corrected_summary":"On 2026-10-27 OpenAI added iCloud Mail and iCloud Calendar plugins to ChatGPT. Reports say they are available on all plans on web, desktop and iPhone, and users connect them with an Apple app-specific password. On 2026-10-28 OpenAI announced a limited US beta in which some ChatGPT Pro users can text their 'Dot' agent, with a third-party provider handling the texting.",
+"key_facts":["iCloud Mail and Calendar plugins were reported on 2026-10-27.","Connected in Settings > Plugins with an Apple app-specific password.","Reportedly available on all plans, including Free.","The Dot texting beta is limited to some Pro users in the US, reported 2026-10-28.","A third-party provider handles the texting."],
+"best_source":{"name":"RuntimeWire (Dots texting beta)","url":"https://runtimewire.com/article/openai-dots-texting-beta","published":"2026-10-28"},
+"other_sources":[{"name":"RuntimeWire (iCloud plugins)","url":"https://runtimewire.com/article/chatgpt-adds-icloud-mail-calendar-plugins"},{"name":"iGeeksBlog","url":"https://www.igeeksblog.com/chatgpt-icloud-mail-calendar-plugins/"},{"name":"DataNorth","url":"https://datanorth.ai/news/chatgpt-icloud-mail-calendar-plugins"}],
+"issues":"Dates rest on secondary outlets; OpenAI page returned 403."},
+{"id":"c014","verified":false,"confidence":"low","event_date":"2026-10-30",
+"corrected_title":"Reps. Nadler, Raskin and Johnson reportedly urge court to reject DOJ's AI-training argument (unconfirmed)",
+"corrected_summary":"Single aggregator headline; no primary source found.",
+"key_facts":["Only a Quiver Quant page found."],
+"best_source":{"name":"Quiver Quant","url":"https://quiverquant.com/news/Press+Release:+Nadler,+Raskin+and+Johnson+Urge+Court+to+Reject+DOJ+Argument+on+AI+Training+and+Copyrighted+Journalism","published":"2026-10-30"},
+"other_sources":[],
+"issues":"Unconfirmed single source. Refuted."}
+]}
