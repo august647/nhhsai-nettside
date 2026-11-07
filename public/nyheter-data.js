@@ -35,8 +35,284 @@
  *              bruk kategorinavn som stikkord.
  */
 window.NHHS_NYHETER = {
-  "oppdatert": "2026-10-31",
+  "oppdatert": "2026-11-07",
   "uker": [
+    {
+      "uke": 45,
+      "aar": 2026,
+      "fra": "2026-10-31",
+      "til": "2026-11-07",
+      "publisert": "2026-11-07",
+      "oppsummering": "AI ble oppgitt som begrunnelse for 1 265 jobbkutt i USA i oktober, det laveste månedstallet hittil i år. AMD og Palantir la fram svært sterke kvartalstall, mens Rødts forslag om hastebehandling av datasenterregulering manglet flertall på Stortinget. Anthropic publiserte nye data om hvordan forskere bruker Claude, og Kina vil fremskynde arbeidet med en egen AI-lov.",
+      "ukensTall": {
+        "tall": "1 265",
+        "tekst": "jobbkutt i USA ble begrunnet med AI i oktober, det laveste månedstallet i 2026",
+        "sakId": "c001"
+      },
+      "saker": [
+        {
+          "id": "c001",
+          "nivaa": "hovedsak",
+          "tittel": "AI-begrunnede jobbkutt i USA falt til årets laveste nivå i oktober",
+          "ingress": "Challenger, Gray & Christmas registrerte 43 994 annonserte jobbkutt i USA i oktober, 71 prosent færre enn i oktober 2025. Bare 1 265 av kuttene ble begrunnet med AI, det laveste månedstallet i år. Hittil i år står AI bak 121 401 kutt, rundt 20 prosent av alle.",
+          "hvorfor": "Tallene viser at AI bare er oppgitt som årsak til en liten andel av nedbemanningene i oktober. Hittil i år leder markeds- og økonomiske forhold med 130 531 kutt, foran AI.",
+          "kategori": "Arbeidsliv",
+          "viktighet": 5,
+          "dato": "2026-11-05",
+          "kilde": {
+            "navn": "Challenger, Gray & Christmas",
+            "url": "https://www.challengergray.com/blog/october-layoffs-at-three-year-low-seasonal-hiring-plans-up-26/"
+          },
+          "stikkord": [
+            "Arbeidsmarked",
+            "Nedbemanning",
+            "USA"
+          ]
+        },
+        {
+          "id": "c002",
+          "nivaa": "topp",
+          "tittel": "AMD satte omsetningsrekord drevet av datasentre",
+          "ingress": "AMD omsatte for 13,4 milliarder dollar i tredje kvartal, 45 prosent mer enn året før. Datasentersegmentet økte 97 prosent til 8,5 milliarder dollar, drevet av EPYC-prosessorer og lanseringen av Instinct MI450. Selskapet venter rundt 17 milliarder dollar i omsetning i fjerde kvartal.",
+          "hvorfor": "Resultatet viser at etterspørselen etter AI-regnekraft også gir sterk vekst for utfordrere til Nvidia.",
+          "kategori": "Næringsliv",
+          "viktighet": 5,
+          "dato": "2026-11-03",
+          "kilde": {
+            "navn": "AMD Q3 2026 press release (SEC)",
+            "url": "https://www.sec.gov/Archives/edgar/data/0000002488/000000248826000188/q32026991.htm"
+          },
+          "stikkord": [
+            "Halvledere",
+            "Kvartalstall",
+            "Datasentre"
+          ]
+        },
+        {
+          "id": "c003",
+          "nivaa": "topp",
+          "tittel": "Palantir nesten doblet omsetningen og hevet årsprognosen",
+          "ingress": "Palantir omsatte for 2,313 milliarder dollar i tredje kvartal, opp 96 prosent fra året før. Amerikansk kommersiell omsetning (984 millioner dollar) var for første gang større enn omsetningen fra amerikanske myndigheter. Årsguidingen ble hevet til rundt 8,53 milliarder dollar. Aksjen falt over 2 prosent tidlig 3. november, men skal ha endt dagen opp.",
+          "hvorfor": "Palantir er blitt et av de tydeligste eksemplene på at bedrifter betaler for AI-programvare. Veksten i total kontraktsverdi har samtidig avtatt, noe som kan dempe forventningene.",
+          "kategori": "Næringsliv",
+          "viktighet": 4,
+          "dato": "2026-11-02",
+          "kilde": {
+            "navn": "Palantir Q3 2026 press release (SEC)",
+            "url": "https://www.sec.gov/Archives/edgar/data/0001321655/000132165526000045/a2026q3ex991pressrelease.htm"
+          },
+          "stikkord": [
+            "Kvartalstall",
+            "Aksjemarkedet",
+            "Verdsettelse"
+          ]
+        },
+        {
+          "id": "c005",
+          "nivaa": "topp",
+          "tittel": "Rødts hasteforslag om datasentre mangler flertall på Stortinget",
+          "ingress": "Rødts krav om hastebehandling av strengere datasenterregulering manglet flertall fordi Frp ville ha grundig komitébehandling. SV, MDG, KrF, Sp og Rødt ønsker midlertidig stans i nye datasentre, og SV foreslår en forskrift etter modell av kjøpesenterstoppen i 1999. Bulk Infrastructure advarer mot en stans som rammer prosjekter med reservert kraft.",
+          "hvorfor": "Hvordan Norge regulerer datasentre påvirker både kraftsystemet og muligheten for å bygge AI-infrastruktur her. Regjeringen har ennå ikke bestemt tiltak eller tidsplan.",
+          "kategori": "Norge",
+          "viktighet": 4,
+          "dato": "2026-11-02",
+          "kilde": {
+            "navn": "Digi.no (NTB)",
+            "url": "https://www.digi.no/datasenter/ingen-hastebehandling-i-stortinget-av-datasenterforslag/7180620"
+          },
+          "stikkord": [
+            "Datasentre",
+            "Kraft",
+            "Offentlig sektor"
+          ]
+        },
+        {
+          "id": "c004",
+          "nivaa": "topp",
+          "tittel": "Anthropic: AI kan ta over rundt 38 prosent av forskertiden i en ny studie",
+          "ingress": "Anthropic analyserte 207 049 økter i Claude og Claude Code og spurte 528 forskere, flest innen liv- og helsevitenskap. Dataanalyse utgjorde 33,7 prosent av øktene i Claude og 48,1 prosent i Claude Code. Selskapet anslår at AI kan ta 27–52 prosent av forskertiden som trengs for en ny studie, med 38 prosent som median.",
+          "hvorfor": "Studien gir konkrete data om hvordan AI brukes i forskningsarbeid. Rundt 40 prosent av de spurte forventer at AI kan drive hele forskningsprosjekter alene innen 2030.",
+          "kategori": "Forskning",
+          "viktighet": 4,
+          "dato": "2026-11-05",
+          "kilde": {
+            "navn": "Anthropic",
+            "url": "https://www.anthropic.com/research/how-researchers-use-claude"
+          },
+          "stikkord": [
+            "Anthropic",
+            "Claude",
+            "Automatisering"
+          ]
+        },
+        {
+          "id": "c007",
+          "nivaa": "kort",
+          "tittel": "Kina vil fremskynde arbeidet med en helhetlig AI-lov",
+          "ingress": "En visedirektør i Kinas planleggingskommisjon NDRC sa 3. november at landet vil fremskynde arbeidet med grunnleggende AI-lovgivning. Den skal blant annet dekke data, regnekraft, algoritmer og sentrale bruksområder. Foreløpig er det en plan: Det er ikke lagt fram lovtekst eller frist.",
+          "hvorfor": "Kina har ingen samlet nasjonal AI-lov i dag. En slik lov vil få betydning for hvordan AI reguleres i landet.",
+          "kategori": "Regulering",
+          "viktighet": 3,
+          "dato": "2026-11-03",
+          "kilde": {
+            "navn": "Caixin Global",
+            "url": "https://www.caixinglobal.com/2026-11-04/china-to-accelerate-work-on-comprehensive-ai-legislation-102500765.html"
+          },
+          "stikkord": [
+            "Kina",
+            "AI-styring"
+          ]
+        },
+        {
+          "id": "c006",
+          "nivaa": "kort",
+          "tittel": "Claude får verktøy for personlig økonomi",
+          "ingress": "Anthropic lanserte en betaversjon av Personal Finance for amerikanske Pro-, Max- og Ultra-abonnenter. Bank- og kortkontoer kobles til via Plaid, og Claude kan se opptil to års transaksjoner. Samtaler i tjenesten brukes ikke til å trene modellene, og det vises ingen annonser.",
+          "hvorfor": "AI-assistenter beveger seg inn i sensitive personlige data, noe som stiller høye krav til personvern og tillit.",
+          "kategori": "Verktøy",
+          "viktighet": 3,
+          "dato": "2026-11-05",
+          "kilde": {
+            "navn": "TechCrunch",
+            "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool"
+          },
+          "stikkord": [
+            "Claude",
+            "Personvern",
+            "Bank"
+          ]
+        },
+        {
+          "id": "c008",
+          "nivaa": "kort",
+          "tittel": "Google gjør Guided Learning tilgjengelig globalt i Classroom",
+          "ingress": "Lærere kan nå over hele verden tildele Guided Learning som studieverktøy knyttet til pensum i Google Classroom. Senere i november testes funksjonen i Google Søk for elevkontoer ved utvalgte amerikanske skoler. AI-tilgang for elevkontoer i K-12 er avslått som standard til administratorer slår den på.",
+          "hvorfor": "Store plattformer bygger AI inn i undervisningen, og det gjør spørsmålet om hvordan læring skal tilrettelegges mer aktuelt.",
+          "kategori": "Verktøy",
+          "viktighet": 2,
+          "dato": "2026-11-03",
+          "kilde": {
+            "navn": "Google Blog",
+            "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/"
+          },
+          "stikkord": [
+            "Google",
+            "Utdanning"
+          ]
+        },
+        {
+          "id": "c011",
+          "nivaa": "kort",
+          "tittel": "ChatGPT-agenter som jobber mellom samtaler blir tilgjengelige for bedrifter",
+          "ingress": "Ifølge OpenAIs utgivelsesnotater er personlige «dots», som kan fortsette med oppgaver mellom samtaler, nå tilgjengelige i Enterprise-, Edu- og Healthcare-arbeidsområder. Administratorer kan styre og pause dem. Fra 18. november er funksjonen på som standard.",
+          "hvorfor": "Dette er enda et steg mot AI-agenter som jobber selvstendig i bedrifters systemer.",
+          "kategori": "Verktøy",
+          "viktighet": 2,
+          "dato": "2026-11-04",
+          "kilde": {
+            "navn": "Releasebot (gjengir OpenAI-utgivelsesnotater)",
+            "url": "https://releasebot.io/updates/openai"
+          },
+          "stikkord": [
+            "OpenAI",
+            "ChatGPT",
+            "AI-agenter"
+          ]
+        },
+        {
+          "id": "c010",
+          "nivaa": "kort",
+          "tittel": "Canva-omstilling berører 1 271 ansatte",
+          "ingress": "Canva-sjef Melanie Perkins varslet en omstilling som berører rundt 22 prosent av de ansatte. Noen mister jobben, andre får nye roller eller blir bedt om å flytte. Perkins viste til at veksten har avtatt for første gang på et tiår, og til at ny teknologi endrer hvordan folk skaper.",
+          "hvorfor": "Omstillingen viser hvordan selv raskt voksende teknologiselskaper reorganiserer seg når veksten avtar og ny teknologi endrer arbeidet.",
+          "kategori": "Arbeidsliv",
+          "viktighet": 2,
+          "dato": "2026-11-04",
+          "kilde": {
+            "navn": "The Next Web",
+            "url": "https://thenextweb.com/news/canva-restructure-1271-jobs-22-percent-layoffs"
+          },
+          "stikkord": [
+            "Nedbemanning",
+            "Arbeidsmarked"
+          ]
+        },
+        {
+          "id": "c012",
+          "nivaa": "kort",
+          "tittel": "Claude hjalp til med første 3D-struktur av en bakteriell vault-partikkel",
+          "ingress": "Anthropic har lagt ut en preprint, som ennå ikke er fagfellevurdert, om den første 3D-strukturen av en vault-partikkel fra prokaryoter. Claude søkte gjennom rundt 15 milliarder predikerte proteiner, og sju av femten kandidater dannet vault-lignende partikler. En feilaktig protokoll skrevet av Claude kostet teamet to uker.",
+          "hvorfor": "Arbeidet illustrerer både hvor mye AI kan bidra i laboratoriet og hvilke feil den kan gjøre der.",
+          "kategori": "Forskning",
+          "viktighet": 2,
+          "dato": "2026-11-04",
+          "kilde": {
+            "navn": "Anthropic",
+            "url": "https://www.anthropic.com/research/investigating-vault-particles-with-claude"
+          },
+          "stikkord": [
+            "Biologi",
+            "Claude"
+          ]
+        },
+        {
+          "id": "g01",
+          "nivaa": "kort",
+          "tittel": "Fal doblet verdsettelsen til 16 milliarder dollar",
+          "ingress": "Fal, som driver en plattform for generative mediemodeller, hentet 1,3 milliarder dollar i en runde ledet av Bessemer Venture Partners. Verdsettelsen på 16 milliarder dollar er dobbelt så høy som i april. Nvidia er blant investorene som deltok.",
+          "hvorfor": "Investorene satser tungt på infrastrukturen bak AI-generert bilde, video og lyd.",
+          "kategori": "Næringsliv",
+          "viktighet": 2,
+          "dato": "2026-11-03",
+          "kilde": {
+            "navn": "Let's Data Science",
+            "url": "https://letsdatascience.com/news/fal-raises-13-billion-at-16-billion-valuation-led-by-besseme-b387c590"
+          },
+          "stikkord": [
+            "Finansiering",
+            "Verdsettelse",
+            "Nvidia"
+          ]
+        },
+        {
+          "id": "c015",
+          "nivaa": "kort",
+          "tittel": "Microsoft har opsjon på å mer enn doble Nscale-kontrakt i Texas",
+          "ingress": "Ifølge Financial Times, gjengitt av Digi.no, har Microsoft en opsjon på å mer enn doble en signert kontrakt ved Nscales datasenter i Texas. Opsjonen er verdt flere titalls milliarder dollar. I oktober trakk Microsoft seg ifølge rapporten som hovedkunde for Nscales første britiske datasenter, som er kraftig forsinket fordi det mangler strøm.",
+          "hvorfor": "Saken illustrerer at manglende strømtilgang kan forsinke store AI-datasentre.",
+          "kategori": "Næringsliv",
+          "viktighet": 1,
+          "dato": "2026-11-05",
+          "kilde": {
+            "navn": "Digi.no",
+            "url": "https://www.digi.no/datasenter/microsoft-dropper-enda-en-nscale-kontrakt/7181882"
+          },
+          "stikkord": [
+            "Nscale",
+            "Microsoft",
+            "Datasentre"
+          ]
+        },
+        {
+          "id": "c016",
+          "nivaa": "kort",
+          "tittel": "MIT-forskere prisbelønnet for AI-drevet antibiotikaforskning",
+          "ingress": "Regina Barzilay og Jim Collins vant 2026 Pritzker Prize for AI in Science Research Excellence, som deles ut av University of Chicago i samarbeid med Caltech. Prisen gjelder blant annet oppdagelsen av antibiotikaene halicin og abaucin ved hjelp av AI.",
+          "hvorfor": "Prisen løfter fram ett av de mest konkrete eksemplene på hva AI kan bidra med innen medisinsk forskning.",
+          "kategori": "Forskning",
+          "viktighet": 1,
+          "dato": "2026-11-02",
+          "kilde": {
+            "navn": "MIT News",
+            "url": "https://news.mit.edu/2026/regina-barzilay-jim-collins-win-pritzker-prize-ai-and-science-research-excellence-1102"
+          },
+          "stikkord": [
+            "Medisinsk AI",
+            "Helse"
+          ]
+        }
+      ]
+    },
     {
       "uke": 44,
       "aar": 2026,
