@@ -35,8 +35,268 @@
  *              bruk kategorinavn som stikkord.
  */
 window.NHHS_NYHETER = {
-  "oppdatert": "2026-11-07",
+  "oppdatert": "2026-11-14",
   "uker": [
+    {
+      "uke": 46,
+      "aar": 2026,
+      "fra": "2026-11-07",
+      "til": "2026-11-14",
+      "publisert": "2026-11-14",
+      "oppsummering": "Anthropic lanserte Claude Fable 5.2, og Jensen Huang gikk av som Nvidia-sjef etter at styret hadde startet en gransking. AI-aksjene hentet seg inn etter forrige ukes kraftige fall, og Google kom med en rimeligere Gemini 4-modell. I Norge skal en ny ekspertgruppe vurdere hvordan AI kan true nasjonal sikkerhet.",
+      "ukensTall": {
+        "tall": "30 timer",
+        "tekst": "Så lang tid brukte rundt 1 000 Fable 5.2-agenter på å formalisere Fermats siste teorem, ifølge Anthropic",
+        "sakId": "c001"
+      },
+      "saker": [
+        {
+          "id": "c001",
+          "nivaa": "hovedsak",
+          "tittel": "Anthropic lanserer Claude Fable 5.2 og en begrenset Mythos 5.2",
+          "ingress": "Anthropic lanserte 9. november Claude Fable 5.2, priset til 8 dollar per million input-tokens og 40 dollar per million output-tokens. Mythos 5.2 er forbeholdt godkjente søkere innen cybersikkerhet og livsvitenskap. Selskapet hevder at rundt 1 000 Fable-agenter formaliserte Fermats siste teorem i Lean på om lag 30 timer.",
+          "hvorfor": "Raskere modeller og agentsvermer som klarer lange oppgaver, kan endre hva virksomheter kan automatisere. Matematikk- og fysikkpåstandene er likevel selskapets egne og ikke uavhengig verifisert.",
+          "kategori": "Modeller",
+          "viktighet": 5,
+          "dato": "2026-11-09",
+          "kilde": {
+            "navn": "Anthropic",
+            "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+          },
+          "stikkord": [
+            "Anthropic",
+            "Claude",
+            "AI-agenter",
+            "Matematikk"
+          ]
+        },
+        {
+          "id": "c004",
+          "nivaa": "topp",
+          "tittel": "Jensen Huang går av som Nvidia-sjef, og Colette Kress blir midlertidig toppsjef",
+          "ingress": "Nvidias styre godtok 11. november Jensen Huangs avgang som konsernsjef og styremedlem, med umiddelbar virkning. Finansdirektør Colette Kress er midlertidig toppsjef, og Harvey C. Jones blir styreleder. Styret startet 8. november en uavhengig gransking av rapporterte bånd til en tidligere Megaspeed-leder. Påstandene er ikke bevist.",
+          "hvorfor": "Nvidia er ryggraden i AI-infrastrukturen. Et brått lederskifte skaper derfor usikkerhet for aksjemarkedet og for selskaper som er avhengige av brikkene.",
+          "kategori": "Næringsliv",
+          "viktighet": 5,
+          "dato": "2026-11-11",
+          "kilde": {
+            "navn": "SEC Form 8-K (NVIDIA)",
+            "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvda-20261111.htm"
+          },
+          "stikkord": [
+            "Nvidia",
+            "Halvledere",
+            "Kina"
+          ]
+        },
+        {
+          "id": "c002",
+          "nivaa": "topp",
+          "tittel": "AI-aksjene henter seg inn etter kraftig fall",
+          "ingress": "AI-aksjene steg 11. november etter forrige ukes salgsbølge. Midt på formiddagen var Nasdaq Composite opp 1,6 prosent og S&P 500 rundt 1 prosent, mens Micron steg 11,7 prosent og Nvidia 3,2 prosent. Ifølge YourStory visket fallet 5. november ut rundt 2,5 billioner dollar fra Nasdaq 100.",
+          "hvorfor": "Svingningene viser hvor følsomme AI-verdsettelsene er for renteforventninger og politikk. Det påvirker både sparere og finansieringsklimaet for AI-selskaper.",
+          "kategori": "Næringsliv",
+          "viktighet": 4,
+          "dato": "2026-11-11",
+          "kilde": {
+            "navn": "ADN (AP)",
+            "url": "https://www.adn.com/business-economy/2026/11/11/rebounding-ai-stocks-lift-wall-street/"
+          },
+          "stikkord": [
+            "Aksjemarkedet",
+            "Verdsettelse",
+            "Nvidia"
+          ]
+        },
+        {
+          "id": "c003",
+          "nivaa": "topp",
+          "tittel": "Anthropic utvider Claude med regneark og digitale tavler",
+          "ingress": "Anthropic kunngjorde 10. november regnearkverktøyet Claude Sheets og Claude Whiteboards, et felles rom for idémyldring. Begge er i beta. Dashboards fra oktober heter nå Claude Data. Verktøyene rulles ut på web og desktop og teller mot eksisterende bruksgrenser, og det ble ikke kunngjort nye priser.",
+          "hvorfor": "Claude beveger seg inn i kontorprogramvare, der Microsoft og Google dominerer. Det kan påvirke hvilke verktøy studenter og bedrifter bruker i hverdagen.",
+          "kategori": "Verktøy",
+          "viktighet": 4,
+          "dato": "2026-11-10",
+          "kilde": {
+            "navn": "Reworked",
+            "url": "https://www.reworked.co/digital-workplace/anthropic-turns-claude-into-an-ai-office-suite/"
+          },
+          "stikkord": [
+            "Anthropic",
+            "Claude"
+          ]
+        },
+        {
+          "id": "c006",
+          "nivaa": "topp",
+          "tittel": "Google lanserer Gemini 4 Hydrogen, en rimeligere Gemini 4-variant",
+          "ingress": "Google lanserte 12. november Gemini 4 Hydrogen til 1,50 dollar per million input-tokens og 7,50 dollar per million output-tokens. Prisen er den samme i hele kontekstvinduet på 1 million tokens. Modellen får 51 på Artificial Analysis Intelligence Index med standardinnstilling, mot 50 for Gemini 4 Argon.",
+          "hvorfor": "Lavere pris for ytelse nær toppnivået gjør det billigere for virksomheter å bygge AI-tjenester og agenter i stor skala.",
+          "kategori": "Modeller",
+          "viktighet": 4,
+          "dato": "2026-11-12",
+          "kilde": {
+            "navn": "Google Blog",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+          },
+          "stikkord": [
+            "Google",
+            "Gemini",
+            "Prising"
+          ]
+        },
+        {
+          "id": "c007",
+          "nivaa": "kort",
+          "tittel": "Regjeringen setter ned ekspertgruppe om AI-trusler mot nasjonal sikkerhet",
+          "ingress": "Digitaliserings- og forvaltningsminister Torgeir Micaelsen kunngjorde 13. november en ekspertgruppe som skal vurdere hvordan AI kan true nasjonal sikkerhet. Gruppen ledes av Olav Lysne fra OsloMet og SimulaMet og skal levere forslag innen 1. mars. Forslagene skal brukes i ny nasjonal AI-strategi og i revidert nasjonal sikkerhetsstrategi.",
+          "hvorfor": "Arbeidet kan legge føringer for hvordan norske virksomheter og offentlig sektor må håndtere AI-risiko i årene fremover.",
+          "kategori": "Norge",
+          "viktighet": 3,
+          "dato": "2026-11-13",
+          "kilde": {
+            "navn": "Adressa",
+            "url": "https://adressa.no/nyheter/innenriks/i/lMAEb9/ekspertgruppe-skal-vurdere-ki-trusler"
+          },
+          "stikkord": [
+            "AI-styring",
+            "Offentlig sektor",
+            "AI-sikkerhet"
+          ]
+        },
+        {
+          "id": "c008",
+          "nivaa": "kort",
+          "tittel": "CoreWeave øker omsetningen med 168 prosent og løfter prognosen",
+          "ingress": "CoreWeave rapporterte 10. november en omsetning på 3,66 milliarder dollar i tredje kvartal. Det er 168 prosent mer enn året før og over forventningene. Årsprognosen ble hevet til 13,0–13,3 milliarder dollar, og ordrereserven er på 132,5 milliarder dollar. Selskapet hadde samtidig et nettotap på 709 millioner dollar.",
+          "hvorfor": "Tallene viser at etterspørselen etter AI-regnekraft fortsatt er sterk. De viser også hvor kapitalkrevende utbyggingen er.",
+          "kategori": "Næringsliv",
+          "viktighet": 3,
+          "dato": "2026-11-10",
+          "kilde": {
+            "navn": "The Next Web",
+            "url": "https://thenextweb.com/news/coreweave-forecast-q3-2026-revenue-unsecured-debt"
+          },
+          "stikkord": [
+            "Kvartalstall",
+            "Datasentre",
+            "Regnekraft"
+          ]
+        },
+        {
+          "id": "c009",
+          "nivaa": "kort",
+          "tittel": "OpenAI lanserer Daybreak-verktøy for AI-drevet sikkerhetstesting",
+          "ingress": "OpenAI-president Greg Brockman presenterte 12. november to sikkerhetsprodukter. Daybreak Red Team er i tidlig tilgang og bruker AI-agenter til å teste nettapplikasjoner for sårbarheter. Daybreak Defense Factory bygger på GPT-6 Cyber, skanner kodebaser og skriver forslag til rettinger med test, som utviklere godkjenner før de tas i bruk.",
+          "hvorfor": "Sikkerhetsarbeid blir i økende grad automatisert med AI-agenter, og virksomheter må vurdere hvordan de skal ta dette i bruk.",
+          "kategori": "Modeller",
+          "viktighet": 3,
+          "dato": "2026-11-12",
+          "kilde": {
+            "navn": "The Register",
+            "url": "https://www.theregister.com/security/2026/11/12/openai-launches-security-products-tells-orgs-theyre-doomed-if-they-dont-use-them/5309500"
+          },
+          "stikkord": [
+            "OpenAI",
+            "Cybersikkerhet",
+            "AI-agenter"
+          ]
+        },
+        {
+          "id": "g01",
+          "nivaa": "kort",
+          "tittel": "Mercor henter 750 millioner dollar og dobler verdsettelsen til 20 milliarder",
+          "ingress": "Mercor, en markedsplass for treningsdata til AI, hentet 10. november 750 millioner dollar i en serie D-runde. Verdsettelsen er 20 milliarder dollar, det dobbelte av i oktober 2025. Nvidia, Salesforce og Zoom var blant investorene. Selskapet oppgir at over fem millioner eksperter trener og evaluerer AI-modeller via plattformen.",
+          "hvorfor": "Menneskelig ekspertise til trening av AI-modeller er blitt et eget marked. Det kan gi nye typer oppdrag for fagfolk og studenter.",
+          "kategori": "Næringsliv",
+          "viktighet": 2,
+          "dato": "2026-11-10",
+          "kilde": {
+            "navn": "The Next Web",
+            "url": "https://thenextweb.com/news/mercor-750m-series-d-20bn-valuation"
+          },
+          "stikkord": [
+            "Finansiering",
+            "Verdsettelse",
+            "Nvidia"
+          ]
+        },
+        {
+          "id": "c010",
+          "nivaa": "kort",
+          "tittel": "OpenAI åpner for verifiserte bedriftsagenter i ChatGPT",
+          "ingress": "OpenAI startet 10. november en beta av «Businesses in ChatGPT». Der kan brukere chatte med verifiserte Business Agents fra merkevarer, gjerne etter at selskapet har dukket opp i et svar. Samtalene er merket og holdes atskilt fra hovedsamtalen. Foreløpig gjelder tilbudet kvalifiserte amerikanske selskaper innen netthandel og nettjenester.",
+          "hvorfor": "Hvis ChatGPT blir en kanal for kundekontakt, kan synlighet i AI-svar bli like viktig for bedrifter som synlighet i søkemotorer.",
+          "kategori": "Verktøy",
+          "viktighet": 2,
+          "dato": "2026-11-10",
+          "kilde": {
+            "navn": "Silicon Report",
+            "url": "https://www.siliconreport.com/chatgpt-to-let-users-chat-with-verified-business-agents"
+          },
+          "stikkord": [
+            "OpenAI",
+            "ChatGPT",
+            "AI-agenter"
+          ]
+        },
+        {
+          "id": "c012",
+          "nivaa": "kort",
+          "tittel": "Google DeepMind lanserer Gemini Robotics 2.5 og AlphaGenome 2",
+          "ingress": "Google DeepMind lanserte 11. november Gemini Robotics 2.5 og AlphaGenome 2. Ifølge DeepMind lyktes robotmodellen i 96 prosent av tilfellene i et forsøk på Mercedes-Benz' produksjonslinjer. Selskapet oppgir også at AlphaGenome 2 finner årsaksvarianter i 30 prosent av tilfellene på TenK10K, mot 16 prosent med den forrige metoden.",
+          "hvorfor": "Resultatene peker mot mer AI i industriproduksjon og medisinsk forskning, men tallene er selskapets egne.",
+          "kategori": "Forskning",
+          "viktighet": 2,
+          "dato": "2026-11-11",
+          "kilde": {
+            "navn": "AI Weekly (AlphaGenome 2)",
+            "url": "https://aiweekly.co/alerts/deepmind-launches-alphagenome-2-for-dna-variant-prediction"
+          },
+          "stikkord": [
+            "Google",
+            "Robotikk",
+            "Biologi"
+          ]
+        },
+        {
+          "id": "c015",
+          "nivaa": "kort",
+          "tittel": "Amerikanere frykter i økende grad høyere arbeidsledighet",
+          "ingress": "New York Feds forbrukerundersøkelse for oktober viser at den gjennomsnittlige sannsynligheten folk anslår for høyere arbeidsledighet i USA om ett år, steg 1,4 prosentpoeng til 45,3 prosent. Det er det høyeste siden april 2020. Anslått sjanse for å miste jobben var 13,9 prosent. Koblingen til AI er Anadolus vinkling, ikke Feds.",
+          "hvorfor": "Økende jobburo i USA er verdt å følge for studenter som snart skal ut i arbeidslivet, selv om sammenhengen med AI ikke er dokumentert.",
+          "kategori": "Arbeidsliv",
+          "viktighet": 2,
+          "dato": "2026-11-09",
+          "kilde": {
+            "navn": "NY Fed press release",
+            "url": "https://newyorkfed.org/newsevents/news/research/2026/20261109"
+          },
+          "stikkord": [
+            "Arbeidsmarked",
+            "USA"
+          ]
+        },
+        {
+          "id": "c014",
+          "nivaa": "kort",
+          "tittel": "NVIDIA lanserer robotmodellen GR00T 2 og nye åpne benchmarker",
+          "ingress": "NVIDIA presenterte 9. november GR00T 2 på CoRL 2026 i Austin. Det er en åpen modell for finmotorisk manipulering, og den kom sammen med Isaac Lab 3.0 og benchmarkene DexBench og VABAR. Ifølge NVIDIA klarte GR00T 2 40 av 50 testede oppgaver minst én gang, uten demonstrasjoner for den enkelte oppgaven.",
+          "hvorfor": "Åpne modeller og benchmarker gjør det lettere å drive robotforskning, også for universiteter og mindre selskaper.",
+          "kategori": "Forskning",
+          "viktighet": 1,
+          "dato": "2026-11-09",
+          "kilde": {
+            "navn": "The Robot Report",
+            "url": "https://www.therobotreport.com/nvidia-launches-gr00t-2-isaac-lab-3-0-corl/"
+          },
+          "stikkord": [
+            "Nvidia",
+            "Robotikk"
+          ]
+        }
+      ]
+    },
     {
       "uke": 45,
       "aar": 2026,
