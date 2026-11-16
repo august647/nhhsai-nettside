@@ -99,7 +99,6 @@ a:hover{color:#7E2F1E}
   <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px 64px;border-top:1px solid #C9AE88;padding-top:clamp(56px,7vw,88px)">
     <div style="flex:1 1 240px">
       <h2 style="font-family:var(--nhhs-head, 'Helvetica Neue', Helvetica, Arial),sans-serif;margin:0;font-weight:700;font-size:clamp(28px,2.8vw,38px);line-height:1.15;letter-spacing:-.01em">Hva vi gjør</h2>
-      <p style="margin:16px 0 0;font-size:16px;line-height:1.55;color:#5A3F30;max-width:24ch">Minst ett åpent arrangement hver måned i semesteret.</p>
     </div>
     <div style="flex:3 1 480px;max-width:720px;display:flex;flex-direction:column">
       <div style="display:flex;flex-wrap:wrap;gap:4px 32px;padding:22px 0;border-top:1px solid #2B1A12">
@@ -132,9 +131,10 @@ a:hover{color:#7E2F1E}
   <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px 64px">
     <h2 style="font-family:var(--nhhs-head, 'Helvetica Neue', Helvetica, Arial),sans-serif;flex:1 1 240px;margin:0;font-weight:700;font-size:clamp(28px,2.8vw,38px);line-height:1.15;letter-spacing:-.01em">Styret</h2>
     <div style="flex:3 1 480px;max-width:720px">
-      <!-- Gruppebilde av styret midlertidig fjernet:
-      <div style="aspect-ratio:3/2;width:100%;background:#E3CDAA;border-radius:4px;overflow:hidden"><image-slot id="styret-gruppe" shape="rect" placeholder="Gruppebilde av styret"></image-slot></div>
-      -->
+      <figure style="margin:0 0 32px">
+        <img src="assets/styret.jpg" alt="Styret i NHHS AI foran NHH" width="1600" height="1067" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:#E3CDAA;border-radius:4px">
+        <figcaption style="margin-top:8px;font-size:13px;color:#5A3F30">Foto: Foto NHHS</figcaption>
+      </figure>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));column-gap:32px">
         <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #C9AE88;font-size:17px"><span style="font-weight:600">August Pater-Myhre</span><span style="color:#5A3F30">Leder</span></div>
         <div style="display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid #C9AE88;font-size:17px"><span style="font-weight:600">Markus Smistad Belstad</span><span style="color:#5A3F30">Nestleder</span></div>
@@ -153,8 +153,8 @@ a:hover{color:#7E2F1E}
     <div style="flex:3 1 480px;max-width:720px">
       <span style="display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;padding:6px 14px;border-radius:999px;border:1px solid rgba(243,232,214,.6);font-size:14px;font-weight:600"><span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:#F3E8D6"></span>Neste opptak: starten av vårsemesteret 2027</span>
       <p style="margin:0;font-size:clamp(22px,2.2vw,28px);line-height:1.4;text-wrap:pretty">Vi tar opp nye medlemmer ved starten av hvert semester. Neste opptak er i starten av vårsemesteret, og mer informasjon kommer nærmere den tiden.</p>
-      <p style="margin:20px 0 0;font-size:18px;line-height:1.65;text-wrap:pretty">Lurer du på noe? Ta gjerne kontakt med August på <a href="mailto:august.pater-myhre@student.nhh.no" style="color:#F3E8D6;text-decoration:underline;text-underline-offset:3px" style-hover="color:#FFFFFF">august.pater-myhre@student.nhh.no</a>.</p>
-      <a href="mailto:august.pater-myhre@student.nhh.no?subject=Sp%C3%B8rsm%C3%A5l%20om%20NHHS%20AI" style="display:inline-block;margin-top:36px;padding:16px 28px;background:#F3E8D6;color:#7E2F1E;border-radius:4px;font-size:16px;font-weight:600" style-hover="background:#FFFFFF;color:#7E2F1E">Send et spørsmål</a>
+      <p style="margin:20px 0 0;font-size:18px;line-height:1.65;text-wrap:pretty">Lurer du på noe? Ta gjerne kontakt med oss på <a href="mailto:nhhs.ai.leder@nhhs.no" style="color:#F3E8D6;text-decoration:underline;text-underline-offset:3px" style-hover="color:#FFFFFF">nhhs.ai.leder@nhhs.no</a>.</p>
+      <a href="mailto:nhhs.ai.leder@nhhs.no?subject=Sp%C3%B8rsm%C3%A5l%20om%20NHHS%20AI" style="display:inline-block;margin-top:36px;padding:16px 28px;background:#F3E8D6;color:#7E2F1E;border-radius:4px;font-size:16px;font-weight:600" style-hover="background:#FFFFFF;color:#7E2F1E">Send et spørsmål</a>
     </div>
   </div>
 </section>
@@ -170,7 +170,7 @@ a:hover{color:#7E2F1E}
         <li style="padding:14px 0;border-top:1px solid rgba(43,26,18,.15)"><strong style="font-weight:600">Nye perspektiver på egne problemstillinger.</strong> Gi oss et case, så får dere studentenes løsningsforslag tilbake.</li>
         <li style="padding:14px 0;border-top:1px solid rgba(43,26,18,.15);border-bottom:1px solid rgba(43,26,18,.15)"><strong style="font-weight:600">Et opplegg som passer dere.</strong> Et faglig arrangement, et case eller et prosjekt, tilpasset det dere vil oppnå.</li>
       </ul>
-      <p style="margin:24px 0 0;font-size:18px;line-height:1.65;color:#5A3F30">Ta kontakt på <a href="mailto:august.pater-myhre@student.nhh.no?subject=Samarbeid%20med%20NHHS%20AI" style="color:#A8432B;text-decoration:underline;text-underline-offset:3px" style-hover="color:#7E2F1E">august.pater-myhre@student.nhh.no</a>.</p>
+      <p style="margin:24px 0 0;font-size:18px;line-height:1.65;color:#5A3F30">Ta kontakt på <a href="mailto:nhhs.ai.leder@nhhs.no?subject=Samarbeid%20med%20NHHS%20AI" style="color:#A8432B;text-decoration:underline;text-underline-offset:3px" style-hover="color:#7E2F1E">nhhs.ai.leder@nhhs.no</a>.</p>
     </div>
   </div>
 </section>
