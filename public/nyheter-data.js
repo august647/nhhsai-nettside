@@ -35,8 +35,309 @@
  *              bruk kategorinavn som stikkord.
  */
 window.NHHS_NYHETER = {
-  "oppdatert": "2026-11-14",
+  "oppdatert": "2026-11-21",
   "uker": [
+    {
+      "uke": 47,
+      "aar": 2026,
+      "fra": "2026-11-14",
+      "til": "2026-11-21",
+      "publisert": "2026-11-21",
+      "oppsummering": "Anthropic gikk på børs i det som omtales som den største børsnoteringen noensinne. Samme uke lanserte OpenAI GPT-6.2 og kuttet API-prisene, og Nvidia la fram rekordtall. METR melder at AI-agentene forbedrer seg raskt, mens tall fra USA viser sterk vekst drevet av AI-investeringer uten tilsvarende jobbvekst.",
+      "ukensTall": {
+        "tall": "81,3 mrd. $",
+        "tekst": "hentet Anthropic i børsnoteringen på Nasdaq, rapportert som den største noensinne",
+        "sakId": "c001"
+      },
+      "saker": [
+        {
+          "id": "c001",
+          "nivaa": "hovedsak",
+          "tittel": "Anthropic går på børs i den største børsnoteringen som er registrert",
+          "ingress": "Anthropic satte tegningskursen til 83 dollar, over det varslede intervallet på 70–78 dollar. Handelen på Nasdaq startet 19. november under tickeren ANT, og aksjen åpnet på 111,50 dollar. Rundt 980 millioner aksjer hentet om lag 81,3 milliarder dollar, til en verdsettelse på rundt 1,5 billioner dollar ved prising.",
+          "hvorfor": "Et ledende AI-laboratorium har nå en løpende markedspris. Det gir investorer og næringsliv et konkret mål på hvor mye markedet tror på frontmodellene.",
+          "kategori": "Næringsliv",
+          "viktighet": 5,
+          "dato": "2026-11-19",
+          "kilde": {
+            "navn": "Fox Business",
+            "url": "https://www.foxbusiness.com/markets/anthropic-begins-trading-nasdaq-record-breaking-ipo"
+          },
+          "stikkord": [
+            "Anthropic",
+            "Børsnotering",
+            "Verdsettelse",
+            "Aksjemarkedet"
+          ]
+        },
+        {
+          "id": "c002",
+          "nivaa": "topp",
+          "tittel": "OpenAI lanserer GPT-6.2 Astra og Sol og senker API-prisene",
+          "ingress": "OpenAI lanserte 17. november flaggskipet GPT-6.2 Astra og den rimeligere GPT-6.2 Sol i ChatGPT Work, Codex og API-et. Astra koster nå 8/40 dollar per million input/output-tokens, ned fra 10/50, og Sol koster 2/10 dollar. Ifølge OpenAI er Astra selskapets første eksternt lanserte modell som når «High»-terskelen for selvforbedring.",
+          "hvorfor": "Konkurransen mellom de store laboratoriene står nå like mye om pris som om ytelse. Det gjør agentbaserte løsninger billigere for bedriftene, men selvforbedringsterskelen gjør at sikkerhetsspørsmålene blir mer presserende.",
+          "kategori": "Modeller",
+          "viktighet": 5,
+          "dato": "2026-11-17",
+          "kilde": {
+            "navn": "Crypto Briefing",
+            "url": "https://cryptobriefing.com/openai-launches-gpt-6-2-astra-sol/"
+          },
+          "stikkord": [
+            "OpenAI",
+            "Prising",
+            "AI-sikkerhet",
+            "AI-agenter"
+          ]
+        },
+        {
+          "id": "c003",
+          "nivaa": "topp",
+          "tittel": "Nvidia melder rekordomsetning på 115,8 milliarder dollar i kvartalet",
+          "ingress": "Nvidia omsatte for 115,8 milliarder dollar i tredje kvartal av regnskapsåret 2027. Det er 103 prosent mer enn året før, og datasenterdelen sto for 107,6 milliarder. Selskapet venter rundt 130 milliarder dollar i neste kvartal uten salg av datasenterkapasitet til Kina, og ledes midlertidig av Colette Kress etter at Jensen Huang gikk av.",
+          "hvorfor": "Nvidia er den beste enkeltindikatoren på hvor mye verden bruker på AI-infrastruktur. Tallene viser at investeringene fortsatt øker kraftig, samtidig som selskapet står uten fast toppsjef.",
+          "kategori": "Næringsliv",
+          "viktighet": 5,
+          "dato": "2026-11-17",
+          "kilde": {
+            "navn": "LetsDataScience",
+            "url": "https://letsdatascience.com/news/nvidia-reports-third-quarter-revenue-of-1158-billion-up-103-385a5092"
+          },
+          "stikkord": [
+            "Nvidia",
+            "Kvartalstall",
+            "Datasentre",
+            "Halvledere"
+          ]
+        },
+        {
+          "id": "c005",
+          "nivaa": "topp",
+          "tittel": "METR: AI-agentenes tidshorisont dobles omtrent hver 3,6. måned",
+          "ingress": "Ifølge METRs kvartalsoppdatering dobles tidshorisonten (målt ved 50 prosent suksessrate) for frontmodeller omtrent hver 3,6. måned. Modellene matcher eller slår dyktige mennesker på oppgaver med tydelig tilbakemelding, men er svakere der resultatet er dyrt å verifisere. METR mener offentlig tilgjengelig evidens ikke kan utelukke en kraftig akselerasjon i AI-forskningen de neste par årene.",
+          "hvorfor": "Dette er uavhengige målinger av hvor raskt agenter blir bedre til forskningslignende arbeid. Både næringsliv og myndigheter trenger slike tall når de skal planlegge og regulere.",
+          "kategori": "Forskning",
+          "viktighet": 4,
+          "dato": "2026-11-20",
+          "kilde": {
+            "navn": "METR",
+            "url": "https://metr.org/blog/2026-11-20-q4-2026-capability-update/"
+          },
+          "stikkord": [
+            "AI-agenter",
+            "AI-sikkerhet"
+          ]
+        },
+        {
+          "id": "c006",
+          "nivaa": "topp",
+          "tittel": "Microsoft viser Copilot Workspaces og Autopilot på Ignite",
+          "ingress": "På Ignite-konferansen 17.–20. november presenterte Microsoft Copilot Workspaces, et felles arbeidsområde der mennesker og AI-agenter jobber med samme kontekst. Selskapet viste også Autopilot, en vedvarende og proaktiv agent. Begge rulles ut gjennom programmet Frontier for tidlig tilgang, og verken lanseringsdato for alle brukere eller pris er bekreftet.",
+          "hvorfor": "Grepet viser hvordan agenter kan bli en fast del av vanlig kontorarbeid i Microsoft-verktøyene. Foreløpig er funksjonene bare tilgjengelige for tidlige brukere.",
+          "kategori": "Verktøy",
+          "viktighet": 4,
+          "dato": "2026-11-17",
+          "kilde": {
+            "navn": "Constellation Research",
+            "url": "https://www.constellationr.com/insights/news/ignite-2026-microsoft-makes-case-be-your-work-operating-system-intelligence-layer"
+          },
+          "stikkord": [
+            "Microsoft",
+            "Copilot",
+            "AI-agenter"
+          ]
+        },
+        {
+          "id": "c007",
+          "nivaa": "kort",
+          "tittel": "USA vokser uten nye jobber mens AI-investeringene driver økonomien",
+          "ingress": "USAs BNP vokste med 3,4 prosent (årlig rate) i tredje kvartal, men i de tolv månedene fram til september kom det i snitt bare rundt 48 000 nye jobber i måneden. Goldman Sachs anslår at AI-utgifter sto for over halvparten av veksten i bedriftsinvesteringene de tre første kvartalene i år. Ledigheten blant 20–24-åringer var 7,5 prosent i oktober, mot 4,1 prosent totalt.",
+          "hvorfor": "Tallene tyder på at AI-investeringer kan løfte produksjonen uten å skape mange jobber. De som er tidlig i karrieren ser ut til å bli rammet hardest.",
+          "kategori": "Arbeidsliv",
+          "viktighet": 3,
+          "dato": "2026-11-16",
+          "kilde": {
+            "navn": "Fortune",
+            "url": "https://fortune.com/2026/11/16/ai-boom-final-stages-anthropic-ipo-jobless-growth-50000-jobs-a-month/"
+          },
+          "stikkord": [
+            "Arbeidsmarked",
+            "Nyutdannede",
+            "USA"
+          ]
+        },
+        {
+          "id": "c008",
+          "nivaa": "kort",
+          "tittel": "Gemini kan nå styre Mac-en din",
+          "ingress": "Google ga 19. november Gemini-appen for macOS evnen til å bruke datamaskinen. Agenten kan navigere i Mac-apper, på nettet og i lokale filer i bakgrunnen, og viser en direkte forhåndsvisning i chatten. Brukeren kan pause, stoppe eller godkjenne handlinger. Funksjonen finnes foreløpig bare på engelsk i USA og krever Google AI Plus, Pro eller Ultra.",
+          "hvorfor": "Agenter som kan betjene datamaskinen på vegne av brukeren, flytter AI fra samtale til faktisk utførelse av arbeid. Funksjonen er foreløpig begrenset til engelsk og USA.",
+          "kategori": "Verktøy",
+          "viktighet": 3,
+          "dato": "2026-11-19",
+          "kilde": {
+            "navn": "TechCrunch",
+            "url": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/"
+          },
+          "stikkord": [
+            "Google",
+            "Gemini",
+            "AI-agenter"
+          ]
+        },
+        {
+          "id": "c009",
+          "nivaa": "kort",
+          "tittel": "Alibaba gjør Qwen4-Max tilgjengelig med kontekstvindu på 1 million tokens",
+          "ingress": "Alibaba gjorde 16. november Qwen4-Max allment tilgjengelig via QwenCloud. Modellen er en sparsom mixture-of-experts med om lag 2 400 milliarder parametere, hvorav 71 milliarder er aktive per token. Ifølge Alibaba bruker den 35 prosent færre tokens enn forgjengeren på selskapets egen test. Mindre Qwen4-modeller skal senere slippes med åpne vekter.",
+          "hvorfor": "Kinesiske aktører presser prisene og holder følge på modellstørrelse. Det gir bedrifter flere alternativer og øker konkurransen om API-markedet.",
+          "kategori": "Modeller",
+          "viktighet": 2,
+          "dato": "2026-11-16",
+          "kilde": {
+            "navn": "Alibaba Cloud",
+            "url": "https://alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max"
+          },
+          "stikkord": [
+            "Kina",
+            "Prising"
+          ]
+        },
+        {
+          "id": "c010",
+          "nivaa": "kort",
+          "tittel": "Isomorphic Labs henter 5 milliarder dollar til AI-basert legemiddelutvikling",
+          "ingress": "Isomorphic Labs, som har Alphabet i ryggen, hentet 5 milliarder dollar i en Series C-runde ledet av Greenoaks og Sequoia Capital. Andreessen Horowitz er ny investor, og Thrive Capital, GV og CapitalG investerer igjen. Runden kommer om lag et halvt år etter en Series B på 2,1 milliarder dollar i mai, og verdsettelsen er ikke oppgitt.",
+          "hvorfor": "Dette er en av de største AI-rundene utenfor de rene modellselskapene. Den viser at investorene satser tungt på AI i biologi og medisin.",
+          "kategori": "Næringsliv",
+          "viktighet": 2,
+          "dato": "2026-11-17",
+          "kilde": {
+            "navn": "Fierce Biotech",
+            "url": "https://www.fiercebiotech.com/biotech/isomorphic-labs-raises-5b-series-c-months-after-21b-round"
+          },
+          "stikkord": [
+            "Finansiering",
+            "Biologi",
+            "Medisinsk AI",
+            "Google"
+          ]
+        },
+        {
+          "id": "c011",
+          "nivaa": "kort",
+          "tittel": "Oregon saksøker OpenAI for minst 2 milliarder dollar over barns sikkerhet",
+          "ingress": "Oregons justisminister Dan Rayfield har saksøkt OpenAI i Multnomah County Circuit Court og krever minst 2,035 milliarder dollar. Delstaten mener selskapet har brutt forbrukerlovgivningen med villedende utsagn om hvor trygg ChatGPT er for mindreårige, og anfører også uaktsomhet. Påstandene er ikke prøvd i retten, og OpenAI viser til sine eksisterende sikkerhetstiltak.",
+          "hvorfor": "Når delstater krever milliardbeløp fra AI-selskaper, blir ansvaret for sårbare brukere et økonomisk spørsmål og ikke bare et omdømmespørsmål.",
+          "kategori": "Regulering",
+          "viktighet": 2,
+          "dato": "2026-11-17",
+          "kilde": {
+            "navn": "iTech Post",
+            "url": "https://www.itechpost.com/articles/237829/20261118/oregon-takes-legal-action-against-openai-over-chatgpt-child-safety-concerns.htm"
+          },
+          "stikkord": [
+            "OpenAI",
+            "ChatGPT",
+            "Søksmål",
+            "USA"
+          ]
+        },
+        {
+          "id": "c012",
+          "nivaa": "kort",
+          "tittel": "Microsoft gir AI-agenter egen identitet i Agent 365",
+          "ingress": "Microsoft utvidet Agent 365 under Ignite 17. november. Agenter fra blant andre Salesforce Agentforce, Amazon AgentCore, Google Vertex AI, Databricks og Snowflake registreres i Agent 365 og får en Entra Agent ID, og utrullingen skal være ferdig i desember. Lokale agenter som GitHub Copilot CLI og Claude Code får egen identitet i forhåndsversjon.",
+          "hvorfor": "Bedrifter må ha kontroll på hva agentene gjør før de tar dem i bruk i stor skala. Identitet og styring blir derfor en forutsetning for utbredelse.",
+          "kategori": "Verktøy",
+          "viktighet": 2,
+          "dato": "2026-11-17",
+          "kilde": {
+            "navn": "Microsoft Tech Community",
+            "url": "https://techcommunity.microsoft.com/blog/agent-365-blog/whats-new-in-microsoft-agent-365-ignite-2026/4571753"
+          },
+          "stikkord": [
+            "Microsoft",
+            "AI-agenter",
+            "AI-styring",
+            "Cybersikkerhet"
+          ]
+        },
+        {
+          "id": "g01",
+          "nivaa": "kort",
+          "tittel": "Palo Alto Networks kjøper Applied Compute for 4,5 milliarder dollar",
+          "ingress": "Palo Alto Networks kunngjorde 18. november at selskapet kjøper AI-selskapet Applied Compute i en ren aksjehandel verdt 4,5 milliarder dollar. Applied Compute lager en plattform for etter-trening og kjøring av modeller med åpne vekter. Toppsjef Yash Patil blir Co-Chief AI Officer, og handelen ventes fullført i februar–april 2027, forutsatt godkjenning fra myndighetene.",
+          "hvorfor": "Et stort sikkerhetsselskap kjøper seg inn i modelltilpasning. Det tyder på at sikkerhet og AI-infrastruktur i bedrifter vokser sammen.",
+          "kategori": "Næringsliv",
+          "viktighet": 2,
+          "dato": "2026-11-18",
+          "kilde": {
+            "navn": "Palo Alto Networks (SEC 8-K)",
+            "url": "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000030/ex992pressrelease_november.htm"
+          },
+          "stikkord": [
+            "Cybersikkerhet",
+            "Finansiering"
+          ]
+        },
+        {
+          "id": "c013",
+          "nivaa": "kort",
+          "tittel": "ChatGPT Spaces blir tilgjengelig for Plus-abonnenter",
+          "ingress": "OpenAI åpnet 20. november det delte arbeidsområdet Spaces for ChatGPT Plus, som koster 20 dollar i måneden. Funksjonen var tidligere forbeholdt Pro, Business og Enterprise. Spaces samler filer og prosjektmateriale, har det nye dokumentformatet Pages, lar deg invitere andre og fungerer sammen med planlagte oppgaver.",
+          "hvorfor": "Plus er abonnementet flest studenter har. Funksjonen gjør ChatGPT mer egnet for gruppearbeid og prosjekter.",
+          "kategori": "Verktøy",
+          "viktighet": 2,
+          "dato": "2026-11-20",
+          "kilde": {
+            "navn": "Analytics Insight",
+            "url": "https://www.analyticsinsight.net/news/openai-chatgpt-spaces-now-available-to-chatgpt-plus-users"
+          },
+          "stikkord": [
+            "OpenAI",
+            "ChatGPT",
+            "Abonnement"
+          ]
+        },
+        {
+          "id": "c014",
+          "nivaa": "kort",
+          "tittel": "EU-kommisjonen ber om innspill på mal for konsekvensvurdering under AI Act",
+          "ingress": "EU-kommisjonen publiserte 16. november et utkast til mal for vurdering av konsekvenser for grunnleggende rettigheter etter artikkel 27 i AI Act. Malen er laget av AI-kontoret med bidrag fra EUs byrå for grunnleggende rettigheter. Innspillsfristen er 15. januar 2027, og virksomhetene som bruker systemene, må oppfylle kravet fra 2. desember 2027.",
+          "hvorfor": "Malen er et konkret verktøy for virksomheter som skal vurdere konsekvenser for grunnleggende rettigheter etter AI Act. Utkastet er åpent for innspill, og kravet gjelder fra 2. desember 2027.",
+          "kategori": "Regulering",
+          "viktighet": 2,
+          "dato": "2026-11-16",
+          "kilde": {
+            "navn": "European Commission",
+            "url": "https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-draft-template-fundamental-rights-impact-assessment-under-ai-act"
+          },
+          "stikkord": [
+            "Europa",
+            "AI-styring"
+          ]
+        },
+        {
+          "id": "c016",
+          "nivaa": "kort",
+          "tittel": "Ledigheten stiger i Australia, og tilsynet skal stressteste AI-scenarioer",
+          "ingress": "Arbeidsledigheten i Australia steg til 4,9 prosent i oktober, og sysselsettingen falt med 43 500 personer (sesongjustert). ABC News viser til oppsigelser i handel, bank, luftfart og teknologi, med AI-investeringer som én av flere årsaker ved siden av omstrukturering og utflytting. Finanstilsynet APRA skal stressteste hypotetiske AI-relaterte scenarioer.",
+          "hvorfor": "Det er usikkert hvor mye AI faktisk betyr for tallene. At et finanstilsyn behandler AI som en mulig systemrisiko, er likevel et signal verdt å merke seg.",
+          "kategori": "Arbeidsliv",
+          "viktighet": 1,
+          "dato": "2026-11-21",
+          "kilde": {
+            "navn": "ABC News",
+            "url": "https://abc.net.au/news/2026-11-21/australians-lose-jobs-recession-fears-some-forced-to-sell-homes/107408374"
+          },
+          "stikkord": [
+            "Arbeidsmarked",
+            "Automatisering"
+          ]
+        }
+      ]
+    },
     {
       "uke": 46,
       "aar": 2026,
