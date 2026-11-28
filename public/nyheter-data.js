@@ -35,8 +35,270 @@
  *              bruk kategorinavn som stikkord.
  */
 window.NHHS_NYHETER = {
-  "oppdatert": "2026-11-21",
+  "oppdatert": "2026-11-28",
   "uker": [
+    {
+      "uke": 48,
+      "aar": 2026,
+      "fra": "2026-11-21",
+      "til": "2026-11-28",
+      "publisert": "2026-11-28",
+      "oppsummering": "AI-aksjer falt kraftig i både USA og Asia. Samme uke hentet Nvidia tilbake Jensen Huang som toppsjef, og Anthropic-aksjen falt under kursen fra børsnoteringen. SAP vurderer ifølge Bloomberg store kutt, Anthropic og OpenAI la fram matematiske bevis som ingen mennesker har kontrollert, og det britiske tilsynet CMA slo fast at forbrukerloven gjelder for AI-agenter.",
+      "ukensTall": {
+        "tall": "31,5 %",
+        "tekst": "Så mye steg Nvidia-aksjen 23. november, dagen Jensen Huang ble gjeninnsatt som toppsjef",
+        "sakId": "c002"
+      },
+      "saker": [
+        {
+          "id": "c001",
+          "nivaa": "hovedsak",
+          "tittel": "AI-aksjer faller i USA og Asia, og S&P 500 er ned 5,2 prosent i november",
+          "ingress": "S&P 500 falt 0,5 prosent 24. november. Det var indeksens åttende tap på ni handelsdager, og CoreWeave falt 11,8 prosent. Dagen etter falt Kospi 6,2 prosent, SK Hynix 11,1 prosent og SoftBank 14,8 prosent. AP peker på frykt for at AI-verdsettelsene er for høye, inflasjon på 3,8 prosent og en ventet renteheving i desember.",
+          "hvorfor": "Fallet viser at investorene tviler mer på om AI-investeringene vil lønne seg. Det kan påvirke tilgangen på kapital for hele bransjen.",
+          "kategori": "Næringsliv",
+          "viktighet": 5,
+          "dato": "2026-11-25",
+          "kilde": {
+            "navn": "AP via KSAT",
+            "url": "https://www.ksat.com/business/2026/11/25/asian-stocks-mostly-decline-as-ai-shares-tumble-after-a-retreat-on-wall-street/"
+          },
+          "stikkord": [
+            "Aksjemarkedet",
+            "Verdsettelse",
+            "Halvledere"
+          ]
+        },
+        {
+          "id": "c002",
+          "nivaa": "topp",
+          "tittel": "Nvidias styre gjeninnsetter Jensen Huang som toppsjef",
+          "ingress": "Styret i Nvidia gjeninnsatte enstemmig Jensen Huang som president, toppsjef og styremedlem, med umiddelbar virkning. Huang gikk av 12. november. Styret sier det har rådført seg med høytstående amerikanske myndighetspersoner og ikke ser noen risiko for nasjonal sikkerhet. Ifølge AP steg aksjen 31,5 prosent 23. november og falt 5,9 prosent dagen etter.",
+          "hvorfor": "Lederskapet i verdens viktigste leverandør av AI-brikker har betydning for hele AI-markedet. Saken viser også hvor tett selskapet er knyttet til amerikansk sikkerhetspolitikk.",
+          "kategori": "Næringsliv",
+          "viktighet": 5,
+          "dato": "2026-11-23",
+          "kilde": {
+            "navn": "NVIDIA Newsroom",
+            "url": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director"
+          },
+          "stikkord": [
+            "Nvidia",
+            "AI-styring",
+            "Aksjemarkedet"
+          ]
+        },
+        {
+          "id": "c004",
+          "nivaa": "topp",
+          "tittel": "SAP vurderer å kutte minst 10 000 stillinger, melder Bloomberg",
+          "ingress": "Ifølge Bloomberg, gjengitt av CNBC, vurderer SAP å kutte minst 10 000 stillinger, særlig innen produkt, utvikling og salg. Opplysningene er ikke bekreftet av SAP, som har over 110 000 ansatte og sier at ingen beslutninger om nye tiltak er tatt. Selskapet har kjøpt fire selskaper i år, blant dem Prior Labs og TechWolf.",
+          "hvorfor": "Europas største programvareselskap omstiller seg mot AI. Det kan si noe om hvordan AI endrer behovet for kompetanse i store kunnskapsbedrifter.",
+          "kategori": "Arbeidsliv",
+          "viktighet": 4,
+          "dato": "2026-11-26",
+          "kilde": {
+            "navn": "CNBC",
+            "url": "https://www.cnbc.com/2026/11/27/sap-job-cuts-ai-restructuring.html"
+          },
+          "stikkord": [
+            "SAP",
+            "Nedbemanning",
+            "Arbeidsmarked",
+            "Europa"
+          ]
+        },
+        {
+          "id": "c010",
+          "nivaa": "topp",
+          "tittel": "Anthropic og OpenAI legger fram ukontrollerte bevis for at VP ≠ VNP",
+          "ingress": "Anthropic har publisert en artikkel og en Lean 4-formalisering som viser at VP ≠ VNP over alle kropper. Claude skrev teksten etter at en intern forskningsmodell fant resultatet. Ifølge ThursdAI la OpenAI fram et eget bevis om lag fem timer senere. Ingen av bevisene er kontrollert av menneskelige matematikere eller fagfellevurdert, og resultatet løser ikke P mot NP.",
+          "hvorfor": "Hvis bevisene holder, kan AI-modeller være i ferd med å bidra med nye resultater i grunnforskningen, ikke bare løse kjente oppgaver.",
+          "kategori": "Forskning",
+          "viktighet": 4,
+          "dato": "2026-11-23",
+          "kilde": {
+            "navn": "Anthropic formal-math (GitHub)",
+            "url": "https://github.com/anthropics/formal-math/tree/vp-vnp/vp-vnp"
+          },
+          "stikkord": [
+            "Matematikk",
+            "Anthropic",
+            "OpenAI",
+            "Claude"
+          ]
+        },
+        {
+          "id": "c006",
+          "nivaa": "topp",
+          "tittel": "OpenAI: GPT-6-modeller kan designe proteiner",
+          "ingress": "OpenAI oppgir at modeller i GPT-6-familien kan designe proteiner bare ved hjelp av resonnering og kode. På testen PoseBusters traff GPT-6.2 i 93 prosent av tilfellene, mot 50 prosent for DiffDock-L. I laboratorietester bandt 35 av 322 minibindere seg til målet, men spesialiserte modeller leverte sekvensene. Resultatene er selvrapporterte.",
+          "hvorfor": "Generelle språkmodeller beveger seg inn i biologisk forskning. Det gir nye muligheter, men også risiko for biosikkerheten, som OpenAI selv peker på.",
+          "kategori": "Forskning",
+          "viktighet": 4,
+          "dato": "2026-11-24",
+          "kilde": {
+            "navn": "OpenAI",
+            "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"
+          },
+          "stikkord": [
+            "Biologi",
+            "OpenAI",
+            "AI-sikkerhet"
+          ]
+        },
+        {
+          "id": "c009",
+          "nivaa": "kort",
+          "tittel": "Britiske CMA: forbrukerloven gjelder for personlige AI-agenter",
+          "ingress": "Konkurransetilsynet CMA slo 24. november fast at britisk forbrukerlovgivning gjelder for personlige AI-agenter. Samme dag lanserte Meta AI-agenten Muse i Storbritannia. Leverandørene må opplyse om risiko og gi brukerne enkel kontroll over tilgang og autonomi. Meta har endret vilkårene sine etter dialog med CMA.",
+          "hvorfor": "Dette er et tidlig eksempel på at eksisterende lover brukes på AI-agenter. Det kan gi føringer også for europeiske tilsyn.",
+          "kategori": "Regulering",
+          "viktighet": 3,
+          "dato": "2026-11-24",
+          "kilde": {
+            "navn": "CMA blog",
+            "url": "https://competitionandmarkets.blog.gov.uk/2026/11/24/cma-statement-on-uk-launch-of-meta-muse/"
+          },
+          "stikkord": [
+            "AI-agenter",
+            "Meta",
+            "Storbritannia",
+            "AI-styring"
+          ]
+        },
+        {
+          "id": "c007",
+          "nivaa": "kort",
+          "tittel": "Google åpner Workspace for AI-agenter via MCP-servere og eget kommandolinjeverktøy",
+          "ingress": "Google ruller ut MCP-servere og et kommandolinjeverktøy (CLI) som lar AI-agenter bruke Gmail, Drive, Docs, Sheets, Calendar og flere tjenester. Fra 1. februar 2027 må agenter gå via MCP eller CLI og kan ikke lenger kalle REST-API-ene direkte. Standardnivået er gratis, mens betaling for Scaled-nivået starter 1. april 2027.",
+          "hvorfor": "Mange bedrifter bruker Workspace i det daglige arbeidet. Endringen styrer hvordan AI-agenter kan kobles til dataene deres.",
+          "kategori": "Verktøy",
+          "viktighet": 3,
+          "dato": "2026-11-24",
+          "kilde": {
+            "navn": "Google Workspace Updates",
+            "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html"
+          },
+          "stikkord": [
+            "Google",
+            "AI-agenter",
+            "Automatisering"
+          ]
+        },
+        {
+          "id": "c003",
+          "nivaa": "kort",
+          "tittel": "Anthropic-aksjen falt under kursen fra børsnoteringen",
+          "ingress": "Anthropic-aksjen falt 6,5 prosent 24. november, til like under 83 dollar. Det var kursen ved børsnoteringen uken før. På første handelsdag var aksjen en kort stund oppe i 115 dollar. Dagen etter steg den 1,1 prosent, men lå ifølge AP fortsatt om lag 28 prosent under toppen.",
+          "hvorfor": "Kursutviklingen er en tidlig test på hvordan børsen priser de store AI-laboratoriene.",
+          "kategori": "Næringsliv",
+          "viktighet": 3,
+          "dato": "2026-11-24",
+          "kilde": {
+            "navn": "AP via BNN Bloomberg",
+            "url": "https://www.bnnbloomberg.ca/investing/market-outlook/2026/11/24/tech-stocks-wane-a-day-after-a-huang-rally-as-anthropic-tumbles-below-its-initial-offering-price/"
+          },
+          "stikkord": [
+            "Anthropic",
+            "Børsnotering",
+            "Aksjemarkedet"
+          ]
+        },
+        {
+          "id": "c013",
+          "nivaa": "kort",
+          "tittel": "Lovforslag fra begge partier i USA vil kreve rapporter om AI som utvikler AI",
+          "ingress": "Kongressrepresentantene Josh Gottheimer (demokrat) og Nathaniel Moran (republikaner) har lagt fram Recursive Self-Improvement Safety Act. De største AI-utviklerne må da rapportere hvert kvartal om hvor mye AI bidrar i utviklingen og om menneskelig kontroll. Rapportene skal gå til et nytt kontor i handelsdepartementet, og uriktige rapporter kan gi bøter på opptil 10 millioner dollar.",
+          "hvorfor": "Forslaget retter seg mot risikoen ved AI som forbedrer seg selv, men det må gjennom komitébehandling og begge kamrene i Kongressen.",
+          "kategori": "Regulering",
+          "viktighet": 2,
+          "dato": "2026-11-24",
+          "kilde": {
+            "navn": "TokenPost",
+            "url": "https://tokenpost.com/news/regulation/62603"
+          },
+          "stikkord": [
+            "USA",
+            "AI-sikkerhet",
+            "AI-styring"
+          ]
+        },
+        {
+          "id": "c014",
+          "nivaa": "kort",
+          "tittel": "Oslo-selskapet Audun henter 3 millioner dollar til AI-inkasso",
+          "ingress": "Audun ble grunnlagt i Oslo i juni 2026 og bruker AI til inkasso. Nå har selskapet hentet 3 millioner dollar. Blant investorene er Alliance VC, Y Combinator og Robinhood Ventures. Sverige blir første nye marked, og selskapet planlegger mer internasjonal vekst neste år.",
+          "hvorfor": "Saken viser at norske AI-oppstartsselskaper innen finanstjenester tiltrekker seg kjente internasjonale investorer.",
+          "kategori": "Norge",
+          "viktighet": 2,
+          "dato": "2026-11-26",
+          "kilde": {
+            "navn": "Tech Funding News",
+            "url": "https://techfundingnews.com/norwegian-ai-debt-collection-startup-audun-raises-3m-from-y-combinator-and-alliance-vc/"
+          },
+          "stikkord": [
+            "Finansiering",
+            "Sverige",
+            "Automatisering"
+          ]
+        },
+        {
+          "id": "c011",
+          "nivaa": "kort",
+          "tittel": "ElevenLabs skal være i samtaler om ny kapital til en verdi av 33 milliarder dollar",
+          "ingress": "Ifølge Bloomberg, gjengitt av SiliconANGLE, er ElevenLabs i tidlige samtaler om ny kapital til en verdsettelse på 33 milliarder dollar. Ved forrige runde var selskapet verdsatt til 22 milliarder. Runden kan bli sluttført i første kvartal 2027. Den årlige gjentakende inntekten er om lag 700 millioner dollar.",
+          "hvorfor": "Selv i en uke med børsfall er investorene villige til å betale mye for AI-selskaper med raskt voksende inntekter.",
+          "kategori": "Næringsliv",
+          "viktighet": 2,
+          "dato": "2026-11-25",
+          "kilde": {
+            "navn": "SiliconANGLE",
+            "url": "https://siliconangle.com/2026/11/25/voice-ai-startup-elevenlabs-reportedly-seeking-new-funding-at-33b-valuation/"
+          },
+          "stikkord": [
+            "Finansiering",
+            "Verdsettelse"
+          ]
+        },
+        {
+          "id": "c019",
+          "nivaa": "kort",
+          "tittel": "OpenAI og Cisco lanserer Shirudo for å beskytte Linux-systemer i drift",
+          "ingress": "OpenAI og Cisco har lansert Shirudo, et verktøy med åpen kildekode som beskytter Linux-systemer mens en sikkerhetsoppdatering testes og rulles ut, uten omstart. Verktøyet bruker signerte eBPF-programmer, kalt shields, som overvåker mistenkelig aktivitet. I en kontrollert test blokkerte en shield laget av Codex et angrep mot en Elasticsearch-prosess som kjørte.",
+          "hvorfor": "Verktøyet viser hvordan AI-generert kode kan brukes i forsvaret mot angrep, i tiden før en sårbarhet er tettet.",
+          "kategori": "Verktøy",
+          "viktighet": 2,
+          "dato": "2026-11-23",
+          "kilde": {
+            "navn": "OpenAI",
+            "url": "https://openai.com/index/introducing-shirudo/"
+          },
+          "stikkord": [
+            "Cybersikkerhet",
+            "OpenAI"
+          ]
+        },
+        {
+          "id": "c020",
+          "nivaa": "kort",
+          "tittel": "Ant Group-enheten Robbyant slipper en åpen AI-modell for berøring",
+          "ingress": "Robbyant, Ant Groups enhet for kroppslig AI, har sluppet LingBot-Touch som åpen kildekode. Modellen samler signaler fra magnetiske, visuelle og piezoresistive berøringssensorer i én felles representasjon. Den er forhåndstrent på nesten 5 000 timer med data. I 26 tester på to robothender økte suksessraten med rundt 14 til 26 prosentpoeng.",
+          "hvorfor": "Bedre berøringssans er en av forutsetningene for at roboter skal kunne håndtere fysiske gjenstander presist.",
+          "kategori": "Forskning",
+          "viktighet": 1,
+          "dato": "2026-11-27",
+          "kilde": {
+            "navn": "The Machine Maker",
+            "url": "https://themachinemaker.com/news/robbyant-releases-lingbot-touch-open-source-tactile-ai-model-for-dexterous-robots"
+          },
+          "stikkord": [
+            "Robotikk",
+            "Kina"
+          ]
+        }
+      ]
+    },
     {
       "uke": 47,
       "aar": 2026,
